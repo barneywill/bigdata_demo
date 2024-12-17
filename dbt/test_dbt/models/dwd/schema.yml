@@ -95,7 +95,8 @@ models:
         description: ""
         tests:
           - accepted_values:
-              values: "{{var('payment_type_values')}}"
+              values: '{{var("payment_type_values")}}'
+              quote: false
               severity: warn
 
       - name: payment_type_description

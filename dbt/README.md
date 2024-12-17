@@ -17,9 +17,9 @@ If you want to create a new project:
 
 # Data structures:
 ## staging:
-    staging_yellow_tripdata_201901
-    staging_green_tripdata_201901
-    staging_taxi_zone_lookup
+    stg_yellow_tripdata_201901
+    stg_green_tripdata_201901
+    stg_taxi_zone_lookup
 ## ods:
     ods_yellow_tripdata
     ods_green_tripdata
