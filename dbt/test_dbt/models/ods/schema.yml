@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: ods_green_tripdata
+  - name: ods_yellow_tripdata

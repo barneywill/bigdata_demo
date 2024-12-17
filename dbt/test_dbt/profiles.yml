@@ -1,0 +1,11 @@
+test_profile:
+  target: dev # this is the default target
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: my-project
+      dataset: my-dataset
+      threads: 1
+      keyfile: /home/to/my/credentials.json
+      

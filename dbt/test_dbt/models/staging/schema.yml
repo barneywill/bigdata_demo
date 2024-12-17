@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: staging
+    database: database_name
+    schema: staging
+    tables:
+      - name: staging_green_tripdata_201901
+      - name: staging_yellow_tripdata_201901
+      - name: staging_taxi_zone_lookup

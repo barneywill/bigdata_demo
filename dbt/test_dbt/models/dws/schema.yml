@@ -1,0 +1,4 @@
+version: 2
+
+models:
+  - name: dws_zone_revenue_daily
