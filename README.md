@@ -39,8 +39,10 @@ Github pull request, webhook
 
 ![Data Warehouse Layers](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
 
-## 3 Airflow
+## 3 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>
 For: Ochestration
+### 3.1 DAG
+Directed Acyclic Graph: tasks, dependencies
 
 ## 4 Nifi
 For: Data Loading
@@ -50,11 +52,14 @@ For: Data Processing
 
 ## 6 Machine Learning
 For: Prediction, Classification, Clustering, Recommendation, ...
-### tensorflow/serving
+### 6.1 XGBoost
+### 6.2 tensorflow/serving
 Serve ML model on docker
 
-## 7 AWS
-### Redshit 
+## 7 Other
+### 7.1 AWS
+#### 7.1.1 Redshit 
 Based on Postgresql
-### Athena
+#### 7.1.2 Athena
 Based on Presto
+### 7.2 Databricks vs Snowflake

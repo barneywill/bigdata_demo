@@ -1,6 +1,7 @@
 
 |Service|Amazon Web Services(AWS)|Microsoft Azure|Google Cloud Platform(GCP)|
 |---|---|---|---|
+|Market Share|32%|23%|9%|
 |VM|EC2(Elastic Compute)|Azure Virtual Machine|Compute Engine|
 |Container|AWS Elastic Container|Azure Kubernetes Service(AKS)|Kubernetes Engine|
 |Serverless Functions|AWS Lambda|Azure Function|Cloud Functions|
