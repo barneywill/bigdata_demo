@@ -5,12 +5,14 @@ A bigdata demo project
 For: Data Storage, Data Warehouse, BI
 ### 1.1 Google Cloud Storage
 ### 1.2 Google Bigquery
-Data Warehouse, Best Practice
+Data Warehouse, Best Practice, free bigdata-public-data on marketplace
 ### 1.3 Service Account
 Connect from remote
 ### 1.4 Programming
 Use Python and Service Account to read and write Google Cloud Storage and Bigquery
-### 1.5 Google Looker Studio
+### 1.5 Cloud Composer
+Based on Airflow
+### 1.6 Looker
 BI with Bigquery, showing line, bar, pie, map, ...
 
 ![looker](https://github.com/barneywill/bigdata_demo/blob/main/imgs/looker.jpg)
