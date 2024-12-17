@@ -1,7 +1,7 @@
 # bigdata_demo
 A bigdata demo project
 
-## 1 Google Cloud Platform
+## 1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI
 ### 1.1 Google Cloud Storage
 ### 1.2 Google Bigquery
@@ -17,7 +17,7 @@ BI with Bigquery, showing line, bar, pie, map, ...
 
 ![looker](https://github.com/barneywill/bigdata_demo/blob/main/imgs/looker.jpg)
 
-## 2 DBT
+## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>DBT</a>
 For: Dimensional Modeling, Layers, Development(transparent to cloud platform), Data Validation, Data Assets and Lineage, CI/CD
 ### 2.1 profiles.yml 
 With Bigquery
