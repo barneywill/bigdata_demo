@@ -1,5 +1,4 @@
-# bigdata_demo
-A bigdata demo project
+# A bigdata demo project
 
 ## 1 Prerequisite
 ### 1.1 DBeaver
@@ -54,25 +53,30 @@ Github pull request, webhook
 For: Ochestration, Workflow, Data Pipeline Management
 ### 4.1 DAG
 Directed Acyclic Graph: tasks, dependencies
+### 4.2 Retry & Backfill
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
 ## 5 Nifi
 For: Data Loading
 
-## 6 Spark
+## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
+### 6.1 Spark on GCP
 
-## 7 Machine Learning
+## 7 Iceberg
+
+## 8 Machine Learning
 For: Prediction, Classification, Clustering, Recommendation, ...
-### 7.1 XGBoost
-### 7.2 tensorflow/serving
+### 8.1 Spark ML
+### 8.2 XGBoost
+### 8.3 tensorflow/serving
 Serve ML model on docker
 
-## 8 Other
-### 8.1 AWS
-#### 8.1.1 Redshit 
+## 9 Other
+### 9.1 AWS
+#### 9.1.1 Redshit 
 Based on Postgresql
-#### 8.1.2 Athena
+#### 9.1.2 Athena
 Based on Presto
-### 8.2 Databricks vs Snowflake
+### 9.2 Databricks vs Snowflake

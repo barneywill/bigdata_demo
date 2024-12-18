@@ -3,7 +3,7 @@
 |---|---|---|---|
 |Market Share|32%|23%|9%|
 |VM|EC2(Elastic Compute)|Azure Virtual Machine|Compute Engine|
-|Container|AWS Elastic Container|Azure Kubernetes Service(AKS)|Kubernetes Engine|
+|Container|AWS Batch|Azure Kubernetes Service(AKS)|Kubernetes Engine|
 |Serverless Functions|AWS Lambda|Azure Function|Cloud Functions|
 |RDBMS|AWS RDS|Azure SQL|Cloud SQL|
 |NoSQL|DynamoDB|Azure Cosmos DB|Big Table|
