@@ -3,19 +3,24 @@
 ## 1 Prerequisite
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
-- RDBMS: Mysql, Postgresql, Oracle, SQLServer
-- Open Source Big Data Frameworks: Hive, Spark, Clickhouse, Impala, Doris, Presto
-- No SQL: Redis, ElasticSearch, Cassandra, MongoDB
-- Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake
+- RDBMS: Mysql, Postgresql, Oracle, SQLServer, ...
+- Open Source Big Data Frameworks: Hive, Spark, Clickhouse, Impala, Doris, Presto, ...
+- No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
+- Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
 ### 1.3 Python
-Just install anaconda, and you get everything you need.
+Just install anaconda, and get everything you need.
+### 1.4 VSCode
+For writing and running Python, Scala, Java, and connecting GitHub, Remote Linux, Database
 
 ## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI
 ### 2.1 Google Cloud Storage
 ### 2.2 Google Bigquery
 Data Warehouse, Best Practice, free bigdata-public-data on marketplace
+
+![big query dataset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
+
 ### 2.3 Service Account
 Connect from remote
 ### 2.4 Programming
@@ -47,7 +52,7 @@ Data Assets & Lineage
 ### 3.9 CI/CD
 Github pull request, webhook
 
-![Data Warehouse Layers](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
+![dbt layers](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dbt.jpg)
 
 ## 4 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>
 For: Ochestration, Workflow, Data Pipeline Management
@@ -62,9 +67,12 @@ For: Data Loading
 
 ## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
-### 6.1 Spark on GCP
+### 6.1 Word Count
+By Python, Scala, Spark RDD, Spark DataFrame, Spark SQL
+### 6.2 Spark on GCP
 
 ## 7 Iceberg
+For: Data Lake, Almost Realtime Data Warehouse
 
 ## 8 Machine Learning
 For: Prediction, Classification, Clustering, Recommendation, ...
@@ -80,3 +88,6 @@ Based on Postgresql
 #### 9.1.2 Athena
 Based on Presto
 ### 9.2 Databricks vs Snowflake
+
+Thanks for:
+[data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
