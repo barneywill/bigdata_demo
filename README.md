@@ -11,7 +11,7 @@ For writing SQL on almost any databases, like:
 ### 1.3 Python
 Just install anaconda, and get everything you need.
 ### 1.4 VSCode
-For writing and running Python, Scala, Java, and connecting GitHub, Remote Linux, Database
+For writing and running Python, Scala, Java, and connecting GitHub, Remote Linux, Database, also forwarding port 
 
 ## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI
@@ -70,6 +70,8 @@ For: Data Processing, batch or streaming, Machine Learning
 ### 6.1 Word Count
 By Python, Scala, Spark RDD, Spark DataFrame, Spark SQL
 ### 6.2 Spark on GCP
+
+![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
 ## 7 Iceberg
 For: Data Lake, Almost Realtime Data Warehouse
