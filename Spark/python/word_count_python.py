@@ -4,7 +4,7 @@ from collections import Counter
 
 import pandas as pd
 
-file_path = 'D:/textfile'#'/path/to/a/textfile'
+file_path = '/path/to/a/textfile'
 f = open(file_path, 'r')
 lines = f.readlines()
 

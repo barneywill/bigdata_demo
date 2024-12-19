@@ -1,5 +1,5 @@
-import org.apache.spark.*
-import org.apache.spark.rdd.*
+import org.apache.spark._
+import org.apache.spark.rdd._
 
 object WordCountRDD {
     def main(args : Array[String]) : Unit => {

@@ -1,4 +1,5 @@
-import org.apache.spark.*
+import org.apache.spark._
+import org.apache.spark.sql.functions._
 
 object WordCountDataFrame {
     def main(args : Array[String]): Unit = {
@@ -9,19 +10,14 @@ object WordCountDataFrame {
 
         val filePath = "file://" + args[0]
         val df = spark.read.text(filePath)
-        df.createOrReplaceTempView("tmp_words")
-        val top10 = spark.sql("""
-            select word_clean_lower, count(1) as wc
-            from
-            (
-                select lower(regexp_replace(word, '[^a-zA-Z]', '')) as word_clean_lower
-                from tmp_words lateral view explode(split(value, ' ')) as word 
-            ) a
-            where word_clean_lower <> ''
-            group by word_clean_lower
-            order by wc desc
-            limit 10
-        """)
+        val top10 = df.withColumn("word", explode(split(col("value"), " ")))
+            .select(regexp_replace(col("word"), "[^a-zA-Z]", "").alias("word_clean"))
+            .select(lower(col("word_clean")).alias("word_clean_lower"))
+            .where("word_clean_lower != ''")
+            .groupBy("word_clean_lower")
+            .count()
+            .sort(desc("count"))
+            .limit(10)
 
         top10.show
     }
