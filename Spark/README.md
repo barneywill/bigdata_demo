@@ -7,7 +7,7 @@ export SPARK_HOME=/path/to/spark
 export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH
 ```
 
-# Run Word Count
+# Run
 
 ```
 #scala
@@ -16,11 +16,18 @@ spark-shell
 #python
 pyspark
 
-#jar
+#sql
+spark-sql
+
+#submit jar or py
 spark-submit
 ```
 
-## Implementations
+## Hello World: Word Count
+
+![word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/word_count.jpg)
+
+## Implementations of Word Count
 
 |Language|Single Machine|Spark RDD|Spark DataFrame|Spark SQL|Google Cloud|
 |---|---|---|---|---|---|
@@ -29,3 +36,51 @@ spark-submit
 |Java|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/java/WordCountJava.java'>WordCountJava.java</a>| | | | |
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
+
+# Operations: Transformation & Actions
+
+## RDD Operations
+
+![spark operations](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_operations.jpg)
+
+### RDD Transformations
+Narrow Transformations
+![spark narrow transformation](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_narrow_transformation.jpg)
+Wide Transformations
+![spark wide transformation](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_wide_transformation.jpg)
+
+## DataFrame Operations
+
+![dataframe operations](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dataframe_operations.jpg)
+
+# Internals
+
+## Memory Management
+- spark.memory.fraction
+- spark.memory.storageFraction
+
+## Partition, Shuffle
+Pull based
+
+![shuffle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/shuffle.jpg)
+
+## Join
+- Broadcast Hash Join
+- Shuffle Hash Join
+- Shuffle Sort Merge Join
+- Cartesian Join
+
+## Sort
+
+## Whole Stage Code Generation
+
+## Vectorized Execution Engine
+
+## Adaptive Query Execution
+
+# Trouble Shooting
+- Job and event timeline
+- Long stages
+- Slow stages
+- Skew and spill
+
