@@ -1,5 +1,7 @@
 # A bigdata demo project
 
+![bigdata demo](https://github.com/barneywill/bigdata_demo/blob/main/imgs/big.ta_demo.jpg)
+
 ## 1 Prerequisite
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
@@ -68,8 +70,10 @@ For: Data Loading
 ## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
 ### 6.1 Word Count
-By Python, Scala, Spark RDD, Spark DataFrame, Spark SQL
-### 6.2 Spark on GCP
+By Python, Scala, Java, Spark RDD, Spark DataFrame, Spark SQL
+### 6.2 Structured Streaming
+### 6.3 Spark ML
+### 6.4 Spark on GCP
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
@@ -78,18 +82,19 @@ For: Data Lake, Almost Realtime Data Warehouse
 
 ## 8 Machine Learning
 For: Prediction, Classification, Clustering, Recommendation, ...
-### 8.1 Spark ML
-### 8.2 XGBoost
-### 8.3 tensorflow/serving
+### 8.1 XGBoost
+### 8.2 tensorflow/serving
 Serve ML model on docker
 
-## 9 Other
-### 9.1 AWS
-#### 9.1.1 Redshit 
+## 9 Clickhouse
+
+## 10 Other
+### 10.1 AWS
+#### 10.1.1 Redshit 
 Based on Postgresql
-#### 9.1.2 Athena
+#### 10.1.2 Athena
 Based on Presto
-### 9.2 Databricks vs Snowflake
+### 10.2 Databricks vs Snowflake
 
 Thanks for:
 [data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
