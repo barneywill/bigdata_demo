@@ -1,6 +1,6 @@
 # A bigdata demo project
 
-![bigdata demo](https://github.com/barneywill/bigdata_demo/blob/main/imgs/big.ta_demo.jpg)
+![bigdata demo](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_demo.jpg)
 
 ## 1 Prerequisite
 ### 1.1 DBeaver
