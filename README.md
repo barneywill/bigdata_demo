@@ -29,7 +29,9 @@ For: Data Storage, Data Warehouse, BI
 - Use Python and Service Account to read and write Google Cloud Storage and Bigquery
 ### 2.5 Cloud Composer
 - Based on Airflow
-### 2.6 Looker
+### 2.6 Dataproc
+- Spark on GCP
+### 2.7 Looker
 - BI with Bigquery, showing lines, bars, pies, maps, ...
 
 ![looker](https://github.com/barneywill/bigdata_demo/blob/main/imgs/looker.jpg)
@@ -85,7 +87,6 @@ For: Data Processing, batch or streaming, Machine Learning
 - Continuous Processing
 - State Store
 ### 6.5 Spark ML
-### 6.6 Spark on GCP
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
