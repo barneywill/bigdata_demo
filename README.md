@@ -31,6 +31,7 @@ For: Data Storage, Data Warehouse, BI
 - Based on Airflow
 ### 2.6 Dataproc
 - Spark on GCP
+- GCS Connector Hadoop3, Spark Bigquery Connector
 ### 2.7 Looker
 - BI with Bigquery, showing lines, bars, pies, maps, ...
 
@@ -63,6 +64,9 @@ For: Ochestration, Workflow, Data Pipeline Management
 ### 4.1 DAG
 - Directed Acyclic Graph: tasks, dependencies
 ### 4.2 Retry & Backfill
+### 4.3 Google Cloud Dataproc Operators
+- DataprocCreateClusterOperator, DataprocStartClusterOperator, DataprocStopClusterOperator, DataprocDeleteClusterOperator
+- DataprocSubmitJobOperator, DataprocCreateBatchOperator
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
