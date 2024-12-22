@@ -19,7 +19,10 @@ For writing and running Python, Scala, Java, and connecting GitHub, Remote Linux
 For: Data Storage, Data Warehouse, BI
 ### 2.1 Google Cloud Storage
 ### 2.2 Google Bigquery
-- Data Warehouse, Best Practice, free bigdata-public-data on marketplace
+- Data Warehouse
+- Best Practice
+- Iceberg Tables
+- Free bigdata-public-data on marketplace, free big data sources to play with
 
 ![big query dataset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
 
@@ -32,7 +35,8 @@ For: Data Storage, Data Warehouse, BI
 ### 2.6 Dataproc
 - Spark on GCP
 - GCS Connector Hadoop3, Spark Bigquery Connector
-### 2.7 Looker
+### 2.7 Google Cloud Managed Service for Apache Kafka
+### 2.8 Looker
 - BI with Bigquery, showing lines, bars, pies, maps, ...
 
 ![looker](https://github.com/barneywill/bigdata_demo/blob/main/imgs/looker.jpg)
@@ -72,6 +76,7 @@ For: Ochestration, Workflow, Data Pipeline Management
 
 ## 5 Nifi
 For: Data Loading
+### 5.1 Process Group, Processor, Parameter Context
 
 ## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
@@ -94,25 +99,27 @@ For: Data Processing, batch or streaming, Machine Learning
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
-## 7 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
-For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
-### 7.1 Iceberg on Google Cloud Storage
+## 7 Kafka
 
-## 8 Machine Learning
+## 8 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
+For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
+### 8.1 Iceberg on Google Cloud Storage
+
+## 9 Machine Learning
 For: Prediction, Classification, Clustering, Recommendation, ...
-### 8.1 XGBoost
-### 8.2 tensorflow/serving
+### 9.1 XGBoost
+### 9.2 tensorflow/serving
 Serve ML model on docker
 
-## 9 Clickhouse
+## 10 Clickhouse
 
-## 10 Other
-### 10.1 AWS
-#### 10.1.1 Redshit 
+## 11 Other
+### 11.1 AWS
+#### 11.1.1 Redshit 
 Based on Postgresql
-#### 10.1.2 Athena
+#### 11.1.2 Athena
 Based on Presto
-### 10.2 Databricks vs Snowflake
+### 11.2 Databricks vs Snowflake
 
 Thanks for:
 [data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
