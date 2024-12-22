@@ -74,9 +74,11 @@ For: Ochestration, Workflow, Data Pipeline Management
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
-## 5 Nifi
+## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
 For: Data Loading
 ### 5.1 Process Group, Processor, Parameter Context
+
+![mysql_2_google_cloud_storage](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_google_cloud_storage.jpg)
 
 ## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
