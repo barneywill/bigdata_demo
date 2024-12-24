@@ -74,36 +74,39 @@ For: Ochestration, Workflow, Data Pipeline Management
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
-## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
+## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>
+### 5.1 Topic
+### 5.2 Producer, Consumer
+
+
+## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
 For: Data Loading
-### 5.1 Process Group, Processor
-### 5.2 Parameter Context, Expression
-### 5.3 Run Once, Clear State
+### 6.1 Process Group, Processor
+### 6.2 Parameter Context, Expression
+### 6.3 Run Once, Clear State
 
 ![mysql_2_google_cloud_storage](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_google_cloud_storage.jpg)
 
-## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
+## 7 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
-### 6.1 Word Count
+### 7.1 Word Count
 - By Python, Scala, Java
 - By Spark RDD, Spark DataFrame, Spark SQL
-### 6.2 Operations
+### 7.2 Operations
 - RDD vs DataFrame
 - Transformations, Actions
 - Shuffle, Join
-### 6.3 Spark SQL
+### 7.3 Spark SQL
 - Parser-Analyzer-Optimizer-Planner
 - Logical Plan, Physical Plan
 - UDF
-### 6.4 Structured Streaming
+### 7.4 Structured Streaming
 - Micro Batch Processing
 - Continuous Processing
 - State Store
-### 6.5 Spark ML
+### 7.5 Spark ML
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
-
-## 7 Kafka
 
 ## 8 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
 For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
