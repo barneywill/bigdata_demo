@@ -38,7 +38,7 @@ spark-submit
 
 ![word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/word_count.jpg)
 
-## Implementations of Word Count
+### Implementations of Word Count
 
 | |Python|Scala|Java|
 |---|---|---|---|
@@ -50,6 +50,17 @@ spark-submit
 |Bigquery|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_sql_bigquery.py'>word_count_sql_bigquery.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountSQLBigquery.scala'>WordCountSQLBigquery.scala</a>|
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
+
+# Structured Streaming
+
+```
+# Put jars under $SPARK_HOME/jars
+https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.4/spark-sql-kafka-0-10_2.12-3.5.4.jar
+https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.5.2/kafka-clients-3.5.2.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10_2.12/3.5.4/spark-streaming-kafka-0-10_2.12-3.5.4.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.4/spark-token-provider-kafka-0-10_2.12-3.5.4.jar
+https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar
+```
 
 # Operations: Transformation & Actions
 

@@ -75,9 +75,11 @@ For: Ochestration, Workflow, Data Pipeline Management
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
 ## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>
-### 5.1 Topic
-### 5.2 Producer, Consumer
+### 5.1 Broker, ISR
+### 5.2 Topic, Partition
+### 5.3 Producer, Consumer, Consumer Group, Rebalance, Offset
 
+![kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/apache_kafka.jpg)
 
 ## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
 For: Data Loading

@@ -1,4 +1,5 @@
 
+![kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/apache_kafka.jpg)
 
 # Topic
 ```
@@ -24,5 +25,8 @@ bin/kafka-console-producer.sh --bootstrap-server $kafka_ip:9092 --topic $topic_n
 bin/kafka-console-consumer.sh --bootstrap-server $kafka_ip:9092 --topic $topic_name --from-beginning
 
 # check consumer group offset
-bin/kafka-consumer-groups.sh --bootstrap-server 192.168.4.50:9092 --group test --describe
+bin/kafka-consumer-groups.sh --bootstrap-server $kafka_ip:9092 --group $group_id --describe
+
+# reset consumer group offset: --to-datetime, --to-offset, --to-latest, --shift-by
+bin/kafka-consumer-groups --bootstrap-server $kafka_ip --group $group_id --topic $topic_name --reset-offsets --to-earliest --execute
 ```
