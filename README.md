@@ -76,7 +76,9 @@ For: Ochestration, Workflow, Data Pipeline Management
 
 ## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
 For: Data Loading
-### 5.1 Process Group, Processor, Parameter Context
+### 5.1 Process Group, Processor
+### 5.2 Parameter Context, Expression
+### 5.3 Run Once, Clear State
 
 ![mysql_2_google_cloud_storage](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_google_cloud_storage.jpg)
 
