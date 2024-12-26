@@ -25,10 +25,16 @@ df['words'] = df['lines'].str.split()
 df.pop('lines')
 df = df.explode('words')
 df['words'] = df['words'].apply(lambda item: re.sub(r'[^a-zA-Z]', '', str(item).lower()))
-df = df[df['words'] != ''].value_counts().reset_index()
-df.columns=['word', 'count']
-df.sort_values('count', ascending=False)
-top10 = df.iloc[:10]
+#df = df[df['words'] != ''].value_counts().reset_index()
+#df.columns=['word', 'count']
+#df.sort_values('count', ascending=False)
+#top10 = df.iloc[:10]
+top10 = df[df.words != ''] \
+    .groupby(['words']) \
+    .size() \
+    .reset_index(name='count') \
+    .sort_values('count', ascending=False) \
+    .iloc[:10]
 
 print(top10)
 

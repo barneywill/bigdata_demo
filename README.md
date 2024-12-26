@@ -13,21 +13,25 @@ For writing SQL on almost any databases, like:
 ### 1.3 Python
 Just install anaconda, and get everything you need.
 ### 1.4 VSCode
-For writing and running Python, Scala, Java, and connecting GitHub, Remote Linux, Database, also forwarding port 
+For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
 
 ## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI
 ### 2.1 Google Cloud Storage
+- Bucket, Object
 ### 2.2 Google Bigquery
 - Data Warehouse
 - Best Practice
+- Explain Plans: Performance Optimization
+- Externally Partitioned Tables
 - Iceberg Tables
+- Machine Learning
 - Free bigdata-public-data on marketplace, free big data sources to play with
 
 ![big query dataset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
 
-### 2.3 Service Account
-- Connect from remote
+### 2.3 IAM, Service Account
+- Connect from remote, Permission control
 ### 2.4 Programming
 - Use Python and Service Account to read and write Google Cloud Storage and Bigquery
 ### 2.5 Cloud Composer
@@ -114,7 +118,7 @@ For: Data Processing, batch or streaming, Machine Learning
 For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
 ### 8.1 Iceberg on Google Cloud Storage
 
-## 9 Machine Learning
+## 9 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
 ### 9.1 XGBoost
 ### 9.2 tensorflow/serving
@@ -128,7 +132,9 @@ Serve ML model on docker
 Based on Postgresql
 #### 11.1.2 Athena
 Based on Presto
-### 11.2 Databricks vs Snowflake
+### 11.2 Databrics
+
+### 11.3 Databricks vs Snowflake
 
 Thanks for:
 [data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
