@@ -120,9 +120,14 @@ For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
 
 ## 9 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
-### 9.1 XGBoost
-### 9.2 tensorflow/serving
+### 9.1 Linear Regression
+### 9.2 Logistic Regression
+### 9.3 Decision Tree
+### 9.4 XGBoost
+### 9.5 tensorflow/serving
 Serve ML model on docker
+
+![Machine Learning](https://github.com/barneywill/bigdata_demo/blob/main/imgs/ml.jpg)
 
 ## 10 Clickhouse
 
@@ -138,3 +143,4 @@ Based on Presto
 
 Thanks for:
 [data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
+[machine-learning-zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp)
