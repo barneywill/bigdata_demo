@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.metrics import roc_auc_score, roc_curve, auc
+from sklearn.metrics import roc_auc_score, roc_curve, auc, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.tree import export_text
 
@@ -33,9 +33,11 @@ X_test = dv.transform(X_test.to_dict(orient='records'))
 y_predict = dt_model.predict(X_test)
 y_predict_proba = dt_model.predict_proba(X_test)
 
+accuracy = accuracy_score(y_test, y_predict)
 roc_auc_score = roc_auc_score(y_test, y_predict)
 fpr, tpr, _ = roc_curve(y_test, y_predict)
 roc_auc_curve = auc(fpr, tpr)
 
+print("Accuracy:", accuracy)
 print("ROC AUC Score:", roc_auc_score)
 print("AUC from roc_curve:", roc_auc_curve)

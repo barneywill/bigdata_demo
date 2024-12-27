@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score, roc_curve, auc, accuracy_score
 
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
@@ -37,3 +38,12 @@ any_result = (y_predict_proba >= 0.6)
 
 accuracy = (y_test == y_predict).mean()
 print(f"Accuracy: {accuracy:.4f}")
+
+accuracy = accuracy_score(y_test, y_predict)
+roc_auc_score = roc_auc_score(y_test, y_predict)
+fpr, tpr, _ = roc_curve(y_test, y_predict)
+roc_auc_curve = auc(fpr, tpr)
+
+print("Accuracy:", accuracy)
+print("ROC AUC Score:", roc_auc_score)
+print("AUC from roc_curve:", roc_auc_curve)

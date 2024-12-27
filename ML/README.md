@@ -12,9 +12,9 @@ Features(Input) + Model -> Predicitions(Output)
 ## Steps
 - Business Understanding: Goal, Measurable
 - Data Understanding: Avial data sources, Data quality
-- Data Preparation: Clean, Transform, Features
-- Modeling: Choose the best model
-- Evaluation: Offline and Online, Accuracy, Precision, Recall
+- Data Preparation: Clean, Transform, Feature Engineering, Data Sampling
+- Modeling: Train and choose the best model
+- Evaluation: Offline and Online
 - Deployment
 
 ## Models

@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.ml import Pipeline
-from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler
+from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 from pyspark.ml.regression import LinearRegression
 from pyspark.ml.evaluation import RegressionEvaluator
 
@@ -27,13 +27,14 @@ encoders = [
     for indexer in indexers
 ]
 assembler = VectorAssembler(inputCols=feature_columns + [encoder.getOutputCol() for encoder in encoders], outputCol='features', handleInvalid='skip')
+featureIndexer = VectorIndexer(inputCol="features", outputCol="indexedFeatures", maxCategories=5)
 
 # 2 Split train set and test set
 df_train, df_test = df.randomSplit([0.8, 0.2], seed=1)
 
 # 3 Train
 lr = LinearRegression(featuresCol='features', labelCol=target_column, regParam=0.001)
-pipeline = Pipeline(stages=indexers + encoders + [assembler, lr])
+pipeline = Pipeline(stages=indexers + encoders + [assembler, featureIndexer, lr])
 model = pipeline.fit(df_train)
 lr_model = model.stages[-1]
 
