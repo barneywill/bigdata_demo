@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_extraction import DictVectorizer
+from sklearn.model_selection import train_test_split
 
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
@@ -16,16 +17,17 @@ dv = DictVectorizer()
 #dv.fit(df[category_columns].to_dict(orient='records'))
 #dv.get_feature_names()
 #dv.tranform(df[category_columns].to_dict(orient='records'))
-df = dv.fit_transform(df[feature_columns].to_dict(orient='records'))
+#df = dv.fit_transform(df[feature_columns].to_dict(orient='records'))
 
 # 2 Split train set and test set
-df_train = df.sample(frac=0.8, random_state=1)
-df_test = df[~df.index.isin(df_train.index)]
+folds = train_test_split(range(len(df)), test_size=0.2, random_state=1)
+X_train = df[feature_columns].fillna(0).iloc[folds[0]]
+y_train = df[target_column].iloc[folds[0]].values
+X_test = df[feature_columns].fillna(0).iloc[folds[1]]
+y_test = df[target_column].iloc[folds[1]].values
 
 # 3 Train
-y_train = df_train[target_column].values
-# fill zeros
-X_train = df_train[feature_columns].fillna(0).values
+X_train = dv.fit_transform(X_train.to_dict(orient='records'))
 lr_model = LinearRegression().fit(X_train, y_train)
 
 # Obtain the coefficient of determination by calling the model with the score() function, then print the coefficient:
@@ -35,9 +37,8 @@ print('intercept:', lr_model.intercept_)
 print('slope:', lr_model.coef_) 
 
 # 4 Evaluation
-X_test = df_test[feature_columns].fillna(0).values
+X_test = dv.transform(X_test.to_dict(orient='records'))
 y_predict = lr_model.predict(X_test)
-y_test = df_test[target_column].values
 # by visualization
 sns.histplot(y_predict, bins=50, color='red')
 sns.histplot(y_test, bins=50, color='blue')

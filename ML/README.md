@@ -128,6 +128,14 @@ msk = np.random.rand(len(df)) < p
 df_part1 = df[msk]
 df_part2 = df[~msk]
 
+# 1.4
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=104, test_size=0.25, shuffle=True)
+or
+folds = train_test_split(range(len(df)), test_size=0.2, random_state=1)
+df_part1 = df.iloc[folds[0]]
+df_part2 = df.iloc[folds[1]]
+
 # 2, only split the data into two parts
 
 # get random 20% from df
@@ -141,8 +149,8 @@ df_part2 = df[~df.index.isin(df_part1.index)]
 | |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
 |---|---|---|---|---|
 |Single Machine|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_python.py'>linear_regression_python.py</a>| |
-|scilit-learn|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_scikit.py'>linear_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_scikit.py'>logistic_regression_scikit.py</a>|
-|Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|
+|scilit-learn|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_scikit.py'>linear_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_scikit.py'>logistic_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_scikit.py'>decision_tree_scikit.py</a>|
+|Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_spark.py'>decision_teer_spark.py</a>|
 
 ### Linear Regression
 
@@ -174,7 +182,7 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
 - tp: True Positive, tn: True Negative, fp: False Positive, fn: False Negative
 
 ### Decision Tree
-
+- Overfitting
 
 ### XGBoost
 

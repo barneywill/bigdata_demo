@@ -2,7 +2,7 @@
 from pyspark.sql import SparkSession
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler
-from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.classification import DecisionTreeClassifier
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
@@ -31,24 +31,20 @@ assembler = VectorAssembler(inputCols=feature_columns + [encoder.getOutputCol() 
 df_train, df_test = df.randomSplit([0.8, 0.2], seed=1)
 
 # 3 Train
-lr = LogisticRegression(featuresCol='features', labelCol=target_column, regParam=0.001)
-pipeline = Pipeline(stages=indexers + encoders + [assembler, lr])
+dt = DecisionTreeClassifier(featuresCol='features', labelCol=target_column, maxDepth=3)
+pipeline = Pipeline(stages=indexers + encoders + [assembler, dt])
 model = pipeline.fit(df_train)
-lr_model = model.stages[-1]
+dt_model = model.stages[-1]
 
-# Print the coefficients and intercept for linear regression
-print("Coefficients: %s" % str(lr_model.coefficients))
-print("Intercept: %s" % str(lr_model.intercept))
-# Summarize the model over the training set and print out some metrics
-trainingSummary = lr_model.summary
-print("numIterations: %d" % trainingSummary.totalIterations)
-print("objectiveHistory: %s" % str(trainingSummary.objectiveHistory))
-trainingSummary.residuals.show()
-print("RMSE: %f" % trainingSummary.rootMeanSquaredError)
-print("r2: %f" % trainingSummary.r2)
+# Show feature importance
+feature_importance = dt_model.featureImportances.toArray()
+for i, column in enumerate(assembler.getInputCols()):
+    print(f"Feature '{column}': {feature_importance[i]:.2f}")
+# Visualize the decision tree
+print(dt_model.toDebugString)
 
 # 4 Evaluation
-predictions = lr_model.transform(df_test)
+predictions = dt_model.transform(df_test)
 # AUC-ROC
 evaluator = BinaryClassificationEvaluator(labelCol=target_column, rawPredictionCol="rawPrediction")
 auc = evaluator.evaluate(predictions)
