@@ -4,7 +4,7 @@
 
 |Framework|Remarks|
 |---|---|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, Terraform, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
@@ -23,14 +23,15 @@ For writing SQL on almost any databases, like:
 - No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
 - Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
-### 1.3 Linux
-### 1.4 Python
+### 1.3 Terraform
+### 1.4 Linux
+### 1.5 Python
 Just install anaconda, and get everything you need.
 - Numpy, Pandas, scikit-learn, seaborn, matplotlib
 - Jupyter Notebook
-### 1.5 VSCode
+### 1.6 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
-### 1.6 Theory
+### 1.7 Theory
 Data Warehouse, Dimensional Modeling
 
 ## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
@@ -89,8 +90,9 @@ For: Dimensional Modeling, Layers, Development(transparent to cloud platform), D
 For: Ochestration, Workflow, Data Pipeline Management
 ### 4.1 DAG
 - Directed Acyclic Graph: tasks, dependencies
-### 4.2 Retry & Backfill
-### 4.3 Google Cloud Dataproc Operators
+### 4.2 webserver, scheduler, worker
+### 4.3 Retry & Backfill
+### 4.4 Google Cloud Dataproc Operators
 - DataprocCreateClusterOperator, DataprocStartClusterOperator, DataprocStopClusterOperator, DataprocDeleteClusterOperator
 - DataprocSubmitJobOperator, DataprocCreateBatchOperator
 
