@@ -173,6 +173,26 @@ ls /dev/disk/by-uuid/
 vi /etc/fstab
 ```
 
+# iptables
+```
+# show all rules
+iptables -nL
+
+# add a rule
+iptables -A INPUT -p tcp -s 192.168.0.0/24 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# delete a rule
+iptables -nL --line-number
+iptables -D INPUT $line
+
+# see all port forwarding
+iptables -t nat --list
+
+# forward a port
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+```
+
 # Other
 ```
 # shell

@@ -1,5 +1,5 @@
 
-# Linux
+# <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>
 
 |Category|
 |---|
@@ -10,11 +10,12 @@
 |Crontab|
 |User, Group|
 |Mount Disk|
+|iptables|
 |Other|
 |session|
 |tmux|
 
-# Theory
+# <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>
 
 ## Data Warehouse
 
