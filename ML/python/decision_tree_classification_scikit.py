@@ -1,14 +1,19 @@
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, roc_curve, auc, accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.tree import export_text
+from sklearn import preprocessing
+
 
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
 label_column = 'label'
 df = pd.read_csv(file_path)
+# if your label column is not numerical, you need to encode it
+le = preprocessing.LabelEncoder()
 dv = DictVectorizer()
 #df = dv.fit_transform(df[feature_columns].to_dict(orient='records'))
 
@@ -21,23 +26,18 @@ y_test = df[label_column].iloc[folds[1]].values
 
 # 3 Train
 X_train = dv.fit_transform(X_train.to_dict(orient='records'))
-lr_model = LogisticRegression().fit(X_train, y_train)
+y_train = le.fit_transform(y_train)
+#dt_model = DecisionTreeRegressor(max_depth=3).fit(X_train, y_train)
+dt_model = DecisionTreeClassifier(max_depth=3).fit(X_train, y_train)
 
-r_sq = lr_model.score(X_train, y_train)
-print('coefficient of determination:', r_sq)
-print('intercept:', lr_model.intercept_)
-print('slope:', lr_model.coef_)
+# Visualize the decision tree
+print(export_text(dt_model, feature_names=dv.get_feature_names_out()))
 
 # 4 Evaluation
 X_test = dv.transform(X_test.to_dict(orient='records'))
-# hard prediction
-y_predict = lr_model.predict(X_test)
-# probability prediction
-y_predict_proba = lr_model.predict_proba(X_test)
-any_result = (y_predict_proba >= 0.6)
-
-accuracy = (y_test == y_predict).mean()
-print(f"Accuracy: {accuracy:.4f}")
+y_test = le.transform(y_test)
+y_predict = dt_model.predict(X_test)
+y_predict_proba = dt_model.predict_proba(X_test)
 
 accuracy = accuracy_score(y_test, y_predict)
 roc_auc_score = roc_auc_score(y_test, y_predict)

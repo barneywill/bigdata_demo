@@ -6,7 +6,7 @@ import seaborn as sns
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
-target_column = 'target'
+label_column = 'target'
 df = pd.read_csv(file_path)
 # category columns
 category_columns = ['cat1', 'cat2', 'catn']
@@ -21,7 +21,7 @@ df_train = df.sample(frac=0.8, random_state=1)
 df_test = df[~df.index.isin(df_train.index)]
 
 # 3 Train
-y_train = df_train[target_column].values
+y_train = df_train[label_column].values
 # fill zeros
 X_train = np.column_stack((np.ones(len(df_train)), df_train[feature_columns].fillna(0).values))
 # regularization
@@ -30,7 +30,7 @@ w = np.linalg.inv(X_train.T.dot(X_train) + np.eye(X_train.shape[1]) * 0.001).dot
 # 4 Evaluation
 X_test = np.column_stack(np.ones(len(df_test)), df_test[feature_columns].fillna(0).values)
 y_predict = X_test.dot(w)
-y_test = df_test[target_column].values
+y_test = df_test[label_column].values
 # by visualization
 sns.histplot(y_predict, bins=50, color='red')
 sns.histplot(y_test, bins=50, color='blue')

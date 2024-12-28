@@ -7,16 +7,18 @@ from pyspark.ml.evaluation import BinaryClassificationEvaluator
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
 spark = SparkSession.builder \
-    .appName("LogisticRegressionSpark") \
+    .appName("DecisionTreeClassificationSpark") \
     .getOrCreate()
 
 # 1 Data preparation
 file_path = 'file://' + '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
-target_column = 'target'
+label_column = 'label'
 df = spark.read.csv(file_path, header=True, inferSchema=True)
 # category columns
 category_columns = ['cat1', 'cat2', 'catn']
+# if your label column is not numerical, you need to encode it
+labelIndexer = StringIndexer(inputCol=label_column, outputCol="indexedLabel")
 indexers = [
     StringIndexer(inputCol=c, outputCol="{0}_indexed".format(c))
     for c in category_columns
@@ -32,8 +34,9 @@ featureIndexer = VectorIndexer(inputCol="features", outputCol="indexedFeatures",
 df_train, df_test = df.randomSplit([0.8, 0.2], seed=1)
 
 # 3 Train
-dt = DecisionTreeClassifier(featuresCol='features', labelCol=target_column, maxDepth=3)
-pipeline = Pipeline(stages=indexers + encoders + [assembler, featureIndexer, dt])
+# for classification
+dt = DecisionTreeClassifier(featuresCol='indexedFeatures', labelCol="indexedLabel", maxDepth=3)
+pipeline = Pipeline(stages=[labelIndexer] + indexers + encoders + [assembler, featureIndexer, dt])
 model = pipeline.fit(df_train)
 dt_model = model.stages[-1]
 
@@ -47,7 +50,7 @@ print(dt_model.toDebugString)
 # 4 Evaluation
 predictions = dt_model.transform(df_test)
 # AUC-ROC
-evaluator = BinaryClassificationEvaluator(labelCol=target_column, rawPredictionCol="rawPrediction")
+evaluator = BinaryClassificationEvaluator(labelCol=label_column, rawPredictionCol="rawPrediction")
 auc = evaluator.evaluate(predictions)
 # Accuracy, Precision, and Recall
 multi_evaluator = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction")

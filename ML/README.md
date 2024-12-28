@@ -1,8 +1,6 @@
 
 # Machine Learning
 
-![Machine Learning](https://github.com/barneywill/bigdata_demo/blob/main/imgs/ml.jpg)
-
 ## Process
 ### Training
 Features(Input) + Targets(Desired Output) -> Machine Learning -> Model
@@ -18,15 +16,27 @@ Features(Input) + Model -> Predicitions(Output)
 - Deployment
 
 ## Models
-- Regression
-- Classification
-- Clustering
-- Recommendation
+- Regression: Linear Regression, Decision Tree Regression, XGBoost Regression
+  - Regression algorithms are used to predict the continuous values such as price, salary, age, etc.
+- Classification: Logistic Regression, Decision Tree Classifier, XGBoost Classifier, SVM
+  - Classification algorithms are used to predict/Classify the discrete values such as Male or Female, True or False, Spam or Not Spam, etc.
+  - Binomial vs Multinomial
+- Clustering: K-Means, DBSCAN
+- Recommendation: Collaborative Filtering(User & Item based)
+  - Recommendation algorithms are used to find different top-N items for each individual user.
+
+## Concepts
+- X, y
+- train, test
+- feature, label
+- model, fit, transform, metrics
+- pipeline
 
 ## Techniques
 
 ### Free Dataset
-https://www.kaggle.com/
+- https://www.kaggle.com/
+- from sklearn.datasets import load_diabetes
 
 ### Python Library
 
@@ -84,7 +94,7 @@ sns.histplot(df['col_name'], bins=50, color='red')
 ```
 
 ### Data Preparation
-
+Models can only work with numbers.
 ```
 # Enumeration variables or Categorical variables
 df['enu_value1'] = (df.enu_var == 'enu_value1').astype('int')
@@ -149,8 +159,9 @@ df_part2 = df[~df.index.isin(df_part1.index)]
 | |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
 |---|---|---|---|---|
 |Single Machine|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_python.py'>linear_regression_python.py</a>| |
-|scilit-learn|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_scikit.py'>linear_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_scikit.py'>logistic_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_scikit.py'>decision_tree_scikit.py</a>|
-|Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_spark.py'>decision_teer_spark.py</a>|
+|scikit-learn|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_scikit.py'>linear_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_scikit.py'>logistic_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_regression_scikit.py'>decision_tree_regression_scikit.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_classification_scikit.py'>decision_tree_classification_scikit.py</a>
+|XGBoost| | | |<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_regression.py'>xgboost_regression.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_classification.py'>xgboost_classification.py</a>|
+|Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_regression_spark.py'>decision_teer_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_classification_spark.py'>decision_teer_classification_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_regression_spark.py'>xgboost_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_classification_spark.py'>xgboost_classification_spark.py</a>|
 
 ### Linear Regression
 
@@ -184,5 +195,8 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
 ### Decision Tree
 - Overfitting
 
+![decision tree](https://github.com/barneywill/bigdata_demo/blob/main/imgs/decision_tree.jpg)
+
 ### XGBoost
 
+![xgboost](https://github.com/barneywill/bigdata_demo/blob/main/imgs/xgboost_model.jpg)

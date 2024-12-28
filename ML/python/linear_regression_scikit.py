@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
-target_column = 'target'
+label_column = 'label'
 df = pd.read_csv(file_path)
 # category columns
 dv = DictVectorizer()
@@ -22,9 +22,9 @@ dv = DictVectorizer()
 # 2 Split train set and test set
 folds = train_test_split(range(len(df)), test_size=0.2, random_state=1)
 X_train = df[feature_columns].fillna(0).iloc[folds[0]]
-y_train = df[target_column].iloc[folds[0]].values
+y_train = df[label_column].iloc[folds[0]].values
 X_test = df[feature_columns].fillna(0).iloc[folds[1]]
-y_test = df[target_column].iloc[folds[1]].values
+y_test = df[label_column].iloc[folds[1]].values
 
 # 3 Train
 X_train = dv.fit_transform(X_train.to_dict(orient='records'))

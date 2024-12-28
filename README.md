@@ -2,6 +2,19 @@
 
 ![bigdata demo](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_demo.jpg)
 
+|Framework|Remarks|
+|---|---|
+|Prerequisite|DBeaver, Docker, Python, VSCode|
+|Google Cloud Platform|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
+|dbt|macro, model, command(build, codegen, docs)|
+|Airflow|DAG, Google Cloud Dataproc Operators|
+|Kafka|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
+|Nifi|Process Group, Processor, Parameter Context, Expression, State|
+|Spark|Word Count Codes, Operations, Spark SQL, Structured Streaming, ML|
+|Iceberg|
+|Machine Learning|Linear Regression, Logistic Regression, Decision Tree, XGBoost|
+|Clickhouse|
+
 ## 1 Prerequisite
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
@@ -127,7 +140,7 @@ For: Prediction, Classification, Clustering, Recommendation, ...
 ### 9.5 tensorflow/serving
 Serve ML model on docker
 
-![Machine Learning](https://github.com/barneywill/bigdata_demo/blob/main/imgs/ml.jpg)
+![xgboost](https://github.com/barneywill/bigdata_demo/blob/main/imgs/xgboost_model.jpg)
 
 ## 10 Clickhouse
 

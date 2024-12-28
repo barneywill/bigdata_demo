@@ -11,7 +11,7 @@ spark = SparkSession.builder \
 # 1 Data preparation
 file_path = 'file://' + '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
-target_column = 'target'
+label_column = 'label'
 df = spark.read.csv(file_path, header=True, inferSchema=True)
 # category columns
 category_columns = ['cat1', 'cat2', 'catn']
@@ -33,7 +33,7 @@ featureIndexer = VectorIndexer(inputCol="features", outputCol="indexedFeatures",
 df_train, df_test = df.randomSplit([0.8, 0.2], seed=1)
 
 # 3 Train
-lr = LinearRegression(featuresCol='features', labelCol=target_column, regParam=0.001)
+lr = LinearRegression(featuresCol='features', labelCol=label_column, regParam=0.001)
 pipeline = Pipeline(stages=indexers + encoders + [assembler, featureIndexer, lr])
 model = pipeline.fit(df_train)
 lr_model = model.stages[-1]
@@ -51,7 +51,7 @@ print("r2: %f" % trainingSummary.r2)
 
 # 4 Evaluation
 predictions = lr_model.transform(df_test)
-evaluator = RegressionEvaluator(labelCol=target_column, predictionCol='prediction', metricName='rmse')
+evaluator = RegressionEvaluator(labelCol=label_column, predictionCol='prediction', metricName='rmse')
 rmse = evaluator.evaluate(predictions)
 print("Root Mean Squared Error (RMSE) on test data:", rmse)
 
