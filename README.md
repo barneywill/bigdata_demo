@@ -5,14 +5,14 @@
 |Framework|Remarks|
 |---|---|
 |Prerequisite|DBeaver, Docker, Python, VSCode|
-|Google Cloud Platform|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
-|dbt|macro, model, command(build, codegen, docs)|
-|Airflow|DAG, Google Cloud Dataproc Operators|
-|Kafka|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
-|Nifi|Process Group, Processor, Parameter Context, Expression, State|
-|Spark|Word Count Codes, Operations, Spark SQL, Structured Streaming, ML|
-|Iceberg|
-|Machine Learning|Linear Regression, Logistic Regression, Decision Tree, XGBoost|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>|Process Group, Processor, Parameter Context, Expression, State|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>|Word Count Codes, Operations, Spark SQL, Structured Streaming, ML|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|Linear Regression, Logistic Regression, Decision Tree, XGBoost|
 |Clickhouse|
 
 ## 1 Prerequisite
@@ -25,6 +25,8 @@ For writing SQL on almost any databases, like:
 ### 1.2 Docker
 ### 1.3 Python
 Just install anaconda, and get everything you need.
+- Numpy, Pandas, scikit-learn, seaborn, matplotlib
+- Jupyter Notebook
 ### 1.4 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
 

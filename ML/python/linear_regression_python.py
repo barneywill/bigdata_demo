@@ -8,9 +8,8 @@ file_path = '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
 label_column = 'target'
 df = pd.read_csv(file_path)
-# category columns
-category_columns = ['cat1', 'cat2', 'catn']
-for c in category_columns:
+categorical_columns = ['cat1', 'cat2', 'catn']
+for c in categorical_columns:
     for v in df[c].value_counts().head(5).index:
         new_feature_column = '%s=%s' % (c, v)
         df[new_feature_column] = (df[c] == v).astype('int')
