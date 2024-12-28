@@ -15,6 +15,9 @@
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
 |Clickhouse|
 
+## Architecture
+![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
+
 ## 1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
