@@ -1,19 +1,19 @@
-# A bigdata demo project
+# A Bigdata Demo Project
 
 ![bigdata demo](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_demo.jpg)
 
-|Framework|Remarks|
-|---|---|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>|Process Group, Processor, Parameter Context, Expression, State|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
-|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>|
+| |Category|Content|
+|---|---|---|
+|1|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>|
+|2|<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
+|3|<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
+|4|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
+|5|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
+|6|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>|Process Group, Processor, Parameter Context, Expression, State|
+|7|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
+|8|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>|
+|9|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
+|10|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>|
 
 ## Architecture
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
