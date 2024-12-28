@@ -45,7 +45,7 @@ for i, column in enumerate(assembler.getInputCols()):
 print(dt_model.toDebugString)
 
 # 4 Evaluation
-predictions = dt_model.transform(df_test)
+predictions = model.transform(df_test)
 # AUC-ROC
 evaluator = BinaryClassificationEvaluator(labelCol=label_column, rawPredictionCol="rawPrediction")
 auc = evaluator.evaluate(predictions)

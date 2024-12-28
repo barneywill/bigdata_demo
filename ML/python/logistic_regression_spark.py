@@ -51,7 +51,7 @@ print("RMSE: %f" % trainingSummary.rootMeanSquaredError)
 print("r2: %f" % trainingSummary.r2)
 
 # 4 Evaluation
-predictions = lr_model.transform(df_test)
+predictions = model.transform(df_test)
 # AUC-ROC
 evaluator = BinaryClassificationEvaluator(labelCol=label_column, rawPredictionCol="rawPrediction")
 auc = evaluator.evaluate(predictions)

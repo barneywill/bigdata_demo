@@ -1,0 +1,1 @@
+egrep -o "\b[[:alpha:]]+\b" test_word.log|sort|uniq -c|sort -rn|head -10

@@ -19,6 +19,22 @@
 |Hadoop/Spark|EMR(Elastic MapReduce)|Azure HDInsight|Dataproc|
 
 # Bigqery Performance Optimization
+- Reduce the amount of data to be processed by removing columns you don’t need from your queries.
+- Prevent unnecessary data scanning by using WHERE conditions intelligently.
+- Partitioning data sets by timestamp or a specific column value to scan only the relevant data sections.
+- In JOIN operations, it is usually more efficient to put the smaller table on the left side.
+- If possible, filter tables before performing a JOIN operation.
+- Minimise the use of ORDER BY on large data sets.
+- Avoid unnecessary column usage in GROUP BY operations.
+- If possible, pre-summarise the data in another table and perform queries on this summarised data.Avoid unnecessary column usage in GROUP BY operations.
+- Prevent unnecessary cost increases by monitoring your slot usage.
+- Optimise performance and keep costs under control by adjusting the number of slots according to your workload.
+- Examine query plans with EXPLAIN to identify potential bottlenecks and areas for optimisation.
+- Break very large queries into smaller, manageable chunks.
+- UDFs can degrade performance; use built-in functions when possible.
+- Improve query performance by using reusable and optimised stored procedures.UDFs can degrade performance; use built-in functions when possible.
+- Monitor query performance regularly and make improvements when necessary.
+- As your data sets change or grow, adapt your queries to these changes.
 
 
 # data source

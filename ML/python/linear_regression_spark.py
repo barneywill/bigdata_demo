@@ -50,7 +50,7 @@ print("RMSE: %f" % trainingSummary.rootMeanSquaredError)
 print("r2: %f" % trainingSummary.r2)
 
 # 4 Evaluation
-predictions = lr_model.transform(df_test)
+predictions = model.transform(df_test)
 evaluator = RegressionEvaluator(labelCol=label_column, predictionCol='prediction', metricName='rmse')
 rmse = evaluator.evaluate(predictions)
 print("Root Mean Squared Error (RMSE) on test data:", rmse)

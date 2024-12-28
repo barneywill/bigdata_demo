@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.model_selection import train_test_split
+import pickle
 
 # 1 Data preparation
 file_path = '/path/to/a/csvfile'
@@ -27,7 +28,10 @@ X_test = df[feature_columns].fillna(0).iloc[folds[1]]
 y_test = df[label_column].iloc[folds[1]].values
 
 # 3 Train
-X_train = dv.fit_transform(X_train.to_dict(orient='records'))
+vectorizer = dv.fit(X_train.to_dict(orient='records'))
+with open('dv.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f, pickle.HIGHEST_PROTOCOL)
+X_train = dv.transform(X_train.to_dict(orient='records'))
 lr_model = LinearRegression().fit(X_train, y_train)
 
 # Obtain the coefficient of determination by calling the model with the score() function, then print the coefficient:
@@ -48,3 +52,6 @@ se = (y_predict - y_test) ** 2
 mse = se.mean()
 rmse = np.sqrt(mse)
 print(f'MAE: {mae}, MSE: {mse}, RMSE: {rmse}')
+
+with open('dv.pkl', 'rb') as f:
+    dv_load = pickle.load(f)

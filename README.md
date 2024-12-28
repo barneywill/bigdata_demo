@@ -4,7 +4,7 @@
 
 |Framework|Remarks|
 |---|---|
-|Prerequisite|DBeaver, Docker, Python, VSCode|
+|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, Linux, Python, VSCode, Theory|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
@@ -15,7 +15,7 @@
 |<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|Linear Regression, Logistic Regression, Decision Tree, XGBoost|
 |Clickhouse|
 
-## 1 Prerequisite
+## 1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
 - RDBMS: Mysql, Postgresql, Oracle, SQLServer, ...
@@ -23,12 +23,15 @@ For writing SQL on almost any databases, like:
 - No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
 - Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
-### 1.3 Python
+### 1.3 Linux
+### 1.4 Python
 Just install anaconda, and get everything you need.
 - Numpy, Pandas, scikit-learn, seaborn, matplotlib
 - Jupyter Notebook
-### 1.4 VSCode
+### 1.5 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
+### 1.6 Theory
+Data Warehouse, Dimensional Modeling
 
 ## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI

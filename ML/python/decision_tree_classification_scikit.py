@@ -5,6 +5,7 @@ from sklearn.metrics import roc_auc_score, roc_curve, auc, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.tree import export_text
 from sklearn import preprocessing
+import pickle
 
 
 # 1 Data preparation
@@ -25,8 +26,14 @@ X_test = df[feature_columns].fillna(0).iloc[folds[1]]
 y_test = df[label_column].iloc[folds[1]].values
 
 # 3 Train
-X_train = dv.fit_transform(X_train.to_dict(orient='records'))
-y_train = le.fit_transform(y_train)
+vectorizer = dv.fit(X_train.to_dict(orient='records'))
+with open('dv.pkl', 'wb') as f:
+    pickle.dump(vectorizer, f, pickle.HIGHEST_PROTOCOL)
+X_train = dv.transform(X_train.to_dict(orient='records'))
+encoder = le.fit(y_train)
+with open('enc.pkl', 'wb') as f:
+    pickle.dump(encoder, f, pickle.HIGHEST_PROTOCOL)
+y_train = le.transform(y_train)
 #dt_model = DecisionTreeRegressor(max_depth=3).fit(X_train, y_train)
 dt_model = DecisionTreeClassifier(max_depth=3).fit(X_train, y_train)
 
@@ -47,3 +54,10 @@ roc_auc_curve = auc(fpr, tpr)
 print("Accuracy:", accuracy)
 print("ROC AUC Score:", roc_auc_score)
 print("AUC from roc_curve:", roc_auc_curve)
+
+encoder.inverse_transform(y_predict)
+
+with open('dv.pkl', 'rb') as f:
+    dv_load = pickle.load(f)
+with open('enc.pkl', 'rb') as f:
+    enc_load = pickle.load(f)

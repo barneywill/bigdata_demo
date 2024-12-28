@@ -30,7 +30,7 @@ Features(Input) + Model -> Predicitions(Output)
 - train, test
 - feature, label
 - model, fit, transform, metrics
-- pipeline
+- pipeline, transformers, estimators
 
 ## Techniques
 
