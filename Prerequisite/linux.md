@@ -1,18 +1,18 @@
 # Linux Commands
 
-|Index|
-|---|
-|[Resource: CPU, Memory, Disk, Network](#resouce)|
-|[Directory, File, tar, zip](#file)|
-|[Internet: curl, wget, ping, nc](#internet)|
-|[Process, Thread](#process)|
-|[Crontab](#crontab)|
-|[User, Group](#user)|
-|[Mount Disk](#mount)|
-|[iptables](#iptables)|
-|[Other](#other)|
-|[session](#session)|
-|[tmux](#tmux)|
+| |Index|
+|---|---|
+|1|[Resource: CPU, Memory, Disk, Network](#resouce)|
+|2|[Directory, File, tar, zip](#file)|
+|3|[Internet: curl, wget, ping, nc](#internet)|
+|4|[Process, Thread](#process)|
+|5|[Crontab](#crontab)|
+|6|[User, Group](#user)|
+|7|[Mount Disk](#mount)|
+|8|[iptables](#iptables)|
+|9|[Other](#other)|
+|10|[session](#session)|
+|11|[tmux](#tmux)|
 
 ## <a id='resource'></a>Resource: CPU, Memory, Disk, Network
 ```

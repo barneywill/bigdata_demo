@@ -1,6 +1,12 @@
 # Methodology
 
-## 1 Data Warehouse
+| |Index|
+|---|---|
+|1|[Data Warehouse](#dw)|
+|2|[Databases](#db)|
+|3|[BI](#bi)|
+
+## <a id='dw'></a>1 Data Warehouse
 Data Warehouse Layers
 
 <table border="2" style="width:100%; padding: 10px;">
@@ -15,14 +21,14 @@ Data Warehouse Layers
 
 ![data warehouse](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_warehouse.jpeg)
 
-## 2 Databases
+## <a id='db'></a>2 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
 - Column-based(Columnar) vs Row-based
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
-## 3 BI
+## <a id='bi'></a>3 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)
