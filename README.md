@@ -21,10 +21,6 @@
 ## 1 <a id='prerequisite' href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
-- RDBMS: Mysql, Postgresql, Oracle, SQLServer, ...
-- Open Source Big Data Frameworks: Hive, Spark, Clickhouse, Impala, Doris, Presto, ...
-- No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
-- Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
 ### 1.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>
 For allocating and destroying cloud resources any time easily.
@@ -32,8 +28,6 @@ For allocating and destroying cloud resources any time easily.
 ### 1.5 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>
 ### 1.6 Python
 Just install anaconda, and get everything you need.
-- Numpy, Pandas, scikit-learn, seaborn, matplotlib
-- Jupyter Notebook
 ### 1.7 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
 ### 1.8 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
@@ -121,8 +115,16 @@ For: Data Loading
 ## 7 <a id='spark' href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
 ### 7.1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count</a>
-- By Python, Scala, Java
-- By Spark RDD, Spark DataFrame, Spark SQL
+
+| |Python|Scala|Java|
+|---|---|---|---|
+|Single Machine|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_python.py'>word_count_python.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountDataScala.scala'>WordCountScala.scala</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/java/WordCountJava.java'>WordCountJava.java</a>|
+|Spark RDD|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_rdd.py'>word_count_rdd.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountDataRDD.scala'>WordCountRDD.scala</a>|
+|Spark DataFrame|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_dataframe.py'>word_count_dataframe.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountDataFrame.scala'>WordCountDataFrame.scala</a>|
+|Spark SQL|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_sql.py'>word_count_sql.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountSQL.scala'>WordCountSQL.scala</a>|
+|Google Cloud|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_rdd_gcs.py'>word_count_rdd_gcs.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountRDDGCS.scala'>WordCountRDDGCS.scala</a>|
+|Bigquery|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/python/word_count_sql_bigquery.py'>word_count_sql_bigquery.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/Spark/scala/WordCountSQLBigquery.scala'>WordCountSQLBigquery.scala</a>|
+
 ### 7.2 Operations
 - RDD vs DataFrame
 - Transformations, Actions
@@ -146,6 +148,15 @@ For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
 
 ## 9 <a id='ml' href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
+
+| |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
+|---|---|---|---|---|
+|Single Machine|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_python.py'>linear_regression_python.py</a>| |
+|scikit-learn|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_scikit.py'>linear_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_scikit.py'>logistic_regression_scikit.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_regression_scikit.py'>decision_tree_regression_scikit.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_classification_scikit.py'>decision_tree_classification_scikit.py</a>
+|XGBoost| | | |<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_regression.py'>xgboost_regression.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_classification.py'>xgboost_classification.py</a>|
+|Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/scala/LinearRegressionSpark.scala'>LinearRegressionSpark.scala</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_regression_spark.py'>decision_teer_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_classification_spark.py'>decision_teer_classification_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/scala/DecisionTreeClassificationSpark.scala'>DecisionTreeClassificationSpark.scala</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_regression_spark.py'>xgboost_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_classification_spark.py'>xgboost_classification_spark.py</a>|
+|Bigquery|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/bigquery/linear_regression_bigquery.sql'>linear_regression_bigquery.sql</a>|
+
 ### 9.1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>
 ### 9.2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>
 ### 9.3 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>
