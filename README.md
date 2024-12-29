@@ -39,12 +39,6 @@ For: Data Storage, Data Warehouse, BI
 - Bucket, Object
 ### 2.2 Google Bigquery
 - Data Warehouse
-- Best Practice
-- Explain Plans: Performance Optimization
-- Externally Partitioned Tables
-- Iceberg Tables
-- Machine Learning
-- Free bigdata-public-data on marketplace, free big data sources to play with
 
 ![big query dataset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)
 

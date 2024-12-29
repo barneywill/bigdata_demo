@@ -3,7 +3,7 @@
 | |Index|
 |---|---|
 |1|[Comparison](#comparison)|
-|2|[Bigquery Performance Optimization](#bigquery)|
+|2|[Bigquery](#bigquery)|
 
 ## <a id='comparison'></a>1 Comparison
 
@@ -25,7 +25,16 @@
 |Kafka|MSK(Amazon Managed Streaming for Kafka)|Azure Event Hubs|Google Cloud Managed Service for Apache Kafka|
 |Hadoop/Spark|EMR(Elastic MapReduce)|Azure HDInsight|Dataproc|
 
-## <a id='bigquery'></a>2 Bigqery Performance Optimization
+## 2 <a id='bigquery'></a>Bigquery
+- Data Warehouse
+- Best Practice
+- Explain Plans: Performance Optimization
+- Externally Partitioned Tables
+- Iceberg Tables
+- Machine Learning
+- Free bigdata-public-data on marketplace, free big data sources to play with
+
+### 2.1 Bigqery Performance Optimization
 - Reduce the amount of data to be processed by removing columns you don’t need from your queries.
 - Prevent unnecessary data scanning by using WHERE conditions intelligently.
 - Partitioning data sets by timestamp or a specific column value to scan only the relevant data sections.
@@ -44,7 +53,7 @@
 - As your data sets change or grow, adapt your queries to these changes.
 
 
-### data source
+#### data source
 https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/yellow
 https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/green
 https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/misc
