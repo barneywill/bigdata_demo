@@ -8,7 +8,9 @@
 |4|[VSCode](#vscode)|
 |5|[Terraform](#terraform)|
 |6|[Linux](#linux)|
-|7|[Methodology](#methodology)|
+|7|[Mysql](#mysql)|
+|8|[JVM](#jvm)|
+|9|[Methodology](#methodology)|
 
 
 ## 1 <a id='dbeaver'></a>DBeaver
@@ -56,16 +58,20 @@ docker run -it ubuntu
 |session|
 |tmux|
 
-## 7 <a id='methodology' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
+## 7 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>
 
-### 7.1 Data Warehouse
+## 8 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/jvm.md'>JVM</a>
+
+## 9 <a id='methodology' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
+
+### 9.1 Data Warehouse
 - Layers
 - Kimball's Dimensional Data Modeling
 
-### 7.2 Databases
+### 9.2 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
 - Column-based(Columnar) vs Row-based
 
-### 7.3 BI
+### 9.3 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie

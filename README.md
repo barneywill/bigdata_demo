@@ -4,7 +4,7 @@
 
 | |Category|Content|
 |---|---|---|
-|1|[Prerequisite](#prerequisite)|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>|
+|1|[Prerequisite](#prerequisite)|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>, Python, VSCode, JVM, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>|
 |2|[Google Cloud Platform](#gcp)|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
 |3|[dbt](#dbt)|macro, model, command(build, codegen, docs)|
 |4|[Airflow](#airflow)|DAG, Google Cloud Dataproc Operators|
@@ -29,13 +29,14 @@ For writing SQL on almost any databases, like:
 ### 1.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>
 For allocating and destroying cloud resources any time easily.
 ### 1.4 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>
-### 1.5 Python
+### 1.5 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>
+### 1.6 Python
 Just install anaconda, and get everything you need.
 - Numpy, Pandas, scikit-learn, seaborn, matplotlib
 - Jupyter Notebook
-### 1.6 VSCode
+### 1.7 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
-### 1.7 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
+### 1.8 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
 Data Warehouse, Kimball's Dimensional Data Modeling
 
 ## 2 <a id='gcp' href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
