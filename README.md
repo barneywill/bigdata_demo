@@ -11,9 +11,9 @@
 |5|[Kafka](#kafka)|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
 |6|[Nifi](#nifi)|Process Group, Processor, Parameter Context, Expression, State|
 |7|[Spark](#spark)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
-|8|Iceberg|
+|8|[Iceberg](#iceberg)|Parquet|
 |9|[Machine Learning](#ml)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
-|10|[Clickhouse](#clickhouse)|
+|10|[Clickhouse](#clickhouse)|SSB|
 
 ## Architecture
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
@@ -141,7 +141,8 @@ For: Data Processing, batch or streaming, Machine Learning
 
 ## 8 <a id='iceberg' href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
 For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
-### 8.1 Iceberg on Google Cloud Storage
+### 8.1 Parquet
+### 8.2 Iceberg on Google Cloud Storage
 
 ## 9 <a id='ml' href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
