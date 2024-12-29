@@ -1,21 +1,42 @@
+# Prerequisite
 
-# DBeaver
-- https://dbeaver.io/
+| |Index|
+|---|---|
+|1|[DBeaver](#dbeaver)|
+|2|[Docker](#docker)|
+|3|[Python](#python)|
+|4|[VSCode](#vscode)|
+|5|[Terraform](#terraform)|
+|6|[Linux](#linux)|
+|7|[Methodology](#methodology)|
 
-# Docker
-- https://www.docker.com/
+
+## 1 <a id='dbeaver'></a>DBeaver
+#### https://dbeaver.io/
+For writing SQL on almost any databases, like:
+- RDBMS: Mysql, Postgresql, Oracle, SQLServer, ...
+- Open Source Big Data Frameworks: Hive, Spark, Clickhouse, Impala, Doris, Presto, ...
+- No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
+- Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
+
+## 2 <a id='docker'></a>Docker
+#### https://www.docker.com/
   
-# Python
-- https://www.python.org/
-- https://www.anaconda.com/
+## 3 <a id='python'></a>Python
+#### https://www.python.org/
+#### https://www.anaconda.com/
+Just install anaconda, and get everything you need.
+- Numpy, Pandas, scikit-learn, seaborn, matplotlib
+- Jupyter Notebook
 
-# VSCode
-- https://code.visualstudio.com/
+## 4 <a id='vscode'></a>VSCode
+#### https://code.visualstudio.com/
+For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
 
-# <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>
-Infrastructure as code
+## 5 <a id='terraform' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>
+For allocating and destroying cloud resources any time easily.
 
-# <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>
+## 6 <a id='linux' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>
 
 ```
 docker run -it ubuntu
@@ -35,15 +56,16 @@ docker run -it ubuntu
 |session|
 |tmux|
 
-# <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>
+## 7 <a id='methodology' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
 
-## Data Warehouse
+### 7.1 Data Warehouse
 - Layers
-- Dimensional Modeling
+- Kimball's Dimensional Data Modeling
 
-## Databases
+### 7.2 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
+- Column-based(Columnar) vs Row-based
 
-## BI
+### 7.3 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie

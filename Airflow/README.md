@@ -1,4 +1,12 @@
-# Install
+# Airflow
+
+| |Index|
+|---|---|
+|1|[Install](#install)|
+|2|[Run](#run)|
+|3|[Open](#open)|
+
+## <a id='install'></a>1 Install
 
 ```
 AIRFLOW_VERSION=2.10.4
@@ -13,7 +21,7 @@ CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${A
 pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 ```
 
-# Run
+## <a id='run'></a>2 Run
 ```
 # put your py files under this directory
 mkdir -p ~/airflow/dags
@@ -39,9 +47,8 @@ airflow users delete -u admin
 airflow users create --username admin --password admin --role Admin --firstname admin --lastname admin --email admin@admin.com
 ```
 
-# Open
+## <a id='open'></a>3 Open
 http://127.0.0.1:8080
-
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 

@@ -1,5 +1,6 @@
+# Methodology
 
-# Data Warehouse
+## 1 Data Warehouse
 Data Warehouse Layers
 
 <table border="2" style="width:100%; padding: 10px;">
@@ -12,13 +13,16 @@ Data Warehouse Layers
     <tr><td style="font-weight:bold;">ADS</td><td>Application Data Service</td><td>Provides users with visual data query and analysis services based on DWS based on the analysis business needs of users. </td></tr>
 </table>
 
-
 ![data warehouse](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_warehouse.jpeg)
 
-# Databases
+## 2 Databases
+- SQL vs No-SQL
+- OLTP vs OLAP
+- Column-based(Columnar) vs Row-based
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
-# BI
+## 3 BI
+- Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)

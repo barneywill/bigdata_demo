@@ -1,13 +1,22 @@
 
 # Machine Learning
 
-## Process
+| |Index|
+|---|---|
+|1|[Process](#process)|
+|2|[Steps](#step)|
+|3|[Models](#model)|
+|4|[Concepts](#concept)|
+|5|[Techniques](#tech)|
+|6|[Examples](#example)|
+
+## <a id='process'></a>1 Process
 ### Training
 Features(Input) + Targets(Desired Output) -> Machine Learning -> Model
 ### Prediction
 Features(Input) + Model -> Predicitions(Output)
 
-## Steps
+## <a id='step'></a>2 Steps
 - Business Understanding: Goal, Measurable
 - Data Understanding: Avial data sources, Data quality
 - Data Preparation: Clean, Transform, Feature Engineering, Data Sampling
@@ -15,7 +24,7 @@ Features(Input) + Model -> Predicitions(Output)
 - Evaluation: Offline and Online
 - Deployment
 
-## Models
+## <a id='model'></a>3 Models
 - Regression: Linear Regression, Decision Tree Regression, XGBoost Regression
   - Regression algorithms are used to predict the continuous values such as price, salary, age, etc.
 - Classification: Logistic Regression, Decision Tree Classifier, XGBoost Classifier, SVM
@@ -25,20 +34,20 @@ Features(Input) + Model -> Predicitions(Output)
 - Recommendation: Collaborative Filtering(User & Item based)
   - Recommendation algorithms are used to find different top-N items for each individual user.
 
-## Concepts
+## <a id='concept'></a>4 Concepts
 - X, y
 - train, test
 - feature, label
 - model, fit, transform, metrics
 - pipeline, transformers, estimators
 
-## Techniques
+## <a id='tech'></a>5 Techniques
 
-### Free Dataset
+### 5.1 Free Dataset
 - https://www.kaggle.com/
 - from sklearn.datasets import load_diabetes
 
-### Python Library
+### 5.2 Python Library
 
 ```
 import pandas as pd
@@ -47,7 +56,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-### Jupyter Notebook
+### 5.3 Jupyter Notebook
 
 ```
 # install
@@ -72,7 +81,7 @@ or
 Use Jupyter plugin in vscode.
 ```
 
-### Data Exploration
+### 5.4 Data Exploration
 
 ```
 # all data
@@ -93,7 +102,7 @@ df.groupby(['col_name']).size().reset_index(name='count').sort_values('count', a
 sns.histplot(df['col_name'], bins=50, color='red')
 ```
 
-### Data Preparation
+### 5.5 Data Preparation
 Models can only work with numbers.
 ```
 # Enumeration variables or Categorical variables
@@ -110,7 +119,7 @@ for c in category_columns:
 XTX = XTX + np.eye(3) * 0.1
 ```
 
-### Data Sampling
+### 5.6 Data Sampling
 Split data into training set, valuation set, test set.
 
 ```
@@ -154,7 +163,7 @@ df_part1 = df.sample(frac=0.2, random_state=seed)
 df_part2 = df[~df.index.isin(df_part1.index)]
 ```
 
-## Example
+## <a id='example'></a>6 Examples
 
 | |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
 |---|---|---|---|---|
@@ -164,7 +173,7 @@ df_part2 = df[~df.index.isin(df_part1.index)]
 |Spark|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/linear_regression_spark.py'>linear_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/scala/LinearRegressionSpark.scala'>LinearRegressionSpark.scala</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/logistic_regression_spark.py'>logistic_regression_spark.py</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_regression_spark.py'>decision_teer_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/decision_tree_classification_spark.py'>decision_teer_classification_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/scala/DecisionTreeClassificationSpark.scala'>DecisionTreeClassificationSpark.scala</a>|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_regression_spark.py'>xgboost_regression_spark.py</a><br><a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/python/xgboost_classification_spark.py'>xgboost_classification_spark.py</a>|
 |Bigquery|<a href='https://github.com/barneywill/bigdata_demo/blob/main/ML/bigquery/linear_regression_bigquery.sql'>linear_regression_bigquery.sql</a>|
 
-### Linear Regression
+### 6.1 Linear Regression
 
 ```
 # Equation
@@ -180,7 +189,7 @@ w = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
 - Root Mean Squared Error (RMSE)
 - Coefficient of Determination (R-squared)
 
-### Logistic Regression
+### 6.2 Logistic Regression
 - Logistic Regression = Linear Regression + sigmoid = [0, 1] = Yes or No
 
 ```
@@ -193,7 +202,7 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
 - Recall = tp / (tp + fn)
   - tp: True Positive, tn: True Negative, fp: False Positive, fn: False Negative
 
-### Decision Tree
+### 6.3 Decision Tree
 - Overfitting
 
 #### Evaluation Metrics
@@ -203,7 +212,7 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
 
 ![decision tree](https://github.com/barneywill/bigdata_demo/blob/main/imgs/decision_tree.jpg)
 
-### XGBoost
+### 6.4 XGBoost
 - Tuning
   - eta: learning rate, default=0.3
   - max_depth: default=6

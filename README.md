@@ -4,21 +4,21 @@
 
 | |Category|Content|
 |---|---|---|
-|1|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/theory.md'>Theory</a>|
-|2|<a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
-|3|<a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>dbt</a>|macro, model, command(build, codegen, docs)|
-|4|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>|DAG, Google Cloud Dataproc Operators|
-|5|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
-|6|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>|Process Group, Processor, Parameter Context, Expression, State|
-|7|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
-|8|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>|
-|9|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
-|10|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>|
+|1|[Prerequisite](#prerequisite)|DBeaver, Docker, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>, Python, VSCode, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>|
+|2|[Google Cloud Platform](#gcp)|Cloud Storage, Bigquery, IMA, Cloud Composer, Dataproc, Kafka, Looker|
+|3|[dbt](#dbt)|macro, model, command(build, codegen, docs)|
+|4|[Airflow](#airflow)|DAG, Google Cloud Dataproc Operators|
+|5|[Kafka](#kafka)|Topic, Partition, Producer, Consumer, Consumer Group, Rebalance, Offset|
+|6|[Nifi](#nifi)|Process Group, Processor, Parameter Context, Expression, State|
+|7|[Spark](#spark)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
+|8|Iceberg|
+|9|[Machine Learning](#ml)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
+|10|Clickhouse|
 
 ## Architecture
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
 
-## 1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>
+## 1 <a id='prerequisite' href='https://github.com/barneywill/bigdata_demo/tree/main/Prerequisite'>Prerequisite</a>
 ### 1.1 DBeaver
 For writing SQL on almost any databases, like:
 - RDBMS: Mysql, Postgresql, Oracle, SQLServer, ...
@@ -27,6 +27,7 @@ For writing SQL on almost any databases, like:
 - Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
 ### 1.3 Terraform
+For allocating and destroying cloud resources any time easily.
 ### 1.4 Linux
 ### 1.5 Python
 Just install anaconda, and get everything you need.
@@ -34,10 +35,10 @@ Just install anaconda, and get everything you need.
 - Jupyter Notebook
 ### 1.6 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
-### 1.7 Theory
-Data Warehouse, Dimensional Modeling
+### 1.7 Methodology
+Data Warehouse, Kimball's Dimensional Data Modeling
 
-## 2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
+## 2 <a id='gcp' href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
 For: Data Storage, Data Warehouse, BI
 ### 2.1 Google Cloud Storage
 - Bucket, Object
@@ -67,7 +68,7 @@ For: Data Storage, Data Warehouse, BI
 
 ![looker](https://github.com/barneywill/bigdata_demo/blob/main/imgs/looker.jpg)
 
-## 3 <a href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>DBT</a>
+## 3 <a id='dbt' href='https://github.com/barneywill/bigdata_demo/tree/main/dbt'>DBT</a>
 For: Dimensional Modeling, Layers, Development(transparent to cloud platform), Data Validation, Data Assets and Lineage, CI/CD
 ### 3.1 profiles.yml 
 - With Bigquery
@@ -89,7 +90,7 @@ For: Dimensional Modeling, Layers, Development(transparent to cloud platform), D
 
 ![dbt layers](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dbt.jpg)
 
-## 4 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>
+## 4 <a id='airflow' href='https://github.com/barneywill/bigdata_demo/tree/main/Airflow'>Airflow</a>
 For: Ochestration, Workflow, Data Pipeline Management
 ### 4.1 DAG
 - Directed Acyclic Graph: tasks, dependencies
@@ -101,14 +102,14 @@ For: Ochestration, Workflow, Data Pipeline Management
 
 ![dag](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dag.jpg)
 
-## 5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>
+## 5 <a id='kafka' href='https://github.com/barneywill/bigdata_demo/tree/main/Kafka'>Kafka</a>
 ### 5.1 Broker, ISR
 ### 5.2 Topic, Partition
 ### 5.3 Producer, Consumer, Consumer Group, Rebalance, Offset
 
 ![kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/apache_kafka.jpg)
 
-## 6 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
+## 6 <a id='nifi' href='https://github.com/barneywill/bigdata_demo/tree/main/Nifi'>Nifi</a>
 For: Data Loading
 ### 6.1 Process Group, Processor
 ### 6.2 Parameter Context, Expression
@@ -116,7 +117,7 @@ For: Data Loading
 
 ![mysql_2_google_cloud_storage](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_google_cloud_storage.jpg)
 
-## 7 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
+## 7 <a id='spark' href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
 ### 7.1 Word Count
 - By Python, Scala, Java
@@ -137,11 +138,11 @@ For: Data Processing, batch or streaming, Machine Learning
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
-## 8 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
+## 8 <a id='iceberg' href='https://github.com/barneywill/bigdata_demo/tree/main/Iceberg'>Iceberg</a>
 For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
 ### 8.1 Iceberg on Google Cloud Storage
 
-## 9 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
+## 9 <a id='ml' href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
 ### 9.1 Linear Regression
 ### 9.2 Logistic Regression
@@ -152,7 +153,7 @@ Serve ML model on docker
 
 ![xgboost](https://github.com/barneywill/bigdata_demo/blob/main/imgs/xgboost_model.jpg)
 
-## 10 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>
+## 10 <a id='clickhouse' href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>
 
 ## 11 Other
 ### 11.1 AWS

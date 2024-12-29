@@ -1,6 +1,20 @@
 # Linux Commands
 
-## Resource: CPU, Memory, Disk, Network
+|Index|
+|---|
+|[Resource: CPU, Memory, Disk, Network](#resouce)|
+|[Directory, File, tar, zip](#file)|
+|[Internet: curl, wget, ping, nc](#internet)|
+|[Process, Thread](#process)|
+|[Crontab](#crontab)|
+|[User, Group](#user)|
+|[Mount Disk](#mount)|
+|[iptables](#iptables)|
+|[Other](#other)|
+|[session](#session)|
+|[tmux](#tmux)|
+
+## <a id='resource'></a>Resource: CPU, Memory, Disk, Network
 ```
 # System Resource
 vmstat
@@ -42,7 +56,7 @@ ip route get 1
 tcpdump -i eth1 tcp port $port -Xxv
 ```
 
-## Directory, File, tar, zip
+## <a id='file'></a>Directory, File, tar, zip
 ```
 # check usage by directory
 du -h --max-depth=1 $path
@@ -70,7 +84,7 @@ zip -r $zip_name.zip $dir_name
 unzip $zip_name.zip
 ```
 
-## Internet: curl, wget, ping, nc
+## <a id='internet'></a>Internet: curl, wget, ping, nc
 ```
 # see http request and response
 curl -v https://www.google.com
@@ -92,7 +106,7 @@ nc 220.181.112.244 80 -v
 curl http://220.181.112.244:80 -v
 ```
 
-## Process, Thread
+## <a id='process'></a>Process, Thread
 ```
 # Process
 ps aux
@@ -106,7 +120,7 @@ lsof -i:$port
 netstat -nat|grep $port
 ```
 
-## Crontab
+## <a id='crontab'></a>Crontab
 ```
 # Crontab
 crontab -l
@@ -114,7 +128,7 @@ crontab -e
 tail -f /var/log/cron
 ```
 
-## User, Group
+## <a id='user'></a>User, Group
 ```
 # add and delete user
 useradd $user
@@ -146,7 +160,7 @@ groupmems -g $group -d $user
 
 ```
 
-# Mount Disk
+# <a id='mount'></a>Mount Disk
 ```
 # show all disks and partitions
 fdisk -l
@@ -173,7 +187,7 @@ ls /dev/disk/by-uuid/
 vi /etc/fstab
 ```
 
-# iptables
+# <a id='iptables'></a>iptables
 ```
 # show all rules
 iptables -nL
@@ -193,7 +207,7 @@ iptables -t nat --list
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 ```
 
-# Other
+# <a id='other'></a>Other
 ```
 # shell
 echo $SHELL
@@ -226,7 +240,7 @@ scp /local_dir/filename user@server_ip:/remote/path
 scp user@server_ip:/remote/path/filename /local_dir
 ```
 
-# session
+# <a id='session'></a>session
 ```
 # list all sessions
 screen -list
@@ -247,7 +261,7 @@ screen -r $session_name
 screen -d $session_name
 ```
 
-# tmux
+# <a id='tmux'></a>tmux
 ## tmux session
 ```
 # list all session

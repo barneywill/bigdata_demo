@@ -1,5 +1,12 @@
+# Nifi
 
-# Run
+| |Index|
+|---|---|
+|1|[Run](#run)|
+|2|[Open](#open)|
+|3|[Scenario](#scenario)|
+
+## <a id='run'></a>1 Run
 ```
 #start
 bin/nifi.sh start
@@ -8,13 +15,13 @@ bin/nifi.sh start
 bin/nifi.sh set-single-user-credentials $username $password
 ```
 
-# Open
+## <a id='open'></a>2 Open
 ## Use a host name or an ip to access
 https://whatever-host-name:8443/nifi
 
-# Scenario
+## <a id='scenario'></a>3 Scenario
 
-## Daily Mysql to Google Cloud Storage
+### 3.1 Daily Mysql to Google Cloud Storage
 - QueryDatabaseTableRecord -> PutGCSObject
 
 ```
@@ -26,7 +33,7 @@ tomorrow: ${now():plus(86400000):format('yyyy-MM-dd') }
 
 ![mysql_2_google_cloud_storage](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_google_cloud_storage.jpg)
 
-## Realtime Mysql to Kafka
+### 3.2 Realtime Mysql to Kafka
 - CaptureChangeMySQL -> PublishKafka
 
 ```
@@ -37,7 +44,7 @@ FLUSH PRIVILEGES;
 
 ![mysql_2_kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_2_kafka.jpg)
 
-## Bigquery to Kafka
+### 3.3 Bigquery to Kafka
 - ExecuteSQLRecord -> PublishKafkaRecord
 
 ```
@@ -52,13 +59,13 @@ Database Driver Location: full_path_to_jars_folder_location/
 
 ![bigquery_2_kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_2_kafka.jpg)
 
-## Change Data Capture
+### 3.4 Change Data Capture
 - QueryDatabaseTableRecord -> ConvertJSONToSQL -> PutSQL
 
-## Kafka to Bigquery
+### 3.5 Kafka to Bigquery
 - ConsumeKafka -> PutBigQuery
 
-## Bigquery to Clickhouse
+### 3.6 Bigquery to Clickhouse
 
 
 
