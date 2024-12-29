@@ -26,16 +26,16 @@ For writing SQL on almost any databases, like:
 - No SQL: Redis, ElasticSearch, Cassandra, MongoDB, ...
 - Cloud: Redshift, Athena, Bigquery, Databricks, Snowflake, ...
 ### 1.2 Docker
-### 1.3 Terraform
+### 1.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/terraform'>Terraform</a>
 For allocating and destroying cloud resources any time easily.
-### 1.4 Linux
+### 1.4 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/linux.md'>Linux</a>
 ### 1.5 Python
 Just install anaconda, and get everything you need.
 - Numpy, Pandas, scikit-learn, seaborn, matplotlib
 - Jupyter Notebook
 ### 1.6 VSCode
 For writing and running Python, Scala, Java, and connecting GitHub, Copilot, Jupyter Server, Remote Linux, Database, also forwarding port 
-### 1.7 Methodology
+### 1.7 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
 Data Warehouse, Kimball's Dimensional Data Modeling
 
 ## 2 <a id='gcp' href='https://github.com/barneywill/bigdata_demo/tree/main/google_cloud'>Google Cloud Platform</a>
@@ -119,7 +119,7 @@ For: Data Loading
 
 ## 7 <a id='spark' href='https://github.com/barneywill/bigdata_demo/tree/main/Spark'>Spark</a>
 For: Data Processing, batch or streaming, Machine Learning
-### 7.1 Word Count
+### 7.1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count</a>
 - By Python, Scala, Java
 - By Spark RDD, Spark DataFrame, Spark SQL
 ### 7.2 Operations
@@ -134,7 +134,7 @@ For: Data Processing, batch or streaming, Machine Learning
 - Micro Batch Processing
 - Continuous Processing
 - State Store
-### 7.5 Spark ML
+### 7.5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>Spark ML</a>
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
@@ -144,10 +144,10 @@ For: Data Lake, Almost Realtime Data Warehouse, Parquet on any cloud storage
 
 ## 9 <a id='ml' href='https://github.com/barneywill/bigdata_demo/tree/main/ML'>Machine Learning</a>
 For: Prediction, Classification, Clustering, Recommendation, ...
-### 9.1 Linear Regression
-### 9.2 Logistic Regression
-### 9.3 Decision Tree
-### 9.4 XGBoost
+### 9.1 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>
+### 9.2 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>
+### 9.3 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>
+### 9.4 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>
 ### 9.5 tensorflow/serving
 Serve ML model on docker
 
