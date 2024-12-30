@@ -7,9 +7,15 @@
 |3|[Data Warehouse](#dw)|
 |4|[Databases](#db)|
 |5|[BI](#bi)|
+|6|[Data Engineering Skills](#de)|
+|7|[Data Architecture](#architecture)|
 
 ## <a id='etl'></a>1 ETL/ELT
 - Extraction -> Transformation -> Load
+  - Usually from Data Sources to Data Lake/Data Warehouse/Kafka
+- Structured Data, Unstructured Data
+- CDC: Change Data Capture
+  - FlinkCDC, Debezium
 
 ![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpg)
 
@@ -22,8 +28,7 @@
 ## <a id='dw'></a>3 Data Warehouse
 
 ### 3.1 Kimball's Dimensional Modeling
-- Dimension Table
-- Fact Table
+- Dimension Table, Fact Table
 - Design Schema
   - Star Schema
   - Snowflake Schema: divides subdimensions into dimension tables
@@ -55,3 +60,31 @@
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)
+
+## <a id='de'></a>6 Data Engineering Skills
+- Data Source
+  - Mysql, Postgresql, Log, Gateway
+- Data Ingestion: Batch, Streaming
+  - Nifi, Kafka
+- Data Modeling
+- Data Lake
+  - Cloud Storage, Iceberg
+- Data Warehouse
+  - Bigquery
+- Data Analytics: Batch, Streaming, OLAP
+  - Spark, Dataproc, Clickhouse
+- Data Governance: Catalog, Lineage
+  - dbt
+- Data Pipeline Orchestration
+  - Airflow, Cloud Composer
+- Data Monitoring
+- Data Application: BI, ML
+  - Looker, Spark ML, XGBoost
+
+## <a id='architecture'></a> 7 Data Architecture
+- Lambda
+  - Drawbacks: double code and system/conflict
+- Kappa
+  - Drawbacks: re-precess/out of order data/cold storage/complex joins
+
+![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
