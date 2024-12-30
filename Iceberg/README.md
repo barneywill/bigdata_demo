@@ -2,6 +2,8 @@
 
 Iceberg is a high-performance format for huge analytic tables.
 
+![Iceberg Structure](https://github.com/barneywill/bigdata_demo/blob/main/imgs/iceberg_structure.jpg)
+
 ## 1 Near Real-time Data Warehouse
 From Kafka+Flink to Iceberg+Flink
 

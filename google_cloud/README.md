@@ -5,6 +5,8 @@
 |1|[Comparison](#comparison)|
 |2|[Bigquery](#bigquery)|
 
+![GCP](https://github.com/barneywill/bigdata_demo/blob/main/imgs/gcp.jpg)
+
 ## <a id='comparison'></a>1 Comparison
 
 |Service|Amazon Web Services(AWS)|Microsoft Azure|Google Cloud Platform(GCP)|

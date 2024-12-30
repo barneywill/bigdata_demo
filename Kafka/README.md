@@ -7,6 +7,9 @@ Apache Kafka is an open-source distributed event streaming platform used by thou
 |1|[Topic](#topic)|
 |2|[Producer](#producer)|
 |3|[Consumer](#consumer)|
+|4|[Internals](#internal)|
+
+![kafka architecture](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_architecture.jpg)
 
 ## <a id='topic'></a>1 Topic
 ```
@@ -38,10 +41,27 @@ bin/kafka-consumer-groups.sh --bootstrap-server $kafka_ip:9092 --group $group_id
 bin/kafka-consumer-groups --bootstrap-server $kafka_ip --group $group_id --topic $topic_name --reset-offsets --to-earliest --execute
 ```
 
-![kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/apache_kafka.jpg)
+## <a id='internal'></a>4 Internals
 
-## <a id='internals'></a>4 Internals
-
-### zero-copy
+### 4.1 zero-copy
 
 ![zero-copy](https://github.com/barneywill/bigdata_demo/blob/main/imgs/zero-copy.jpg)
+
+### 4.2 ISR (In-Sync Replicas)
+a pool of fetch request
+
+![Kafka ISR](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_isr.jpg)
+
+### 4.3 Consumer Offset
+- __consumer_offsets topic
+  - Format: ((group.id, topic, partition), offset)
+
+![kafka Consumer Offset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_consumer_offset.jpg)
+
+### 4.4 Consumer Group Reblance
+- group coordinator, group leader, assignment, consume, heart beat, rebalance
+- assignment strategy: Range, Round robin, Sticky
+
+![kafka Consumer Group](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_consumer_group.jpg)
+
+https://developer.confluent.io/courses/architecture/consumer-group-protocol/

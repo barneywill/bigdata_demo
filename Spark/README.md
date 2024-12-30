@@ -13,6 +13,8 @@ Apache Spark is a unified analytics engine for large-scale data processing.
 |7|[Internals](#internal)|
 |8|[Trouble Shooting](#trouble)|
 
+![spark execution](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_execution.jpg)
+
 ## <a id='install'></a>1 Install
 ```
 export JAVA_HOME=/path/to/jdk
@@ -127,9 +129,9 @@ Pull based
 ![shuffle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/shuffle.jpg)
 
 ### Join
-- Broadcast Hash Join
+- Broadcast Hash Join: spark.sql.autoBroadcastJoinThreshold
 - Shuffle Hash Join
-- Shuffle Sort Merge Join
+- Shuffle Sort Merge Join: spark.sql.join.preferSortMergeJoin
 - Cartesian Join
 
 ### Checkpoint

@@ -8,6 +8,8 @@ Apache Airflow™ is an open-source platform for developing, scheduling, and mon
 |2|[Run](#run)|
 |3|[Open](#open)|
 
+![Airflow Architecture](https://github.com/barneywill/bigdata_demo/blob/main/imgs/airflow_architecture.jpg)
+
 ## <a id='install'></a>1 Install
 
 ```

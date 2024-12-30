@@ -8,6 +8,8 @@ An easy to use, powerful, and reliable system to process and distribute data
 |2|[Open](#open)|
 |3|[Scenario](#scenario)|
 
+![Nifi Architecture](https://github.com/barneywill/bigdata_demo/blob/main/imgs/nifi_architecture.jpg)
+
 ## <a id='run'></a>1 Run
 ```
 #start
