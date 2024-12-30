@@ -64,16 +64,20 @@ docker run -it ubuntu
 
 ## 8 <a id='methodology' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
 
-### 8.1 Data Warehouse
+### 8.1 ETL/ELT
+
+### 8.2 Map-Reduce
+
+### 8.3 Data Warehouse
 - Layers
 - Kimball's Dimensional Data Modeling
 
-### 8.2 Databases
+### 8.4 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
 - Column-based(Columnar) vs Row-based
 
-### 8.3 BI
+### 8.5 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ## 9 <a id='other'></a>Other

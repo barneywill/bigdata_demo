@@ -11,13 +11,13 @@
 ## <a id='etl'></a>1 ETL/ELT
 - Extraction -> Transformation -> Load
 
-![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpeg)
+![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpg)
 
 ## <a id='mr'></a>2 Map-Reduce
 - Map: data is split between parallel processing tasks. Transformation logic can be applied to each chunk of data.
 - Reduce: handle aggregating data from the Map set
 
-![Map Reduce](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mr.jpeg)
+![Map Reduce](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mr.jpg)
 
 ## <a id='dw'></a>3 Data Warehouse
 
@@ -28,7 +28,7 @@
   - Star Schema
   - Snowflake Schema: divides subdimensions into dimension tables
 
-![Design Schema](https://github.com/barneywill/bigdata_demo/blob/main/imgs/design_schema.jpeg)
+![Design Schema](https://github.com/barneywill/bigdata_demo/blob/main/imgs/design_schema.jpg)
 
 ### 3.2 Data Warehouse Layers
 
