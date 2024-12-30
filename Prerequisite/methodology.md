@@ -2,12 +2,35 @@
 
 | |Index|
 |---|---|
-|1|[Data Warehouse](#dw)|
-|2|[Databases](#db)|
-|3|[BI](#bi)|
+|1|[ETL/ELT](#etl)|
+|2|[Map-Reduce](#mr)|
+|3|[Data Warehouse](#dw)|
+|4|[Databases](#db)|
+|5|[BI](#bi)|
 
-## <a id='dw'></a>1 Data Warehouse
-Data Warehouse Layers
+## <a id='etl'></a>1 ETL/ELT
+- Extraction -> Transformation -> Load
+
+![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpeg)
+
+## <a id='mr'></a>2 Map-Reduce
+- Map: data is split between parallel processing tasks. Transformation logic can be applied to each chunk of data.
+- Reduce: handle aggregating data from the Map set
+
+![Map Reduce](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mr.jpeg)
+
+## <a id='dw'></a>3 Data Warehouse
+
+### 3.1 Kimball's Dimensional Modeling
+- Dimension Table
+- Fact Table
+- Design Schema
+  - Star Schema
+  - Snowflake Schema: divides subdimensions into dimension tables
+
+![Design Schema](https://github.com/barneywill/bigdata_demo/blob/main/imgs/design_schema.jpeg)
+
+### 3.2 Data Warehouse Layers
 
 <table border="2" style="width:100%; padding: 10px;">
     <tr style="height:30px;"><th style="width:5%;text-align: center;">Layer</th><th style="width:20%;text-align: center;">Full Name</th><th style="text-align: center;">Explanation</th></tr>
@@ -21,14 +44,14 @@ Data Warehouse Layers
 
 ![data warehouse](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_warehouse.jpeg)
 
-## <a id='db'></a>2 Databases
+## <a id='db'></a>4 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
 - Column-based(Columnar) vs Row-based
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
-## <a id='bi'></a>3 BI
+## <a id='bi'></a>5 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)

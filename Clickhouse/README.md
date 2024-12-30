@@ -1,5 +1,9 @@
 # Clickhouse
 
+ClickHouse® is a high-performance, column-oriented SQL database management system (DBMS) for online analytical processing (OLAP).
+
+ClickHouse is the fastest and most resource efficient open-source database for real-time apps and analytics.
+
 ## 1 SSB Schema Benchmark
 
 https://www.cs.umb.edu/~poneil/StarSchemaB.PDF

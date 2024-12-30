@@ -1,5 +1,7 @@
 # Kafka
 
+Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+
 | |Index|
 |---|---|
 |1|[Topic](#topic)|
@@ -37,3 +39,9 @@ bin/kafka-consumer-groups --bootstrap-server $kafka_ip --group $group_id --topic
 ```
 
 ![kafka](https://github.com/barneywill/bigdata_demo/blob/main/imgs/apache_kafka.jpg)
+
+## <a id='internals'></a>4 Internals
+
+### zero-copy
+
+![zero-copy](https://github.com/barneywill/bigdata_demo/blob/main/imgs/zero-copy.jpg)

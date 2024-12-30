@@ -122,15 +122,12 @@ For: Data Processing, batch or streaming, Machine Learning
 ### 7.2 Operations
 - RDD vs DataFrame
 - Transformations, Actions
-- Shuffle, Join
 ### 7.3 Spark SQL
 - Parser-Analyzer-Optimizer-Planner
 - Logical Plan, Physical Plan
-- UDF
 ### 7.4 Structured Streaming
 - Micro Batch Processing
 - Continuous Processing
-- State Store
 ### 7.5 <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>Spark ML</a>
 
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)

@@ -1,5 +1,7 @@
 # Spark
 
+Apache Spark is a unified analytics engine for large-scale data processing.
+
 | |Index|
 |---|---|
 |1|[Install](#install)|
@@ -7,8 +9,9 @@
 |3|[Hello World: Word Count](#wordcount)|
 |4|[Structured Streaming](#streaming)|
 |5|[Operations: Transformation & Actions](#operation)|
-|6|[Internals](#internal)|
-|7|[Trouble Shooting](#trouble)|
+|6|[Spark SQL](#sql)|
+|7|[Internals](#internal)|
+|8|[Trouble Shooting](#trouble)|
 
 ## <a id='install'></a>1 Install
 ```
@@ -64,6 +67,9 @@ spark-submit
 ![spark word count](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job.jpg)
 
 ## <a id='streaming'></a>4 Structured Streaming
+- Micro Batch Processing: 100ms exactly-once
+- Continuous Processing: 1ms at-least-once
+- State Store: State store is a versioned key-value store which provides both read and write operations.
 
 ```
 # Put jars under $SPARK_HOME/jars
@@ -93,11 +99,27 @@ https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-p
 
 ![dataframe operations](https://github.com/barneywill/bigdata_demo/blob/main/imgs/dataframe_operations.jpg)
 
-## <a id='internal'></a>6 Internals
+## <a id='sql'></a>6 Spark SQL
+- Parser-Analyzer-Optimizer-Planner
+  - Logical Plan: Scan/Filter/Join/Aggregate
+  - Physical Plan: BroadcastExchange/BroadcastHashJoin/HashAggregate/ShuffleExchange
+- UDF
 
-### Memory Management
-- spark.memory.fraction
-- spark.memory.storageFraction
+## <a id='internal'></a>7 Internals
+
+### Job Execution
+- Job -> Stages -> Tasks
+
+![Spark Job Stage Tasks](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job_stage_task.jpg)
+
+### Executor Memory Management
+- Execution
+- Storage
+- Parameters
+  - spark.memory.fraction
+  - spark.memory.storageFraction
+
+![Spark Memory Management](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_memory.jpg)
 
 ### Partition, Shuffle
 Pull based
@@ -110,15 +132,23 @@ Pull based
 - Shuffle Sort Merge Join
 - Cartesian Join
 
+### Checkpoint
+
 ### Sort
 
-### Whole Stage Code Generation
+### Whole Stage Code Generation, since version 2
+- volcano iterator model
+- WholeStageCodegenExe
 
-### Vectorized Execution Engine
+### Vectorized Execution Engine, since version 3
+- SMID: Single Instruction, Multiple Data
 
-### Adaptive Query Execution
+![smid](https://github.com/barneywill/bigdata_demo/blob/main/imgs/simd.jpg)
 
-## <a id='trouble'></a>7 Trouble Shooting
+### Adaptive Query Execution, since version 3
+
+## <a id='trouble'></a>8 Trouble Shooting
+Spark UI
 - Job and event timeline
   - failing jobs/executors
   - gaps in execution

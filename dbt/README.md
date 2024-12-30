@@ -1,5 +1,7 @@
 # DBT
 
+dbt is the industry standard for data transformation. Transform raw data into analysis-ready insights, and make data-driven decisions with confidence.
+
 | |Index|
 |---|---|
 |1|[Install](#install)|

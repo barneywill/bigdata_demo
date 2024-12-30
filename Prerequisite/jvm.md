@@ -33,3 +33,12 @@ vim $jar_name
 or
 unzip -l $jar_name
 ```
+
+## GC (Garbage Collection)
+- Serial
+- Parallel
+- CMS
+- G1, from 9
+- ZGC, from 15
+
+![GC](https://github.com/barneywill/bigdata_demo/blob/main/imgs/gc.jpg)
