@@ -27,7 +27,7 @@
 
 ## <a id='dw'></a>3 Data Warehouse
 
-### 3.1 Kimball's Dimensional Modeling
+### 3.1 Kimball's Dimensional Data Modeling
 - Dimension Table, Fact Table
 - Design Schema
   - Star Schema

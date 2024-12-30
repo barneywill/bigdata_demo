@@ -1,6 +1,10 @@
 # JVM
 
-## Commands
+Java and Scala programs are running on JVM(Java Virtual Machine).
+
+Apache Spark and Kafka are writen by Scala. Nifi and Iceberg are writen by Java. (Also Hadoop, Hive, HBase, Zookeeper, Oozie, and Elasticsearch are writen by Java)
+
+## 1 Commands
 ```
 # show all java processes
 jps
@@ -34,7 +38,7 @@ or
 unzip -l $jar_name
 ```
 
-## GC (Garbage Collection)
+## 2 GC (Garbage Collection)
 - Serial
 - Parallel
 - CMS
