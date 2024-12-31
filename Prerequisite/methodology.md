@@ -8,7 +8,8 @@
 |4|[Databases](#db)|
 |5|[BI](#bi)|
 |6|[Data Engineering Skills](#de)|
-|7|[Data Architecture](#architecture)|
+|7|[Data Quality](#quality)|
+|8|[Data Architecture](#architecture)|
 
 ## <a id='etl'></a>1 ETL/ELT
 - Extraction -> Transformation -> Load
@@ -81,7 +82,15 @@
 - Data Application: BI, ML
   - Looker, Spark ML, XGBoost
 
-## <a id='architecture'></a> 7 Data Architecture
+## <a id='quality'></a> 7 Data Quality
+- Completeness
+- Consistency
+- Accuracy
+- Timeliness
+
+https://github.com/awslabs/deequ
+
+## <a id='architecture'></a> 8 Data Architecture
 - Lambda
   - Drawbacks: double code and system/conflict
 - Kappa

@@ -9,6 +9,7 @@ dbt is the industry standard for data transformation. Transform raw data into an
 |3|[Running the following commands](#run)|
 |4|[Data structures](#structure)|
 |5|[codegen](#codegen)|
+|6|[Test](#test)|
 
 ## <a id='install'></a>1 Install
 - pip install dbt
@@ -46,5 +47,11 @@ If you want to create a new project:
 - dbt run-operation generate_source --args '{"schema_name":"staging","database_name":"database_name","table_names":["staging_green_tripdata_201901","staging_yellow_tripdata_201901", "staging_taxi_zone_lookup"],"generate_columns":true}'
 - dbt run-operation generate_base_model --args '{"source_name":"staging","table_name":"staging_green_tripdata_201901"}'
 - dbt run-operation generate_model_yaml --args '{"model_names":["dwd_tripdata"]}'
+
+## <a id='test'></a>6 Tests
+- tests
+- tnit-tests
+- dbt-expectations: an extension package for dbt, inspired by the Great Expectations package for Python.
+  - https://github.com/calogica/dbt-expectations
 
 ![bigquery dataset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigquery_dataset_structure.jpg)

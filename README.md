@@ -68,7 +68,7 @@ For: Dimensional Modeling, Layers, Development(transparent to cloud platform), D
 ### 3.4 models
 - Layer: staging, ods, dwd, dim, dws
 ### 3.5 dbt build
-### 3.6 test
+### 3.6 tests, unit_tests
 - Data Validation
 ### 3.7 codegen
 - Avoid hand coding
