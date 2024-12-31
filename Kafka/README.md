@@ -48,17 +48,24 @@ bin/kafka-consumer-groups --bootstrap-server $kafka_ip --group $group_id --topic
 ![zero-copy](https://github.com/barneywill/bigdata_demo/blob/main/imgs/zero-copy.jpg)
 
 ### 4.2 ISR (In-Sync Replicas)
-a pool of fetch request
+followers with a pool of fetch request
 
 ![Kafka ISR](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_isr.jpg)
 
-### 4.3 Consumer Offset
+### 4.3 Producer ACK
+- acks=0: the producer will not wait for any acknowledgment from the server at all
+- acks=1: the leader will write the record to its local log but will respond without awaiting full acknowledgement from all followers
+- acks=all: the leader will wait for the full set of in-sync replicas to acknowledge the record
+
+![Kafka ACK ALL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_ack.jpg)
+
+### 4.4 Consumer Offset
 - __consumer_offsets topic
   - Format: ((group.id, topic, partition), offset)
 
 ![kafka Consumer Offset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_consumer_offset.jpg)
 
-### 4.4 Consumer Group Reblance
+### 4.5 Consumer Group Reblance
 - group coordinator, group leader, assignment, consume, heart beat, rebalance
 - assignment strategy: Range, Round robin, Sticky
 
