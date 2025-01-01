@@ -50,7 +50,7 @@ If you want to create a new project:
 
 ## <a id='test'></a>6 Tests
 - tests
-- tnit-tests
+- unit-tests: test your sql like code
 - dbt-expectations: an extension package for dbt, inspired by the Great Expectations package for Python.
   - https://github.com/calogica/dbt-expectations
 

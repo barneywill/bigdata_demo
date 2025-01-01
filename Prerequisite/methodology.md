@@ -83,12 +83,24 @@
   - Looker, Spark ML, XGBoost
 
 ## <a id='quality'></a> 7 Data Quality
-- Completeness
-- Consistency
-- Accuracy
-- Timeliness
+- Completeness: missing or not
+  - Attribute-level(columns), Record-level(rows)
+- Validity: meet certain criteria
+  - data format(phone, zipcode, email, date), data range(min, max, enumeration, nullable), complex rules(if a = 1 then b < 0.5)
+- Uniqueness: duplication or not
+- Timeliness: available before when
+  - Freshness, Latency
+- Consistency: like 10 records in ODS layer but only 1 record in ADS layer
+- Accuracy: correct or not
+- Integrity: the accuracy and consistency of data over its lifecycle
 
-https://github.com/awslabs/deequ
+### Frameworks
+- https://github.com/awslabs/deequ
+- https://github.com/great-expectations/great_expectations
+- https://github.com/sodadata/soda-core
+- https://github.com/calogica/dbt-expectations
+  
+![Data Quality](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_quality.jpg)
 
 ## <a id='architecture'></a> 8 Data Architecture
 - Lambda
