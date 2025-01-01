@@ -80,7 +80,8 @@
   - dbt
 - Data Pipeline Orchestration
   - Airflow, Cloud Composer
-- Data Monitoring
+- Data Quality
+  - Deequ
 - Data Application: BI, ML
   - Looker, Spark ML, XGBoost
 
@@ -88,7 +89,7 @@
 - Completeness: missing or not
   - Attribute-level(columns), Record-level(rows)
 - Validity: meet certain criteria
-  - data format(phone, zipcode, email, date), data range(min, max, enumeration, nullable), complex rules(if a = 1 then b < 0.5)
+  - data format(phone, zipcode, email, date), data type(integer, string), data range(min, max, enumeration, nullable), complex rules(if a = 1 then b < 0.5)
 - Uniqueness: duplication or not
 - Timeliness: available before when
   - Freshness, Latency
@@ -96,18 +97,19 @@
 - Accuracy: correct or not
 - Integrity: the accuracy and consistency of data over its lifecycle
 
-### Frameworks
+### Open Source Frameworks
 - https://github.com/awslabs/deequ
 - https://github.com/great-expectations/great_expectations
+  - https://github.com/calogica/dbt-expectations
 - https://github.com/sodadata/soda-core
-- https://github.com/calogica/dbt-expectations
+- https://github.com/ubisoft/mobydq
   
 ![Data Quality](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_quality.jpg)
 
 ## <a id='architecture'></a> 8 Data Architecture
-- Lambda
-  - Drawbacks: double code and system/conflict
-- Kappa
+- Lambda: Batch + Real-time
+  - Drawbacks: double code and system/conflicts
+- Kappa: Only Real-time
   - Drawbacks: re-precess/out of order data/cold storage/complex joins
 
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
