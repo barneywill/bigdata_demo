@@ -11,6 +11,8 @@
 |7|[Data Quality](#quality)|
 |8|[Data Architecture](#architecture)|
 
+![Data Lifecircle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_lifecircle.jpg)
+
 ## <a id='etl'></a>1 ETL/ELT
 - Extraction -> Transformation -> Load
   - Usually from Data Sources to Data Lake/Data Warehouse/Kafka

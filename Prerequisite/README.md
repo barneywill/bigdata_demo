@@ -9,7 +9,7 @@
 |5|[Terraform](#terraform)|
 |6|[Linux](#linux)|
 |7|[Mysql](#mysql)|
-|8|[Methodology](#methodology)|
+|8|[Methodology(ETL, Map-Reduce, Databases, Data Warehouse, Data Quality, Data Engineering Skills, Data Architecture)](#methodology)|
 |9|[Other](#other)|
 
 
