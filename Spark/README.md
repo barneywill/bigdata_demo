@@ -10,7 +10,7 @@ Apache Spark is a unified analytics engine for large-scale data processing.
 |4|[Structured Streaming](#streaming)|
 |5|[Operations: Transformation & Actions](#operation)|
 |6|[Spark SQL](#sql)|
-|7|[Internals](#internal)|
+|7|[Internals(Job/Stage/Task, RDD, Memory Management, Shuffle, Join, Cache/Persist/Checkpoint)](#internal)|
 |8|[Trouble Shooting](#trouble)|
 
 ![spark execution](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_execution.jpg)
@@ -113,6 +113,11 @@ https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-p
 - Job -> Stages -> Tasks
 
 ![Spark Job Stage Tasks](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job_stage_task.jpg)
+
+### RDD
+Resilient Distributed Dataset: a fault-tolerant collection of elements partitioned across the nodes of the cluster that can be operated on in parallel.
+
+![Spark RDD](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_rdd.jpg)
 
 ### Executor Memory Management
 - Execution
