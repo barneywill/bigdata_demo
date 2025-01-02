@@ -116,10 +116,10 @@ https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-p
 
 ### Executor Memory Management
 - Execution
-- Storage
+- Storage: RDD Data, Cache
 - Parameters
-  - spark.memory.fraction
-  - spark.memory.storageFraction
+  - spark.memory.fraction: default 0.6
+  - spark.memory.storageFraction: default 0.5
 
 ![Spark Memory Management](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_memory.jpg)
 
@@ -130,11 +130,19 @@ Pull based
 
 ### Join
 - Broadcast Hash Join: spark.sql.autoBroadcastJoinThreshold
+  - No shuffle
 - Shuffle Hash Join
+  - Shuffle based on join keys
 - Shuffle Sort Merge Join: spark.sql.join.preferSortMergeJoin
+  - Shuffle based on join keys which are also sorted
 - Cartesian Join
 
-### Checkpoint
+### Cache, Persist, Checkpoint
+- Cache: Memory only
+- Persist: Different Storage Levels
+- Checkpoint: Disk Only, can restore after restarting
+
+![Storage Levels](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_storage_level.jpg)
 
 ### Sort
 
