@@ -132,7 +132,7 @@ Pull based
 - Broadcast Hash Join: spark.sql.autoBroadcastJoinThreshold
   - No shuffle
 - Shuffle Hash Join
-  - Shuffle based on join keys
+  - Shuffle based on join keys which are hashed
 - Shuffle Sort Merge Join: spark.sql.join.preferSortMergeJoin
   - Shuffle based on join keys which are also sorted
 - Cartesian Join
