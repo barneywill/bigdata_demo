@@ -10,7 +10,7 @@ Apache Spark is a unified analytics engine for large-scale data processing.
 |4|[Structured Streaming](#streaming)|
 |5|[Operations: Transformation & Actions](#operation)|
 |6|[Spark SQL](#sql)|
-|7|[Internals(Job/Stage/Task, RDD, Memory Management, Shuffle, Join, Cache/Persist/Checkpoint)](#internal)|
+|7|[Internals(Job/Stage/Task, RDD/Partition, Shuffle, Join, Cache/Persist/Checkpoint)](#internal)|
 |8|[Trouble Shooting](#trouble)|
 
 ![spark execution](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_execution.jpg)
@@ -109,17 +109,12 @@ https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.12.0/commons-p
 
 ## <a id='internal'></a>7 Internals
 
-### Job Execution
+### 7.1 Job Execution
 - Job -> Stages -> Tasks
 
 ![Spark Job Stage Tasks](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_job_stage_task.jpg)
 
-### RDD
-Resilient Distributed Dataset: a fault-tolerant collection of elements partitioned across the nodes of the cluster that can be operated on in parallel.
-
-![Spark RDD](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_rdd.jpg)
-
-### Executor Memory Management
+### 7.2 Executor Memory Management
 - Execution
 - Storage: RDD Data, Cache
 - Parameters
@@ -128,12 +123,17 @@ Resilient Distributed Dataset: a fault-tolerant collection of elements partition
 
 ![Spark Memory Management](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_memory.jpg)
 
-### Partition, Shuffle
+### 7.3 RDD, Partition
+Resilient Distributed Dataset: a fault-tolerant collection of elements partitioned across the nodes of the cluster that can be operated on in parallel.
+
+![Spark RDD](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_rdd.jpg)
+
+### 7.4 Shuffle
 Pull based
 
 ![shuffle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/shuffle.jpg)
 
-### Join
+### 7.5 Join
 - Broadcast Hash Join: spark.sql.autoBroadcastJoinThreshold
   - No shuffle
 - Shuffle Hash Join
@@ -142,25 +142,25 @@ Pull based
   - Shuffle based on join keys which are also sorted
 - Cartesian Join
 
-### Cache, Persist, Checkpoint
+### 7.6 Cache, Persist, Checkpoint
 - Cache: Memory only
 - Persist: Different Storage Levels
 - Checkpoint: Disk Only, can restore after restarting
 
 ![Storage Levels](https://github.com/barneywill/bigdata_demo/blob/main/imgs/spark_storage_level.jpg)
 
-### Sort
+### 7.7 Sort
 
-### Whole Stage Code Generation, since version 2
+### 7.8 Whole Stage Code Generation, since version 2
 - volcano iterator model
 - WholeStageCodegenExe
 
-### Vectorized Execution Engine, since version 3
+### 7.9 Vectorized Execution Engine, since version 3
 - SMID: Single Instruction, Multiple Data
 
 ![smid](https://github.com/barneywill/bigdata_demo/blob/main/imgs/simd.jpg)
 
-### Adaptive Query Execution, since version 3
+### 7.10 Adaptive Query Execution, since version 3
 
 ## <a id='trouble'></a>8 Trouble Shooting
 Spark UI
