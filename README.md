@@ -13,7 +13,7 @@
 |7|[Spark](#spark)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/Spark/python'>Word Count Codes</a>, Operations, Spark SQL, Structured Streaming, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/scala'>ML</a>|
 |8|[Iceberg](#iceberg)|Near Real-time Data Warehouse, Parquet|
 |9|[Machine Learning](#ml)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
-|10|[Clickhouse](#clickhouse)|SSB|
+|10|[Clickhouse](#clickhouse)|Columnar, OLAP, MPP, Vectorized, Table Engines, Approximate calculation, Index, SSB|
 
 ## Architecture
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
@@ -159,6 +159,12 @@ Serve ML model on docker
 ![xgboost](https://github.com/barneywill/bigdata_demo/blob/main/imgs/xgboost_model.jpg)
 
 ## 10 <a id='clickhouse' href='https://github.com/barneywill/bigdata_demo/tree/main/Clickhouse'>Clickhouse</a>
+### 10.1 Concepts
+Columnar, OLAP, MPP, Vectorized
+### 10.2 Tables
+Table Engines, Approximate calculation, Index
+### 10.3 SSB
+Star Schema Benchmark
 
 ## 11 Other
 ### 11.1 AWS

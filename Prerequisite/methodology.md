@@ -55,7 +55,9 @@
 ## <a id='db'></a>4 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
-- Column-based(Columnar) vs Row-based
+- Column-oriented(Columnar) vs Row-oriented
+  - Row-oriented: In a row-oriented database, even though the query only processes a few out of the existing columns, the system still needs to load the data from other existing columns from disk to memory. 
+  - Column-oriented: only the columns required for a query are read from disk, avoiding unnecessary I/O for unused data.
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
