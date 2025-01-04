@@ -8,8 +8,8 @@ https://www.vldb.org/pvldb/vol17/p3731-schulze.pdf
 
 | |Index|
 |---|---|
-|1|[Concepts(Columnar, OLAP, MPP, Vectorized, Data Compression)](#concept)|
-|2|[Table(Table Engines)](#table)|
+|1|[Concepts(Columnar, OLAP, MPP, Vectorized)](#concept)|
+|2|[Table(Table Engines, Data Ingestion, Sharding, Data Compression, Data Replication)](#table)|
 |3|[Approximate calculation](#approximate)|
 |4|[Index](#index)|
 |5|[SSB (Star Schema Benchmark)](#ssb)|
@@ -44,20 +44,6 @@ A processing paradigm where hundreds or thousands of processing nodes work on pa
 
 ![smid](https://github.com/barneywill/bigdata_demo/blob/main/imgs/simd.jpg)
 
-### 1.5 Data Compression
-Data compression not only reduces the storage size of the database tables, but in many cases, it also improves query performance as local disks and network I/O are often constrained by low throughput.
-- general
-  - LZ4
-  - LZ4HC[(level)]: LZ4 HC (high compression) algorithm with configurable level.
-  - ZSTD[(level)]
-- specialized
-  - Delta: for integer values, raw values are replaced by the difference of two neighboring values, except for the first value that stays unchanged.
-  - DoubleDelta: for integer values, calculates delta of deltas and writes it in compact binary form.
-  - GCD for integer values, calculates the greatest common denominator (GCD) of the values in the column, then divides each value by the GCD.
-  - Gorilla for floating-point values
-  - FPC for floating-point values
-  - T64
-
 ## 2 <a id='table'></a>Table
 - In ClickHouse, each table consists of multiple "table parts". A part is created whenever a user inserts data into the table (INSERT statement).
 - To avoid that too many parts accumulate, ClickHouse runs a merge operation in the background which continuously combines multiple (small) parts into a single bigger part.
@@ -80,12 +66,55 @@ Data compression not only reduces the storage size of the database tables, but i
   - S3 Queue
 
 ### 2.2 Examples: PV, UV
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/pv_uv.sql' target='_blank'>pv_uv.sql</a>
+
+### 2.3 Data Ingestion
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/clickhouse.sql' target='_blank'>clickhouse.sql</a>
+- url
+- local file
+- Mysql
+- Kafka
+- Google Cloud Storage
+
+![GCS HMAC KEY](https://github.com/barneywill/bigdata_demo/blob/main/imgs/gcs_hmac.jpg)
+
+### 2.4 Sharding
+Sharding data across multiple servers can be used to divide the load if you exceed the capacity of a single server. The destination server is determined by the sharding key, and is defined when you create the distributed table. 
 
 
-### 2.3 Read/Write from Google Cloud Storage
+### 2.5 Data Compression
+Data compression not only reduces the storage size of the database tables, but in many cases, it also improves query performance as local disks and network I/O are often constrained by low throughput.
+- general
+  - LZ4
+  - LZ4HC[(level)]: LZ4 HC (high compression) algorithm with configurable level.
+  - ZSTD[(level)]
+- specialized
+  - Delta: for integer values, raw values are replaced by the difference of two neighboring values, except for the first value that stays unchanged.
+  - DoubleDelta: for integer values, calculates delta of deltas and writes it in compact binary form.
+  - GCD for integer values, calculates the greatest common denominator (GCD) of the values in the column, then divides each value by the GCD.
+  - Gorilla for floating-point values
+  - FPC for floating-point values
+  - T64
 
+### 2.6 Data Replication
+Data can be replicated across multiple cluster nodes for high availability, failover, and zero downtime upgrades. Replication does not depend on sharding. Each shard has its own independent replication.
+- ReplicatedMergeTree
+- ReplicatedReplacingMergeTree
+- ReplicatedAggregatingMergeTree
 
-## 3 <a id='approximate'></a>Approximate calculation
+## 3 With Spark
+
+```
+# Put jars under $SPARK_HOME/jars
+# clickhouse jdbc
+https://repo1.maven.org/maven2/com/clickhouse/clickhouse-jdbc/0.7.2/clickhouse-jdbc-0.7.2.jar
+# spark connector
+https://repo1.maven.org/maven2/com/clickhouse/spark/clickhouse-spark-runtime-3.5_2.12/0.8.1/clickhouse-spark-runtime-3.5_2.12-0.8.1.jar
+https://repo1.maven.org/maven2/com/clickhouse/clickhouse-client/0.7.2/clickhouse-client-0.7.2.jar
+https://repo1.maven.org/maven2/com/clickhouse/clickhouse-http-client/0.7.2/clickhouse-http-client-0.7.2.jar
+```
+
+## 4 <a id='approximate'></a>Approximate calculation
 ClickHouse provides ways to trade accuracy for performance. 
 - some of its aggregate functions calculate the distinct value count, the median, and quantiles approximately.
 - queries can be run on a sample of the data to compute an approximate result quickly.
