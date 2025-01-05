@@ -4,7 +4,6 @@
 - Parquet is built to support very efficient compression and encoding schemes. 
 
 ## 1 Hierarchy
-
-file -> row groups -> column chunks -> pages(data/index/dictionary)
+- file -> row groups -> column chunks -> pages(data/index/dictionary)
 
 ![parquet](https://github.com/barneywill/bigdata_demo/blob/main/imgs/parquet.jpg)
