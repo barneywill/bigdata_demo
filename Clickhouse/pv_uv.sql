@@ -8,7 +8,7 @@ create table if not exists test.page_access_log
     `create_time` DateTime comment 'Create Time',
     `page_url` String comment 'Page URL',
     `user_id` UInt64 comment 'User ID',
-) Engine = MergeTree()
+) engine = MergeTree()
     partition by toYYYYMMDD(access_time)
     order by `access_time`;
 

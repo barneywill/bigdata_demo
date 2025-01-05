@@ -163,7 +163,12 @@ Serve ML model on docker
 Columnar, OLAP, MPP, Vectorized
 ### 10.2 Tables
 Table Engines, Approximate calculation, Index
-### 10.3 SSB
+### 10.3 Examples
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/clickhouse_ingestion.sql' target='_blank'>clickhouse_ingestion.sql</a>,
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/pv_uv.sql' target='_blank'>pv_uv.sql</a>,
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/audience_targeting.sql' target='_blank'>audience_targeting.sql</a>
+
+### 10.4 SSB
 Star Schema Benchmark
 
 ## 11 Other
