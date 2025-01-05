@@ -1,6 +1,6 @@
 # Hive
 
-![Hive Structure](https://github.com/barneywill/bigdata_demo/blob/main/imgs/hive_structure.jpg)
+![Hive Architecture](https://github.com/barneywill/bigdata_demo/blob/main/imgs/hive_architecture.jpg)
 
 ## 1 Problems
 data in the table is tracked at the folder level
