@@ -14,6 +14,7 @@
 |8|[Iceberg](#iceberg)|Hierarchy(metadata, manifest list, manifest file, data file), Near Real-time Data Warehouse|
 |9|[Machine Learning](#ml)|<a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Linear Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Logistic Regression</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>Decision Tree</a>, <a href='https://github.com/barneywill/bigdata_demo/tree/main/ML/python'>XGBoost</a>|
 |10|[Clickhouse](#clickhouse)|Columnar, OLAP, MPP, Vectorized, Table Engines, Approximate calculation, Index, SSB|
+|11|[Deequ](#deequ)|Data Profiling, Anomaly Detection, Automatic Suggestion of Constraints|
 
 ## Architecture
 ![bigdata cloud](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bigdata_cloud.jpg)
@@ -174,15 +175,19 @@ Table Engines, Approximate calculation, Index
 ### 10.4 SSB
 Star Schema Benchmark
 
-## 11 Other
-### 11.1 AWS
-#### 11.1.1 Redshit 
-Based on Postgresql
-#### 11.1.2 Athena
-Based on Presto
-### 11.2 Databrics
+## 11 <a id='deequ'></a>Deequ
+### 11.1 Scenarios
+Data Profiling, Anomaly Detection, Automatic Suggestion of Constraints, Storing Computed Metrics in a MetricsRepository
 
-### 11.3 Databricks vs Snowflake
+## 12 Other
+### 12.1 AWS
+#### 12.1.1 Redshit 
+Based on Postgresql
+#### 12.1.2 Athena
+Based on Presto
+### 12.2 Databrics
+
+### 12.3 Databricks vs Snowflake
 
 Thanks for:
 [data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
