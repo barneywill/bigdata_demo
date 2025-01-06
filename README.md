@@ -175,7 +175,7 @@ Table Engines, Approximate calculation, Index
 ### 10.4 SSB
 Star Schema Benchmark
 
-## 11 <a id='deequ'></a>Deequ
+## 11 <a id='deequ' href='https://github.com/barneywill/bigdata_demo/tree/main/Deequ'>Deequ</a>
 ### 11.1 Scenarios
 Data Profiling, Anomaly Detection, Automatic Suggestion of Constraints, Storing Computed Metrics in a MetricsRepository
 

@@ -82,6 +82,7 @@ https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12
 ```
 
 ### spark-sql
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Iceberg/iceberg_spark_sql.sql' target='_blank'>iceberg_spark_sql.sql</a>
 ```
 # creates a path-based catalog named local for tables under $PWD/warehouse
 # make sure there is not HADOOP_HOME or HIVE_HOME as environment variables
@@ -90,6 +91,9 @@ spark-sql --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.Iceber
     --conf spark.sql.catalog.local.type=hadoop \
     --conf spark.sql.catalog.local.warehouse=$PWD/warehouse
 ```
+
+### pyspark
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Iceberg/iceberg_pyspark.py' target='_blank'>iceberg_pyspark.py</a>
 
 ### Structured Streaming
 ```

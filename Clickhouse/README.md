@@ -139,7 +139,11 @@ Data compression not only reduces the storage size of the database tables, but i
   - T64
 
 ## 3 <a id='spark'></a>With Spark
-With Clickhouse jdbc driver, Spark is able to read and write Clickhouse just like Mysql. But with spark connector, it's more efficient.
+With Clickhouse jdbc driver, Spark is able to read and write Clickhouse just like Mysql. 
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/clickhouse_pyspark_jdbc.py' target='_blank'>clickhouse_pyspark_jdbc.py</a>
+
+But with spark connector, it's more efficient.
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Clickhouse/clickhouse_pyspark_connector.py' target='_blank'>clickhouse_pyspark_connector.py</a>
 
 ```
 # Put jars under $SPARK_HOME/jars
