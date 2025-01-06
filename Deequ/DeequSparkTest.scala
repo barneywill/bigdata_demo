@@ -4,7 +4,7 @@ import com.amazon.deequ.VerificationSuite
 import com.amazon.deequ.checks.{Check, CheckLevel, CheckStatus}
 import com.amazon.deequ.constraints.ConstraintStatus
 
-object WordCountRDD {
+object DeequSparkTest {
     def main(args : Array[String]) : Unit => {
         val sparkConf = new SparkConf()
             .setMaster("local[*]")
