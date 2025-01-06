@@ -6,9 +6,10 @@ Iceberg is a high-performance format for huge analytic tables.
 |---|---|
 |1|[Hierarchy(Catalog, metadata, manifest list, manifest file, data file)](#hierarchy)|
 |2|[Performance](#performance)|
-|3|[Wth Spark](#spark)|
-|4|[Near Real-time Data Warehouse](#realtime)|
-|5|[Iceberg on Cloud](#cloud)|
+|3|[Schema Evolution](#evolution)|
+|4|[With Spark](#spark)|
+|5|[Near Real-time Data Warehouse](#realtime)|
+|6|[Iceberg on Cloud(GCP, AWS)](#cloud)|
 
 ![Iceberg Structure](https://github.com/barneywill/bigdata_demo/blob/main/imgs/iceberg_structure.jpg)
 
@@ -62,7 +63,16 @@ manifest files track data files as well as additional details and statistics abo
 - Clarify the need of Time Travel, and expire useless snapshots as soon as possible.
 - Keep track on garbage files.
 
-## 3 <a id='spark'></a>With Spark
+## 3 <a id='evolution'></a>Schema Evolution
+Iceberg schema updates are metadata changes, so no data files need to be rewritten to perform the update.
+- ADD columns
+- Drop columns
+- Rename columns
+- Update a column type
+- Reorder columns
+- Update partitions
+
+## 4 <a id='spark'></a>With Spark
 
 ```
 # jdk 11 or higher
@@ -91,19 +101,31 @@ val df = spark.readStream
 
 ![iceberg folders and files](https://github.com/barneywill/bigdata_demo/blob/main/imgs/iceberg_files.jpg)
 
-## 4 <a id='realtime'></a>Near Real-time Data Warehouse
+## 5 <a id='realtime'></a>Near Real-time Data Warehouse
 From Kafka+Flink to Iceberg+Flink
 
 ![Near Real-time Data Warehouse](https://github.com/barneywill/bigdata_demo/blob/main/imgs/realtime_data_warehouse.jpg)
 
-## 5 <a id='cloud'></a>Iceberg on Cloud
+## 6 <a id='cloud'></a>Iceberg on Cloud
 
-### 5.1 GCP
+### 6.1 GCP
 
 ![iceberg on gcp](https://github.com/barneywill/bigdata_demo/blob/main/imgs/iceberg_gcp.jpg)
 
-### 5.2 Bigquery Iceberg Table
+### 6.2 Bigquery Iceberg Table
+```
+CREATE TABLE dataset_name.table_name (
+ column1 STRING,
+ column2 INT64
+)
+WITH CONNECTION connection_name
+OPTIONS (
+ file_format = ‘PARQUET’,
+ table_format = ‘ICEBERG’,
+ storage_uri = ‘gs://your-bucket/path-to-data’
+);
+```
 
-### 5.3 AWS
+### 6.3 AWS
 
 ![iceberg on aws](https://github.com/barneywill/bigdata_demo/blob/main/imgs/iceberg_aws.jpg)
