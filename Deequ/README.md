@@ -9,6 +9,8 @@ https://repo1.maven.org/maven2/com/amazon/deequ/deequ/2.0.8-spark-3.5/deequ-2.0.
 
 ## 2 Scenario
 
+<a href='https://github.com/barneywill/bigdata_demo/blob/main/Deequ/DeequSparkTest.scala' target='_blank'>DeequSparkTest.scala</a>
+
 ### 2.1 Data Profiling
 Deequ supports single-column profiling of such data and its implementation scales to large datasets with billions of rows. 
 - completeness
