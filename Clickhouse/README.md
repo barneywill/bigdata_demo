@@ -61,6 +61,7 @@ Cluster -> Table -> Shard -> Replica
   - AggregatingMergeTree: keep aggregating on the same keys
     - AggregateFunction: sum, avg, min, max, count, uniq, bigmap, approx_top_k
     - sumState, uniqState; sumMerge, uniqMerge
+  - CollapsingMergeTree: think about Optimistic Concurrent Control
 - Log: should only be used for small volumes which need to be written quickly.
 - Integrations
   - URL
