@@ -2,18 +2,33 @@
 
 | |Index|
 |---|---|
-|1|[ETL/ELT](#etl)|
-|2|[Map-Reduce](#mr)|
-|3|[Data Warehouse](#dw)|
-|4|[Databases](#db)|
-|5|[BI](#bi)|
-|6|[Data Engineering Skills](#de)|
-|7|[Data Quality](#quality)|
-|8|[Data Architecture](#architecture)|
+|1|[CAP](#cap)|
+|2|[ETL/ELT](#etl)|
+|3|[Map-Reduce](#mr)|
+|4|[Data Warehouse](#dw)|
+|5|[Databases](#db)|
+|6|[BI](#bi)|
+|7|[Data Engineering Skills](#de)|
+|8|[Data Quality](#quality)|
+|9|[Data Architecture](#architecture)|
 
 ![Data Lifecircle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_lifecircle.jpg)
 
-## <a id='etl'></a>1 ETL/ELT
+## <a id='cap'></a>1 CAP
+Any distributed data store can provide only two of the following three guarantees:
+- Consistency: Every read receives the most recent write or an error.
+- Availability: Every request received by a non-failing node in the system must result in a response.
+- Partion Tolerance: The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+
+Example: 
+- HBase: CP
+- Kafka: CP or AP
+  - replication.factor
+  - min.insync.replicas
+  - replica.lag.time.max.ms
+  - unclean.leader.election.enable
+
+## <a id='etl'></a>2 ETL/ELT
 - Extraction -> Transformation -> Load
   - Usually from Data Sources to Data Lake/Data Warehouse/Kafka
 - Structured Data, Unstructured Data
@@ -22,15 +37,15 @@
 
 ![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpg)
 
-## <a id='mr'></a>2 Map-Reduce
+## <a id='mr'></a>3 Map-Reduce
 - Map: data is split between parallel processing tasks. Transformation logic can be applied to each chunk of data.
 - Reduce: handle aggregating data from the Map set
 
 ![Map Reduce](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mr.jpg)
 
-## <a id='dw'></a>3 Data Warehouse
+## <a id='dw'></a>4 Data Warehouse
 
-### 3.1 Kimball's Dimensional Data Modeling
+### 4.1 Kimball's Dimensional Data Modeling
 - Dimension Table, Fact Table
 - Design Schema
   - Star Schema
@@ -38,7 +53,7 @@
 
 ![Design Schema](https://github.com/barneywill/bigdata_demo/blob/main/imgs/design_schema.jpg)
 
-### 3.2 Data Warehouse Layers
+### 4.2 Data Warehouse Layers
 
 <table border="2" style="width:100%; padding: 10px;">
     <tr style="height:30px;"><th style="width:5%;text-align: center;">Layer</th><th style="width:20%;text-align: center;">Full Name</th><th style="text-align: center;">Explanation</th></tr>
@@ -52,7 +67,7 @@
 
 ![data warehouse](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_warehouse.jpeg)
 
-## <a id='db'></a>4 Databases
+## <a id='db'></a>5 Databases
 - SQL vs No-SQL
 - OLTP vs OLAP
 - Column-oriented(Columnar) vs Row-oriented
@@ -61,12 +76,12 @@
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
-## <a id='bi'></a>5 BI
+## <a id='bi'></a>6 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)
 
-## <a id='de'></a>6 Data Engineering Skills
+## <a id='de'></a>7 Data Engineering Skills
 - Data Source
   - Mysql, Postgresql, Log, Gateway
 - Data Ingestion: Batch, Streaming
@@ -87,7 +102,7 @@
 - Data Application: BI, ML
   - Looker, Spark ML, XGBoost
 
-## <a id='quality'></a> 7 Data Quality
+## <a id='quality'></a> 8 Data Quality
 - Completeness: missing or not
   - Attribute-level(columns), Record-level(rows)
 - Validity: meet certain criteria
@@ -108,7 +123,7 @@
   
 ![Data Quality](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_quality.jpg)
 
-## <a id='architecture'></a> 8 Data Architecture
+## <a id='architecture'></a> 9 Data Architecture
 - Lambda: Batch + Real-time
   - Drawbacks: double code and system/conflicts
 - Kappa: Only Real-time
