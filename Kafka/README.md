@@ -85,6 +85,7 @@ The opposite side: Each time data traverses the user-kernel boundary, it must be
 ![kafka Consumer Offset](https://github.com/barneywill/bigdata_demo/blob/main/imgs/kafka_consumer_offset.jpg)
 
 ### 4.6 Consumer Group Reblance
+Every broker is elected as the coordinator for a subset of the consumer groups. The co-ordinator broker for a group is responsible for orchestrating a rebalance operation on consumer group membership changes or partition changes for the subscribed topics. It is also responsible for communicating the resulting partition ownership configuration to all consumers of the group undergoing a rebalance operation.
 - group coordinator, group leader, assignment, consume, heart beat, rebalance
 - assignment strategy: Range, Round robin, Sticky
 

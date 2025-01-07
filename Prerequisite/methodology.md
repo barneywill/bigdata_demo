@@ -7,10 +7,11 @@
 |3|[Map-Reduce](#mr)|
 |4|[Data Warehouse](#dw)|
 |5|[Databases](#db)|
-|6|[BI](#bi)|
-|7|[Data Engineering Skills](#de)|
-|8|[Data Quality](#quality)|
-|9|[Data Architecture](#architecture)|
+|6|[Transaction](#transaction)|
+|7|[BI](#bi)|
+|8|[Data Engineering Skills](#de)|
+|9|[Data Quality](#quality)|
+|10|[Data Architecture](#architecture)|
 
 ![Data Lifecircle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_lifecircle.jpg)
 
@@ -76,12 +77,24 @@ Example:
 
 ![databases](https://github.com/barneywill/bigdata_demo/blob/main/imgs/databases.jpeg)
 
-## <a id='bi'></a>6 BI
+## <a id='db'></a>6 Transaction
+A transaction is any operation that is treated as a single unit of work, which either completes fully or does not complete at all, and leaves the storage system in a consistent state.
+### ACID
+- Atomicity: each statement in a transaction (to read, write, update or delete data) is treated as a single unit.
+- Consistency: ensures that transactions only make changes to tables in predefined, predictable ways.
+- Isolation: when multiple users are reading and writing from the same table all at once, isolation of their transactions ensures that the concurrent transactions don't interfere with or affect one another.
+- Durability: ensures that changes to your data made by successfully executed transactions will be saved, even in the event of system failure.
+
+### Two-phase commit
+coordinator, phase 1, phase 2
+
+
+## <a id='bi'></a>7 BI
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ![BI](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bi_charts.jpeg)
 
-## <a id='de'></a>7 Data Engineering Skills
+## <a id='de'></a>8 Data Engineering Skills
 - Data Source
   - Mysql, Postgresql, Log, Gateway
 - Data Ingestion: Batch, Streaming
@@ -102,7 +115,7 @@ Example:
 - Data Application: BI, ML
   - Looker, Spark ML, XGBoost
 
-## <a id='quality'></a> 8 Data Quality
+## <a id='quality'></a> 9 Data Quality
 - Completeness: missing or not
   - Attribute-level(columns), Record-level(rows)
 - Validity: meet certain criteria
@@ -123,7 +136,7 @@ Example:
   
 ![Data Quality](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_quality.jpg)
 
-## <a id='architecture'></a> 9 Data Architecture
+## <a id='architecture'></a> 10 Data Architecture
 - Lambda: Batch + Real-time
   - Drawbacks: double code and system/conflicts
 - Kappa: Only Real-time
