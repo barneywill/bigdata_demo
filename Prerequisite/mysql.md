@@ -6,6 +6,7 @@
 |2|[Dump & Import](#dump)|
 |3|[Other](#other)|
 |4|[Master & Slave](#master)|
+|5|[Other](#other)|
 
 ## 1 <a id='user'></a>User
 
@@ -114,3 +115,92 @@ mysql> change master to master_host='$master_server',master_port=3306,master_use
 mysql> start slave;
 mysql> show slave status;
 ```
+
+## 5 <a id='other'></a>Other
+
+### 5.1 Index
+
+#### Clustered Index
+ InnoDB tables use the primary key as the clustered index, meaning the data is physically organized based on the primary key values.
+- Primary key
+
+#### Secondary Index
+A secondary or non-clustered index is an additional index separate from the primary (clustered) index. It just references the primary key.
+- Unique
+- Index: one column
+- Composite indexes: multiple columns
+- Full-text
+
+#### Underlying Data Structure
+B+ Trees: efficient for insertion, deletion, and lookup operations, with data stored in a sorted order.
+- M-way search tree(from binary search tree), balance tree
+- All data is only at leaf nodes.
+- Leaf nodes are stored as structural linked list, so sequential access is possible just like linked list
+
+![B+ Tree](https://github.com/barneywill/bigdata_demo/blob/main/imgs/bplustree.jpg)
+
+### 5.2 Window Function vs Group By
+
+#### 5.2.1 Window Function
+Window functions allow us to apply functions like AVG, COUNT, MAX, and MIN on a group of records while still leaving the individual records accessible.
+
+##### Aggregate functions
+```
+AVG()
+BIT_AND()
+BIT_OR()
+BIT_XOR()
+COUNT()
+JSON_ARRAYAGG()
+JSON_OBJECTAGG()
+MAX()
+MIN()
+STDDEV_POP(), STDDEV(), STD()
+STDDEV_SAMP()
+SUM()
+VAR_POP(), VARIANCE()
+VAR_SAMP()
+```
+
+##### Positional functions 
+```
+CUME_DIST()
+DENSE_RANK()
+FIRST_VALUE()
+LAG()
+LAST_VALUE()
+LEAD()
+NTH_VALUE()
+NTILE()
+PERCENT_RANK()
+RANK()
+ROW_NUMBER()
+```
+
+##### Example
+```
+SELECT year, country, product, profit,
+    SUM(profit) OVER() AS total_profit,
+    SUM(profit) OVER(PARTITION BY country) AS country_profit
+FROM sales
+ORDER BY country, year, product, profit;
+```
+
+#### 5.2.2 Group By
+The GROUP BY clause allows us to group a set of records based on some criteria and apply a function (e.g. AVG or MAX) to each group, obtaining one result for each group of records.
+
+##### Aggregate functions
+Only
+
+##### Example
+```
+SELECT year, country, product, 
+    SUM(profit) AS total_profit
+FROM sales
+GROUP BY country, year, product
+```
+
+### 5.3 Optimization
+- Improving query performance: By creating an index on the column used in the WHERE clause, the database can quickly locate the relevant rows, resulting in much faster query execution. 
+- Indexing for joins: If two tables are frequently joined on a specific column, creating an index on that column in both tables can reduce the time required to match rows.
+- Handling large datasets: Partitioning large tables and creating indexes on each partition can help distribute the workload and improve performance.
