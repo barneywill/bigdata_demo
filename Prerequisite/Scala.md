@@ -2,6 +2,7 @@
 
 | |Index|
 |---|---|
+|0|[Hello World](#hello)|
 |1|[String](#string)|
 |2|[Loop](#loop)|
 |3|[Condition(Pattern Matching)](#condition)|
@@ -12,10 +13,25 @@
 |8|[IO](#io)|
 |9|[Actor](#actor)|
 |10|[continue, break](#break)|
-|11|[Functional](#functional)|
-|12|[Word Count(Map, Reduce)](#count)|
+|11|[Option, Some, None](#option)|
+|12|[Functional](#functional)|
+|13|[Word Count(Map, Reduce)](#count)|
+
+## 0 <a id='hello'></a>Hello World
+```
+object HelloWorld {
+    def main(args : Array[String]) : Unit = {
+        println("Hello World")
+    }
+}
+
+object HelloWorld extends App {
+    println("Hello World")
+}
+```
 
 ## 1 <a id='string'></a>String
+### interpolation
 ```
 var str = "hello"
 val i = 123
@@ -146,7 +162,9 @@ arr.collect({case item : Int if item < 3 => item * 3}).foreach(println)
 
 ## 5 <a id='collection'></a>Collections
 ### 5.1 Map
+Immutable and mutable
 ```
+import scala.collection.mutable.Map
 var map1 = Map("a" -> 1, "b" -> 2)
 map1 += ("c" -> 3)
 map1.foreach(println)
@@ -169,7 +187,7 @@ val list4 = List.concat(list1, list2, list3)
 list4.foreach(println)
 ```
 
-## 6 <a id='bean'></a>Bean Class
+## 6 <a id='bean'></a>Case Class
 ```
 # auto generated methods: getter, setter, hashcode, equals, toString
 case class Dummy(val name : String, val age : Int)
@@ -185,6 +203,8 @@ println(arr1.sortBy(_.age).mkString("-"))
 # sortWith
 println(arr1.sortWith((item1, item2) => if (item1.name.equals(item2.name)) item1.age < item2.age else item1.name.compareTo(item2.name) < 0).mkString("-"))
 ```
+
+### 6.2 Case Class with Pattern Matching
 
 ## 7 <a id='tuple'></a>Tuple
 ```
@@ -274,7 +294,28 @@ breakable {
 }
 ```
 
-## 11 <a id='functional'></a>Functional
+## 11 <a id='option'></a>Option, Some, None
+replace Java null
+```
+def toInt(in: String): Option[Int] = {
+    try {
+        Some(Integer.parseInt(in.trim))
+    } catch {
+        case e: NumberFormatException => None
+    }
+}
+
+val intOpt = toInt(someString)
+intOpt match {
+    case Some(i) => println(i)
+    case None => println("That didn't work.")
+}
+
+print(if (intOpt == None) "That didn't work." else intOpt.get)
+```
+
+## 12 <a id='functional'></a>Functional
+### higher-order function, anonymous function
 ```
 def wrapper(str : String, f : ((String) => String)): Unit = {
     println("wrapper start")
@@ -288,15 +329,18 @@ wrapper("test", say)
 wrapper("test", (str => "hello " + str))
 ```
 
-## 12 <a id='count'></a>Word Count
-### Map
+### Tail Recursion
+@tailrec, can be optimized by compiler.
+
+## 13 <a id='count'></a>Word Count
+### 13.1 Map
 ```
 # flatMap
 val arr = Array("1,2,3", "1,4,5")
 arr.flatMap(_.split(",")).distinct.foreach(println)
 ```
 
-### Reduce
+### 13.2 Reduce
 ```
 # groupBy, reduce
 val map1 = Map("a" -> 1, "b" -> 2)

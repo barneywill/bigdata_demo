@@ -7,7 +7,8 @@
 |3|[Condition](#condition)|
 |4|[Collection(List, Set, Dictionary)](#collection)|
 |5|[IO](#io)|
-|6|[Lambda](#lambda)|
+|6|[Optional](#optional)|
+|7|[Lambda](#lambda)|
 
 ## 1 <a id='string'></a>String
 ```
@@ -152,7 +153,14 @@ f.write("hello")
 f.close()
 ```
 
-## 6 <a id='lambda'></a>Lambda
+## 6 <a id='optional'>Optional
+```
+from typing import Optional
+def example(value: Optional[str]) -> str:
+    return "none" if value is None else value
+```
+
+## 7 <a id='lambda'></a>Lambda
 ```
 add_ten = lambda arg : arg + 10
 print(add_ten(5))
