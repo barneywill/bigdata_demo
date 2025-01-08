@@ -185,6 +185,9 @@ Data Profiling, Anomaly Detection, Automatic Suggestion of Constraints, Storing 
 Based on Postgresql
 #### 12.1.2 Athena
 Based on Presto
+
+![AWS](https://github.com/barneywill/bigdata_demo/blob/main/imgs/aws_bigdata.jpg)
+
 ### 12.2 Databrics
 
 ### 12.3 Databricks vs Snowflake
