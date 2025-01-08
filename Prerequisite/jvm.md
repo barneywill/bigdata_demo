@@ -42,7 +42,7 @@ unzip -l $jar_name
 - Serial
 - Parallel
 - CMS
-- G1, from 9
-- ZGC, from 15
+- G1, from 9, a set of equal-sized heap regions
+- ZGC, from 15, load barriers with coloured pointers
 
 ![GC](https://github.com/barneywill/bigdata_demo/blob/main/imgs/gc.jpg)

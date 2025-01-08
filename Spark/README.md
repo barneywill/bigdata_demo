@@ -162,6 +162,14 @@ Pull based
 
 ### 7.10 Adaptive Query Execution, since version 3
 
+### 7.11 Data Locality
+spark.locality.wait
+- PROCESS_LOCAL
+- NODE_LOCAL
+- NO_PREF
+- RACK_LOCAL
+- ANY
+
 ## <a id='trouble'></a>8 Trouble Shooting
 Spark UI
 - Job and event timeline

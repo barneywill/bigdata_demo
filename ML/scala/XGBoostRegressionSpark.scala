@@ -1,15 +1,17 @@
+
 import org.apache.spark._
-import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel}
 import org.apache.spark.ml.feature.{StringIndexer, OneHotEncoder, VectorAssembler, VectorIndexer}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 import org.apache.spark.ml.Pipeline
+import ml.dmlc.xgboost4j.scala.spark.XGBoostClassifier
+import ml.dmlc.xgboost4j.scala.spark.XGBoostClassificationModel
 
 
-object DecisionTreeClassificationSpark {
+object XGBoostRegressionSpark {
     def main(args: Array[String]): Unit = {
         val spark = SparkSession.builder
             .master("local[*]")
-            .appName("DecisionTreeClassificationSpark_Scala")
+            .appName("XGBoostRegression_Spark_Scala")
             .getOrCreate
 
         // 1 Data preparation
@@ -23,28 +25,28 @@ object DecisionTreeClassificationSpark {
         df_train, df_test = df.randomSplit([0.8, 0.2], seed=1)
 
         // 3 Train
-        val labelIndexer = new StringIndexer().setInputCol(labelColumn).setOutputCol("indexedLabel").fit(df_train)
-        labelIndexer.save("labelIndexer")
         val indexers = categoricalColumns.map {colName => new StringIndexer().setInputCol(colName).setOutputCol(colName + "_indexed")}
         val encoders = indexers.map {indexer => new OneHotEncoder().setInputCol(indexer.getOutputCol).setOutputCol(indexer.getOutputCol + "_encoded")}
         val assembler = new VectorAssembler().setInputCols(featureColumns ++ encoders.map {encoder => encoder.getOutputCol}).setOutputCol("features").sethandleInvalid("skip")
         val featureIndexer = new VectorIndexer().setInputCol("features").setOutputCol("indexedFeatures").setMaxCategories(5)
         val lr = new LinearRegression().setLabelCol(labelColumn).setFeaturesCol("indexedFeatures").setRegParam(0.3)
 
-        val pipeline = new Pipeline().setStages(Array(labelIndexer) ++ indexers ++ encoders ++ Array(assembler, featureIndexer, lr))
-        val model = pipeline.fit(df_train)
-        val lrModel = model.stages.last.asInstanceOf[LinearRegressionModel]
-        lrModel.save("lrModel")
+        val xgbParam = Map("eta" -> 0.1f,
+            "max_depth" -> 2,
+            "objective" -> "multi:softprob",
+            "num_class" -> 3)
+        val xgbClassifier = new XGBoostClassifier(xgbParam).
+            setNumRound(100).
+            setNumWorkers(2).
+            setFeaturesCol("indexedFeatures").
+            setLabelCol(labelColumn)
 
-        // Print the coefficients and intercept for linear regression
-        println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
-        // Summarize the model over the training set and print out some metrics
-        val trainingSummary = lrModel.summary
-        println(s"numIterations: ${trainingSummary.totalIterations}")
-        println(s"objectiveHistory: [${trainingSummary.objectiveHistory.mkString(",")}]")
-        trainingSummary.residuals.show()
-        println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
-        println(s"r2: ${trainingSummary.r2}")
+        val pipeline = new Pipeline().setStages(indexers ++ encoders ++ Array(assembler, featureIndexer, xgbClassifier))
+        val model = pipeline.fit(df_train)
+        val xgboostModel = model.stages.last.asInstanceOf[XGBoostClassificationModel]
+        xgboostModel.save("xgboostModel")
+
+        xgboostModel.extractParamMap().toSeq.foreach(println)
 
         // 4 Evaluate
         val predictions = model.transform(df_test)
@@ -52,9 +54,5 @@ object DecisionTreeClassificationSpark {
         val rmse = evaluator.evaluate(predictions)
         println(s"Root Mean Squared Error (RMSE) on test data = $rmse")
 
-        // 5 Convert the prediction back to label
-        val loadedLabelIndexer = StringIndexer.load("labelIndexer")
-        val labelConverter = new IndexToString().setInputCol("prediction").setOutputCol("predictedLabel").setLabels(loadedLabelIndexer.labels)
-        val predictionsConverted = labelConverter.transform(predictions)
     }
 }

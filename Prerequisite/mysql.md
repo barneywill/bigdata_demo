@@ -119,6 +119,7 @@ mysql> show slave status;
 ## 5 <a id='other'></a>Other
 
 ### 5.1 Index
+Indexes serve as the backbone for efficient query performance.
 
 #### Clustered Index
  InnoDB tables use the primary key as the clustered index, meaning the data is physically organized based on the primary key values.
@@ -202,5 +203,12 @@ GROUP BY country, year, product
 
 ### 5.3 Optimization
 - Improving query performance: By creating an index on the column used in the WHERE clause, the database can quickly locate the relevant rows, resulting in much faster query execution. 
-- Indexing for joins: If two tables are frequently joined on a specific column, creating an index on that column in both tables can reduce the time required to match rows.
+- Joins
+  - Indexing for joins: If two tables are frequently joined on a specific column, creating an index on that column in both tables can reduce the time required to match rows.
+  - Choosing appropriate join techniques
+  - Avoid cartesian
 - Handling large datasets: Partitioning large tables and creating indexes on each partition can help distribute the workload and improve performance.
+- Query structure rewriting: break down complex queries
+- Explain: describe how SQL queries are being executed
+- Limiting and Pagination
+- Hint or update statistics: enable query optimizer to generate efficient execution plans
