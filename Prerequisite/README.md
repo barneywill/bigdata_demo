@@ -81,5 +81,6 @@ docker run -it ubuntu
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ## 9 <a id='other'></a>Other
-### 9.1 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/jvm.md'>JVM</a>
-### 9.2 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/markdown.md'>Markdown</a>
+### 9.1 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/jvm.md'>JVM</a>
+### 9.2 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/markdown.md'>Markdown</a>
+### 9.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/advanced.md'>Advanced</a>
