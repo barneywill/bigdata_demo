@@ -6,7 +6,7 @@
 |2|[Dump & Import](#dump)|
 |3|[Other](#other)|
 |4|[Master & Slave](#master)|
-|5|[Other](#other)|
+|5|[Optimization](#optimization)|
 
 ## 1 <a id='user'></a>User
 
@@ -116,7 +116,7 @@ mysql> start slave;
 mysql> show slave status;
 ```
 
-## 5 <a id='other'></a>Other
+## 5 <a id='optimization'></a>Optimization
 
 ### 5.1 Index
 Indexes serve as the backbone for efficient query performance.
