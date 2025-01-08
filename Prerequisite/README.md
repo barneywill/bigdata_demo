@@ -24,7 +24,7 @@ For writing SQL on almost any databases, like:
 ## 2 <a id='docker'></a>Docker
 #### https://www.docker.com/
   
-## 3 <a id='python'></a>Python
+## 3 <a id='python' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/Python.md'>Python</a>
 #### https://www.python.org/
 #### https://www.anaconda.com/
 Just install anaconda, and get everything you need.
@@ -81,6 +81,7 @@ docker run -it ubuntu
 - Column, Line, Area, Dot, Bar, Circle, Pie
 
 ## 9 <a id='other'></a>Other
-### 9.1 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/jvm.md'>JVM</a>
-### 9.2 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/markdown.md'>Markdown</a>
-### 9.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/advanced.md'>Advanced</a>
+### 9.1 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/Scala.md'>Scala</a>
+### 9.2 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/jvm.md'>JVM</a>
+### 9.3 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/markdown.md'>Markdown</a>
+### 9.4 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/advanced.md'>Advanced</a>
