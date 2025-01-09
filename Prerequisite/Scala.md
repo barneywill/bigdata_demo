@@ -14,8 +14,9 @@
 |9|[Actor](#actor)|
 |10|[continue, break](#break)|
 |11|[Option, Some, None](#option)|
-|12|[Functional](#functional)|
-|13|[Word Count(Map, Reduce)](#count)|
+|12|[Exception(try, catch, finally)](#exception)|
+|13|[Functional](#functional)|
+|14|[Word Count(Map, Reduce)](#count)|
 
 ## 0 <a id='hello'></a>Hello World
 ```
@@ -167,6 +168,12 @@ arr.filter(_ < 3).map(_ * 3).foreach(println)
 ```
 val arr = Array(2, 4, 1, 3, 5)
 arr.collect({case item : Int if item < 3 => item * 3}).foreach(println)
+```
+
+### 4.8 slice
+```
+val arr = Array(2, 4, 1, 3, 5)
+arr.slice(1, 3).foreach(println)
 ```
 
 ## 5 <a id='collection'></a>Collections
@@ -338,7 +345,19 @@ intOpt match {
 print(if (intOpt == None) "That didn't work." else intOpt.get)
 ```
 
-## 12 <a id='functional'></a>Functional
+## 12 <a id='exception'></a>Exception
+```
+try {
+    throw new Exception("hello")
+} catch {
+    case e: Exception => e.printStackTrace
+    case e: ...
+} finally {
+    //clean up
+}
+```
+
+## 13 <a id='functional'></a>Functional
 ### higher-order function, anonymous function
 ```
 def wrapper(str : String, f : ((String) => String)): Unit = {
@@ -356,15 +375,15 @@ wrapper("test", (str => "hello " + str))
 ### Tail Recursion
 @tailrec, can be optimized by compiler.
 
-## 13 <a id='count'></a>Word Count
-### 13.1 Map
+## 14 <a id='count'></a>Word Count
+### 14.1 Map
 ```
 # flatMap
 val arr = Array("1,2,3", "1,4,5")
 arr.flatMap(_.split(",")).distinct.foreach(println)
 ```
 
-### 13.2 Reduce
+### 14.2 Reduce
 ```
 # groupBy, reduce
 val map1 = Map("a" -> 1, "b" -> 2)

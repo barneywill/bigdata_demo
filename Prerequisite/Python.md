@@ -2,13 +2,22 @@
 
 | |Index|
 |---|---|
+|0|[Hello World](#hello)|
 |1|[String](#string)|
 |2|[Loop](#loop)|
 |3|[Condition](#condition)|
 |4|[Collection(List, Set, Dictionary)](#collection)|
-|5|[IO](#io)|
-|6|[Optional](#optional)|
-|7|[Lambda](#lambda)|
+|5|[Tuple](#tuple)|
+|6|[IO](#io)|
+|7|[Optional](#optional)|
+|8|[Exception(try, except, else, finally)](#exception)|
+|9|[Lambda](#lambda)|
+
+## 0 <a id='hello'></a>Hello World
+```
+if __name__ == '__main__':
+    print('Hello World')
+```
 
 ## 1 <a id='string'></a>String
 ```
@@ -110,6 +119,8 @@ for i, c in enumerate(ls_double):
 ```
 ls = [1, 4, 2, 3]
 # sort
+print(sorted(ls))
+print(ls)
 ls.sort()
 print(ls)
 # reverse sort
@@ -142,6 +153,17 @@ ls = [1, 4, 2, 3]
 ls_filter_double = [v * 2 for v in ls if v % 2 == 0]
 ```
 
+#### 4.1.8 slice
+```
+ls = [1, 4, 2, 3]
+print(ls[1:3])
+print(ls[1:])
+print(ls[:3])
+print(ls[:])
+print(ls[-2:])
+print(ls[::-1])
+```
+
 ### 4.2 Set
 ```
 s = set()
@@ -171,7 +193,27 @@ for k, v in d.items():
 arr = [(k, v) for k, v in d.items()]
 ```
 
-## 5 <a id='io'></a>IO
+## 5 <a id='tuple'></a>Tuple
+```
+def statistics(ls: list) -> tuple[int, int, float]:
+    return (min(ls), max(ls), sum(ls)/len(ls))
+ls = [1, 4, 2, 3]
+stat = statistics(ls)
+print(stat[0], stat[1], stat[2])
+print('min %d, max %d, avg %f' % stat)
+```
+
+### Sort
+```
+student_tuples = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
+]
+sorted(student_tuples, key=lambda student: student[2])
+```
+
+## 6 <a id='io'></a>IO
 ```
 # read
 f = open('/tmp/test', 'r')
@@ -187,14 +229,30 @@ f.write("hello")
 f.close()
 ```
 
-## 6 <a id='optional'>Optional
+## 7 <a id='optional'>Optional
 ```
 from typing import Optional
 def example(value: Optional[str]) -> str:
     return "none" if value is None else value
 ```
 
-## 7 <a id='lambda'></a>Lambda
+## 8 <a id='exception'></a>Exception
+```
+try:
+    raise ValueError('hello')
+except NameError:
+    print('NameError')
+except ValueError as e:
+    print(e)
+except:
+    print('exception')
+else:
+    print('all right')
+finally:
+    print('clean up')
+```
+
+## 9 <a id='lambda'></a>Lambda
 ```
 add_ten = lambda arg : arg + 10
 print(add_ten(5))
