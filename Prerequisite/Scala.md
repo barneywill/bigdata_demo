@@ -6,9 +6,9 @@
 |1|[String](#string)|
 |2|[Loop](#loop)|
 |3|[Condition(Pattern Matching)](#condition)|
-|4|[Array(ArrayBuffer, sort, foleLeft, filter, map, collect)](#array)|
-|5|[Collection(Map, List)](#collection)|
-|6|[Bean Class](#bean)|
+|4|[Array(ArrayBuffer, iterate, sort, foleLeft, filter, map, collect)](#array)|
+|5|[Collection(Map, Set, List)](#collection)|
+|6|[Case Class](#bean)|
 |7|[Tuple](#tuple)|
 |8|[IO](#io)|
 |9|[Actor](#actor)|
@@ -125,7 +125,16 @@ println(arr3.head)
 println(arr3.last)
 ```
 
-### 4.2 Sort
+### 4.2 Iterate
+```
+for(v in arr3) println(v)
+
+for(i <- arr.indices) println(arr(i))
+
+for (i <- 0 until arr.length) println(arr.apply(i))
+```
+
+### 4.3 Sort
 ```
 val arr = Array(2, 4, 1, 3, 5)
 # sort
@@ -136,25 +145,25 @@ println(arr.sorted.reverse.mkString(","))
 println(arr.sortWith((v1 : Int, v2 : Int) => v2 < v1).mkString(","))
 ```
 
-### 4.3 min, max, sum
+### 4.4 min, max, sum
 ```
 val arr = Array(2, 4, 1, 3, 5)
 println(arr.min + ", " + arr.max + ", " + arr.sum.toDouble / arr.length)
 ```
 
-### 4.4 foldLeft
+### 4.5 foldLeft
 ```
 val arr = Array(2, 4, 1, 3, 5)
 println(arr.foldLeft(0)((result, item) => result + (if (item % 2 != 0) item else 0)))
 ```
 
-### 4.5 filter, map
+### 4.6 filter, map
 ```
 val arr = Array(2, 4, 1, 3, 5)
 arr.filter(_ < 3).map(_ * 3).foreach(println)
 ```
 
-### 4.6 collect
+### 4.7 filter, map, collect
 ```
 val arr = Array(2, 4, 1, 3, 5)
 arr.collect({case item : Int if item < 3 => item * 3}).foreach(println)
@@ -177,8 +186,22 @@ map3.keys.foreach(key => println(s"$key " + map1(key)))
 arr = map3.toArray
 ```
 
-### 5.2 List
+### 5.2 Set, BitSet
 ```
+import scala.collection.immutable.Set
+val s = Set(1, 2, 3, 4)
+println(s(1))
+
+import scala.collection.immutable.BitSet 
+val bs = BitSet(1, 2, 3, 4)
+println(bs(2))
+val bs1 = bs + 10 + 11 - 2
+println(bs1(2))
+```
+
+### 5.3 List
+```
+import scala.collection.immutable.List
 val list1 = 1 :: (2 :: (3 :: (4 :: Nil)))
 var list2 = List(1, 2, 3, 4)
 list = list :+ 5
@@ -224,6 +247,7 @@ println(arr.sortWith((item1, item2) => if (item1._1.equals(item2._1)) item1._2 <
 
 ## 8 <a id='io'></a>IO
 ```
+import scala.io.Source
 # read
 Source.fromFile("test.log").getLines().foreach(println)
 
