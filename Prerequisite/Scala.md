@@ -32,7 +32,7 @@ object HelloWorld extends App {
 ```
 
 ## 1 <a id='string'></a>String
-### interpolation
+### 1.1 interpolation
 ```
 var str = "hello"
 val i = 123
@@ -42,7 +42,10 @@ println(s"$str $i world")
 # The f Interpolator: format
 println(f"$str%s $i%4d world")
 printf("%s %d word", str, i)
+```
 
+### 1.2 lower, upper, capitalize
+```
 # is alphanumeric
 println(str.matches("^[a-zA-Z0-9]+$"))
 println(str.toLowerCase)
@@ -50,18 +53,23 @@ println(str.toUpperCase)
 println(str.capitalize)
 ```
 
-### split
+### 1.3 substring
+```
+"hello".substring(1, 3)
+```
+
+### 1.4 split
 ```
 val str = "abc def"
 for word in str.split(" ") println(world)
 ```
 
-### iterate chars
+### 1.5 iterate chars
 ```
 for (i <- 0 until str.length) println(str.charAt(i))
 ```
 
-### date
+### 1.6 date
 ```
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

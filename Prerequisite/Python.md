@@ -20,11 +20,16 @@ if __name__ == '__main__':
 ```
 
 ## 1 <a id='string'></a>String
+### 1.1 interpolation
 ```
 s = 'hello'
 s += str(123)
 print(f'{a} world')
+print('%s world' % s)
+```
 
+### 1.2 lower, upper, captalize
+```
 # is alphanumeric
 print(s.isalum())
 print(s.lower())
@@ -32,21 +37,26 @@ print(s.upper())
 print(s.capitalize())
 ```
 
-### split
+### 1.3 substring
+```
+'hello'[1:3]
+```
+
+### 1.4 split
 ```
 s = 'abc def'
 for word in s.split(' '):
     print(word)
 ```
 
-### iterate chars
+### 1.5 iterate chars
 ```
 s = 'abc'
 for i, c in enumerate(s):
     print(f'{i} {c}')
 ```
 
-### date
+### 1.6 date
 ```
 import datetime
 today = datetime.datetime.today()
