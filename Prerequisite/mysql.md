@@ -178,6 +178,8 @@ RANK()
 ROW_NUMBER()
 ```
 
+![Mysql row_number, rank, dense_rank](https://github.com/barneywill/bigdata_demo/blob/main/imgs/mysql_window.jpg)
+
 ##### Example
 ```
 SELECT year, country, product, profit,
