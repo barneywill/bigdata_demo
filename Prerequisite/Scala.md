@@ -283,13 +283,16 @@ import akka.actor.{Actor, ActorSystem, Props}
 import akka.util.Timeout
 import scala.concurrent.{Await, ExecutionContext}
 import scala.concurrent.duration.Duration
+import java.util.Random
 
 class TestActor extends Actor {
     def receive = {
         case arg => {
-            val result = "hello : " + arg
+            val random = new Random()
+            val sleepTime = random.nextInt(10)
+            Thread.sleep(sleepTime)
+            val result = s"hello : $sleepTime " + arg
             println(result)
-            Thread.sleep(3000)
             result
         }
     }
@@ -303,8 +306,12 @@ actor ! "world async"
 # async
 implicit val timeout = Timeout(5, TimeUnit.SECONDS)
 import akka.pattern._
+# 1
 val feature = actor ? "world async with feature"
-feature.foreach(result => println(result))
+while (!feature.isCompleted) Thread.sleep(100)
+if (feature.isCompleted) {println(feature.value.get.isSuccess + ", " + feature.value.get.get);}
+# 2
+println(Await.result(feature, Duration.create(1, TimeUnit.SECONDS)))
 ```
 
 ### 9.1 Schedule

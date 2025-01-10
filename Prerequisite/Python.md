@@ -9,9 +9,10 @@
 |4|[Collection(List, Set, Dictionary)](#collection)|
 |5|[Tuple](#tuple)|
 |6|[IO](#io)|
-|7|[Optional](#optional)|
-|8|[Exception(try, except, else, finally)](#exception)|
-|9|[Lambda](#lambda)|
+|7|[Multiprocessing](#process)|
+|8|[Optional](#optional)|
+|9|[Exception(try, except, else, finally)](#exception)|
+|10|[Lambda](#lambda)|
 
 ## 0 <a id='hello'></a>Hello World
 ```
@@ -239,14 +240,43 @@ f.write("hello")
 f.close()
 ```
 
-## 7 <a id='optional'>Optional
+## 7 <a id='process'></a>Multiprocessing
+```
+from multiprocessing import Process
+from multiprocessing import Pool
+import time
+import random
+
+def say_hello(name):
+    r = random.randint(1, 10)
+    time.sleep(r)
+    print(f'hello{r} {name}')
+
+if __name__ == '__main__':
+    # one process
+    start_time = time.perf_counter()
+    p = Process(target=say_hello, args='world')
+    p.start()
+    p.join()
+    end_time = time.perf_counter()
+    print('process done in %d seconds' % end_time - start_time)
+
+    # process pool
+    start_time = time.perf_counter()
+    with Pool() as pool:
+        result = pool.map(say_hello, range(10))
+    end_time = time.perf_counter()
+    print('pool done in %d seconds' % end_time - start_time)
+```
+
+## 8 <a id='optional'></a>Optional
 ```
 from typing import Optional
 def example(value: Optional[str]) -> str:
     return "none" if value is None else value
 ```
 
-## 8 <a id='exception'></a>Exception
+## 9 <a id='exception'></a>Exception
 ```
 try:
     raise ValueError('hello')
@@ -262,7 +292,7 @@ finally:
     print('clean up')
 ```
 
-## 9 <a id='lambda'></a>Lambda
+## 10 <a id='lambda'></a>Lambda
 ```
 add_ten = lambda arg : arg + 10
 print(add_ten(5))
