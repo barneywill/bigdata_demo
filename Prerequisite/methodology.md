@@ -20,6 +20,11 @@
 - Structured Data, Unstructured Data
 - CDC: Change Data Capture
   - FlinkCDC, Debezium
+- Challenges
+  - Time efficiency
+  - Schema changes
+  - Job failures and data loss
+  - Duplicate Data
 
 ![ETL](https://github.com/barneywill/bigdata_demo/blob/main/imgs/etl.jpg)
 
@@ -75,12 +80,13 @@ Data Visualization
 - Data Ingestion: Batch, Streaming
   - Nifi, Kafka
 - Data Modeling
+  - Kimball's Dimensional Data Modeling
 - Data Lake
   - Cloud Storage, Iceberg
 - Data Warehouse
   - Bigquery
 - Data Analytics: Batch, Streaming, OLAP
-  - Spark, Dataproc, Clickhouse
+  - Spark, Dataproc, Kafka, Clickhouse
 - Data Governance: Catalog, Lineage
   - dbt
 - Data Pipeline Orchestration
@@ -91,6 +97,7 @@ Data Visualization
   - Looker, Spark ML, XGBoost
 
 ## <a id='quality'></a> 7 Data Quality
+Data SLA: provide data of a certain quality, within certain parameters.
 - Completeness: missing or not
   - Attribute-level(columns), Record-level(rows)
 - Validity: meet certain criteria
