@@ -1,5 +1,9 @@
+# Terraform
+Terraform is an infrastructure as code tool that enables you to safely and predictably provision and manage infrastructure in any cloud.
 
-# Install
+![Terraform](https://github.com/barneywill/bigdata_demo/blob/main/imgs/terraform_architecture.jpg)
+
+## 1 Install
 ```
 https://developer.hashicorp.com/terraform/install
 
@@ -10,10 +14,10 @@ sudo mv terraform /usr/local/bin
 terraform version
 ```
 
-# Config
+## 2 Config
 main.tf
 
-# Command
+## 3 Command
 ```
 terraform init
 

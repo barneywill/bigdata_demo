@@ -9,7 +9,8 @@
 |5|[BI](#bi)|
 |6|[Data Engineering Skills](#de)|
 |7|[Data Quality](#quality)|
-|8|[Data Architecture](#architecture)|
+|8|[Streaming Design Pattern](#streaming)|
+|9|[Data Architecture](#architecture)|
 
 ![Data Lifecircle](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_lifecircle.jpg)
 
@@ -110,7 +111,15 @@ Data Visualization
   
 ![Data Quality](https://github.com/barneywill/bigdata_demo/blob/main/imgs/data_quality.jpg)
 
-## <a id='architecture'></a> 8 Data Architecture
+## <a id='streaming'></a> 8 Streaming Design Pattern
+- One Kafka Topic -> One Table
+- KV: Streaming Deduplication
+- Join: Watermark - trade off between lateness tolerance and state size
+  - Streaming & Batch Join: join dimensional tables
+  - Streaming & Streaming Join
+- CDC: Change Data Capture
+
+## <a id='architecture'></a> 9 Data Architecture
 - Lambda: Batch + Real-time
   - Drawbacks: double code and system/conflicts
 - Kappa: Only Real-time
