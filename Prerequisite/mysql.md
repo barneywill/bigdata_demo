@@ -121,20 +121,26 @@ mysql> show slave status;
 ### 5.1 Index
 Indexes serve as the backbone for efficient query performance.
 
-#### Clustered Index
+#### 5.1.1 Primary/Clustered Index(Physically)
  InnoDB tables use the primary key as the clustered index, meaning the data is physically organized based on the primary key values.
-- Primary key
+- Primary key, automatically
+- Only one
+- The leaf nodes of a clustered index contain the data pages.(B+ Tree)
 
-#### Secondary Index
-A secondary or non-clustered index is an additional index separate from the primary (clustered) index. It just references the primary key.
-- Unique
+#### 5.1.2 Secondary Index(Logically)
+A secondary or non-clustered index is an additional index separate from the primary (clustered) index. It just references(pointer) the primary key.
 - Index: one column
 - Composite indexes: multiple columns
+- Unique
 - Full-text
+
+```
+create index idx_customer_name on customer(name);
+```
 
 #### Underlying Data Structure
 B+ Trees: efficient for insertion, deletion, and lookup operations, with data stored in a sorted order.
-- M-way search tree(from binary search tree), balance tree
+- M-way search tree(derived from binary search tree), balance tree
 - All data is only at leaf nodes.
 - Leaf nodes are stored as structural linked list, so sequential access is possible just like linked list
 
@@ -142,7 +148,21 @@ B+ Trees: efficient for insertion, deletion, and lookup operations, with data st
 
 ### 5.2 Window Function vs Group By
 
-#### 5.2.1 Window Function
+#### 5.2.1 Group By
+The GROUP BY clause allows us to group a set of records based on some criteria and apply a function (e.g. AVG or MAX) to each group, obtaining one result for each group of records.
+
+##### Aggregate functions
+Only support
+
+##### Example
+```
+SELECT year, country, product, 
+    SUM(profit) AS total_profit
+FROM sales
+GROUP BY country, year, product
+```
+
+#### 5.2.2 Window Function
 Window functions allow us to apply functions like AVG, COUNT, MAX, and MIN on a group of records while still leaving the individual records accessible.
 
 ##### Aggregate functions
@@ -187,20 +207,6 @@ SELECT year, country, product, profit,
     SUM(profit) OVER(PARTITION BY country) AS country_profit
 FROM sales
 ORDER BY country, year, product, profit;
-```
-
-#### 5.2.2 Group By
-The GROUP BY clause allows us to group a set of records based on some criteria and apply a function (e.g. AVG or MAX) to each group, obtaining one result for each group of records.
-
-##### Aggregate functions
-Only
-
-##### Example
-```
-SELECT year, country, product, 
-    SUM(profit) AS total_profit
-FROM sales
-GROUP BY country, year, product
 ```
 
 ### 5.3 Optimization

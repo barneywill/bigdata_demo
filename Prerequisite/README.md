@@ -58,7 +58,7 @@ docker run -it ubuntu
 |session|
 |tmux|
 
-### <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/shell.md'>Shell</a>
+### 6.1 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/shell.md'>Shell</a>
 
 ## 7 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>
 
@@ -78,7 +78,12 @@ docker run -it ubuntu
 - Column-based(Columnar) vs Row-based
 
 ### 8.5 BI
-- Column, Line, Area, Dot, Bar, Circle, Pie
+
+### 8.6 Data Engineering Skills
+
+### 8.7 Data Quality
+
+### 8.8 Streaming Design Pattern
 
 ## 9 <a id='other'></a>Other
 ### 9.1 <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/Scala.md'>Scala</a>

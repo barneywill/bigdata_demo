@@ -17,7 +17,11 @@
 ## <a id='etl'></a>1 ETL/ELT
 - Extraction -> Transformation -> Load
   - Usually from Data Sources to Data Lake/Data Warehouse/Kafka
-- Structured Data, Unstructured Data
+  - Difference between ETL and ELT
+- Data Source Type
+  - Structured Data: Database tables
+  - Semi-structured Data: JSON, XML, CSV
+  - Unstructured Data: text(like customer comments, emails), image, video, audio
 - CDC: Change Data Capture
   - FlinkCDC, Debezium
 - Challenges
@@ -48,7 +52,7 @@
 
 <table border="2" style="width:100%; padding: 10px;">
     <tr style="height:30px;"><th style="width:5%;text-align: center;">Layer</th><th style="width:20%;text-align: center;">Full Name</th><th style="text-align: center;">Explanation</th></tr>
-    <tr><td style="font-weight:bold;">STG</td><td>Stage</td><td>Usually not necessary.</td></tr>
+    <tr><td style="font-weight:bold;">STG</td><td>Staging</td><td>Usually not necessary.</td></tr>
     <tr><td style="font-weight:bold;">ODS</td><td>Operational Data Store</td><td>A data warehouse preparation area that provides basic raw data for the DWD layer. Keep the same as tables in the business system.</td></tr>
     <tr><td style="font-weight:bold;">DWD</td><td>Data Warehouse Details</td><td>Responsible for cleaning and precipitating the data of the ODS layer, storing data in a subject-oriented manner, and storing historical incremental data or full data. Detailed data with the same granularity as ODS.</td></tr>
     <tr><td style="font-weight:bold;">DIM</td><td>Dimension</td><td>Dimension tables.</td></tr>
