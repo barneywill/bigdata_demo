@@ -136,7 +136,7 @@ println(arr3.last)
 
 ### 4.2 Iterate
 ```
-for(v in arr3) println(v)
+for(v <- arr3) println(v)
 
 for(i <- arr.indices) println(arr(i))
 
@@ -197,6 +197,10 @@ val map2 = Map("d" -> 1)
 val map3 = map1 ++ map2
 
 map3.keys.foreach(key => println(s"$key " + map1(key)))
+
+for ((k, v) <- map3) println(s"$k, $v")
+
+map3.foreach{case(k, v) => println(s"$k, $v")}
 
 arr = map3.toArray
 ```

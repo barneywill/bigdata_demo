@@ -209,7 +209,26 @@ FROM sales
 ORDER BY country, year, product, profit;
 ```
 
-### 5.3 Optimization
+### 5.3 Explain
+Provide information about how MySQL executes statements.
+```
+explain $sql
+```
+
+Output
+- id (query id)
+- select_type (type of statement)
+- table (table referenced)
+- type (join type)
+- possible_keys (which keys could have been used)
+- key (key that was used)
+- key_len (length of used key)
+- ref (columns compared to index)
+- rows (amount of rows searched)
+- Extra (additional information)
+
+
+### 5.4 Optimization
 - Improving query performance: By creating an index on the column used in the WHERE clause, the database can quickly locate the relevant rows, resulting in much faster query execution. 
 - Joins
   - Indexing for joins: If two tables are frequently joined on a specific column, creating an index on that column in both tables can reduce the time required to match rows.
