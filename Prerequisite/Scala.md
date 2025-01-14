@@ -6,7 +6,7 @@
 |1|[String](#string)|
 |2|[Loop](#loop)|
 |3|[Condition(Pattern Matching)](#condition)|
-|4|[Array(ArrayBuffer, iterate, sort, foleLeft, filter, map, collect)](#array)|
+|4|[Array(ArrayBuffer, iterate, sort, foleLeft, filter, map, collect, slice, take, drop)](#array)|
 |5|[Collection(Map, Set, List)](#collection)|
 |6|[Case Class](#bean)|
 |7|[Tuple](#tuple)|
@@ -19,6 +19,7 @@
 |14|[Word Count(Map, Reduce)](#count)|
 
 ## 0 <a id='hello'></a>Hello World
+main function
 ```
 object HelloWorld {
     def main(args : Array[String]) : Unit = {
@@ -33,12 +34,15 @@ object HelloWorld extends App {
 
 ## 1 <a id='string'></a>String
 ### 1.1 interpolation
+s-Strings, f-Strings
 ```
 var str = "hello"
 val i = 123
 str += i.toString
+
 # The s Interpolator
 println(s"$str $i world")
+
 # The f Interpolator: format
 println(f"$str%s $i%4d world")
 printf("%s %d word", str, i)
@@ -48,6 +52,8 @@ printf("%s %d word", str, i)
 ```
 # is alphanumeric
 println(str.matches("^[a-zA-Z0-9]+$"))
+
+# lower, upper, capitalize
 println(str.toLowerCase)
 println(str.toUpperCase)
 println(str.capitalize)
@@ -70,6 +76,7 @@ for (i <- 0 until str.length) println(str.charAt(i))
 ```
 
 ### 1.6 date
+date format
 ```
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -84,11 +91,15 @@ println(currentDateTime.format(formatter))
 ```
 for (i <- 0 to 10 if i % 2 == 0) println(i)
 
+# include
 for (i <- 0 to 5) println(i * 2)
 
+# exclude
 for (i <- 0 until 6) println(i * 2)
 
 Array.range(0, 10, 2).foreach(println)
+
+for (i <- 'a' to 'z') println(i)
 ```
 
 ### 2.2 foreach
@@ -121,15 +132,18 @@ x match {
 ## 4 <a id='array'></a>Array
 
 ### 4.1 Array, ArrayBuffer
+- Array: immutable
+- ArrayBuffer: mutable, append & remove
 ```
 val arr1 = Array(1, 2)
 val arr2 = ArrayBuffer(1, 3)
 arr2 += (4)
+arr2.append(5)
+arr2.remove(0)
 val arr3 = arr1 ++ arr2
 println(arr3.mkString(","))
 
 println(arr3.length())
-println(arr3.drop(0))
 println(arr3.head)
 println(arr3.last)
 ```
@@ -146,10 +160,13 @@ for (i <- 0 until arr.length) println(arr.apply(i))
 ### 4.3 Sort
 ```
 val arr = Array(2, 4, 1, 3, 5)
+
 # sort
 println(arr.sorted.mkString(","))
+
 # reverse sort
 println(arr.sorted.reverse.mkString(","))
+
 # sortWith
 println(arr.sortWith((v1 : Int, v2 : Int) => v2 < v1).mkString(","))
 ```
@@ -178,10 +195,13 @@ val arr = Array(2, 4, 1, 3, 5)
 arr.collect({case item : Int if item < 3 => item * 3}).foreach(println)
 ```
 
-### 4.8 slice
+### 4.8 slice, take, drop
+sub-array
 ```
 val arr = Array(2, 4, 1, 3, 5)
 arr.slice(1, 3).foreach(println)
+arr.take(3).foreach(println)
+arr.drop(2).foreach(println)
 ```
 
 ## 5 <a id='collection'></a>Collections
@@ -219,6 +239,7 @@ println(bs1(2))
 ```
 
 ### 5.3 List
+LinkedList
 ```
 import scala.collection.immutable.List
 val list1 = 1 :: (2 :: (3 :: (4 :: Nil)))
@@ -230,6 +251,7 @@ list4.foreach(println)
 ```
 
 ## 6 <a id='bean'></a>Case Class
+java bean
 ```
 # auto generated methods: getter, setter, hashcode, equals, toString
 case class Dummy(val name : String, val age : Int)
@@ -238,10 +260,13 @@ case class Dummy(val name : String, val age : Int)
 ### 6.1 Sort
 ```
 val arr1 = Array(new Dummy("a", 1), new Dummy("b", 3), new Dummy("a", 2), new Dummy("b", 1))
+
 # sortBy name
 println(arr1.sortBy(_.name).mkString("-"))
+
 # sortBy age
 println(arr1.sortBy(_.age).mkString("-"))
+
 # sortWith
 println(arr1.sortWith((item1, item2) => if (item1.name.equals(item2.name)) item1.age < item2.age else item1.name.compareTo(item2.name) < 0).mkString("-"))
 ```
@@ -265,6 +290,7 @@ println(arr.sortWith((item1, item2) => if (item1._1.equals(item2._1)) item1._2 <
 ```
 
 ## 8 <a id='io'></a>IO
+read and write
 ```
 import scala.io.Source
 # read
@@ -281,6 +307,7 @@ finally {try {if (writer != null) writer.close()} catch {case e : Exception => e
 ```
 
 ## 9 <a id='actor'></a>Actor
+multithread
 ```
 import java.util.concurrent.{ExecutorService, Executors, TimeUnit}
 import akka.actor.{Actor, ActorSystem, Props}
@@ -340,7 +367,6 @@ import scala.util.control.Breaks._
 breakable {
   ...
   break
-  ...
 }
 ```
 
