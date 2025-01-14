@@ -67,7 +67,7 @@ println(str.capitalize)
 ### 1.4 split
 ```
 val str = "abc def"
-for word in str.split(" ") println(world)
+for (word <- str.split(" ")) println(word)
 ```
 
 ### 1.5 iterate chars
