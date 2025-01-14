@@ -63,7 +63,7 @@ docker run -it ubuntu
 
 ## 7 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/mysql.md'>Mysql</a>
 
-## 8 <a id='mysql' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/Git.md'>Git</a>
+## 8 <a id='git' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/Git.md'>Git</a>
 
 ## 9 <a id='methodology' href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/methodology.md'>Methodology</a>
 

@@ -1,5 +1,5 @@
 # Git
-Git is easy to learn and has a tiny footprint with lightning fast performance.
+Git is an essential tool for developers, enabling efficient version control, collaboration, and project management.
 
 ![Git](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git.jpg)
 
