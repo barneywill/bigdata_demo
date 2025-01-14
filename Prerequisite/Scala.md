@@ -23,7 +23,8 @@ main function
 ```
 object HelloWorld {
     def main(args : Array[String]) : Unit = {
-        println("Hello World")
+        val name = args(0)
+        println("Hello World : " + name)
     }
 }
 
@@ -135,16 +136,25 @@ x match {
 - Array: immutable
 - ArrayBuffer: mutable, append & remove
 ```
+import scala.collection.mutable.ArrayBuffer
+
 val arr1 = Array(1, 2)
 val arr2 = ArrayBuffer(1, 3)
 arr2 += (4)
 arr2.append(5)
+arr2.insert(0, 0)
+# remove one
 arr2.remove(0)
 val arr3 = arr1 ++ arr2
 println(arr3.mkString(","))
 
+# length
 println(arr3.length())
+# get the first one
 println(arr3.head)
+println(arr3(0))
+println(arr3.apply(0))
+# get the last one
 println(arr3.last)
 ```
 
@@ -158,6 +168,7 @@ for (i <- 0 until arr.length) println(arr.apply(i))
 ```
 
 ### 4.3 Sort
+sorted, sortWith
 ```
 val arr = Array(2, 4, 1, 3, 5)
 
@@ -209,6 +220,7 @@ arr.drop(2).foreach(println)
 Immutable and mutable
 ```
 import scala.collection.mutable.Map
+
 var map1 = Map("a" -> 1, "b" -> 2)
 map1 += ("c" -> 3)
 map1.foreach(println)
@@ -228,10 +240,12 @@ arr = map3.toArray
 ### 5.2 Set, BitSet
 ```
 import scala.collection.immutable.Set
+
 val s = Set(1, 2, 3, 4)
 println(s(1))
 
 import scala.collection.immutable.BitSet 
+
 val bs = BitSet(1, 2, 3, 4)
 println(bs(2))
 val bs1 = bs + 10 + 11 - 2
@@ -242,6 +256,7 @@ println(bs1(2))
 LinkedList
 ```
 import scala.collection.immutable.List
+
 val list1 = 1 :: (2 :: (3 :: (4 :: Nil)))
 var list2 = List(1, 2, 3, 4)
 list = list :+ 5
@@ -251,7 +266,7 @@ list4.foreach(println)
 ```
 
 ## 6 <a id='bean'></a>Case Class
-java bean
+Java bean
 ```
 # auto generated methods: getter, setter, hashcode, equals, toString
 case class Dummy(val name : String, val age : Int)

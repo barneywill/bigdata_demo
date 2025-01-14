@@ -16,12 +16,19 @@
 
 ## 0 <a id='hello'></a>Hello World
 ```
+import argparse
+
+parser = argparse.ArgumentParser(prog='ProgramName', description='What the program does', epilog='Text at the bottom of help')
+parser.add_argument('name')
+
 if __name__ == '__main__':
-    print('Hello World')
+    args = parser.parse_args()
+    print('Hello World : ' + args.name)
 ```
 
 ## 1 <a id='string'></a>String
 ### 1.1 interpolation
+string format
 ```
 s = 'hello'
 s += str(123)
@@ -33,6 +40,8 @@ print('%s world' % s)
 ```
 # is alphanumeric
 print(s.isalum())
+
+# lower, upper, captalize
 print(s.lower())
 print(s.upper())
 print(s.capitalize())
@@ -58,8 +67,10 @@ for i, c in enumerate(s):
 ```
 
 ### 1.6 date
+date format
 ```
 import datetime
+
 today = datetime.datetime.today()
 print(f"{today:%Y%m%d}")
 ```
@@ -127,13 +138,16 @@ for i, c in enumerate(ls_double):
 ```
 
 #### 4.1.3 Sort
+sort, sorted
 ```
 ls = [1, 4, 2, 3]
+
 # sort
 print(sorted(ls))
 print(ls)
 ls.sort()
 print(ls)
+
 # reverse sort
 ls.sort(reverse=True)
 print(ls)
@@ -165,6 +179,7 @@ ls_filter_double = [v * 2 for v in ls if v % 2 == 0]
 ```
 
 #### 4.1.8 slice
+sub-list
 ```
 ls = [1, 4, 2, 3]
 print(ls[1:3])
