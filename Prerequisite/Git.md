@@ -9,7 +9,7 @@ Git is an essential tool for developers, enabling efficient version control, col
 ### 1.2 Remote changes to local
 - Remote branch -> [pull] -> Local branch
 ### 1.3 Merge changes between branches
-- Local branch -> [checkout] -> Another local branch -> [merge] -> Merged local branch -> [push] -> Remote branch
+- Local branch -> [checkout] -> Another local branch -> [merge] -> Merged local branch(Potential conflicts) -> [push] -> Remote branch
 ### 1.4 PR: Pull Request
 A pull request is a proposal to merge a set of changes from one branch into another. In a pull request, collaborators can review and discuss the proposed set of changes before they integrate the changes into the main codebase.
 
@@ -77,6 +77,9 @@ git checkout $branch_name
 # merge the specified branch’s history into the current one
 git merge $other_branch_name
 
+# 
+git rebase $other_branch_name
+
 # delete a branch
 git branch -d $branch_name
 
@@ -104,3 +107,37 @@ git reset --hard HEAD
 # apply any commits of current branch ahead of specified one
 git rebase -i HEAD
 ```
+
+### 2.7 Conflicts
+Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change.
+```
+If you have questions, please
+<<<<<<< HEAD
+open an issue
+=======
+ask your question in IRC.
+>>>>>>> branch-a
+```
+
+![Git Conflicts](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_conflicts.jpg)
+
+#### 2.7.1 Avoid conflicts
+
+##### 2.7.1.1 Make small commits
+
+##### 2.7.1.2 Rebase
+From: merge
+```
+$ git checkout master
+$ git merge feature
+```
+To: rebase, then merge
+```
+$ git checkout feature
+$ git rebase master
+
+$ git checkout master
+$ git merge feature
+```
+
+![Git Rebase](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_rebase.jpg)
