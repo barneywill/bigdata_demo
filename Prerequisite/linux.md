@@ -160,7 +160,7 @@ groupmems -g $group -d $user
 
 ```
 
-# <a id='mount'></a>Mount Disk
+## <a id='mount'></a>Mount Disk
 ```
 # show all disks and partitions
 fdisk -l
@@ -187,7 +187,7 @@ ls /dev/disk/by-uuid/
 vi /etc/fstab
 ```
 
-# <a id='iptables'></a>iptables
+## <a id='iptables'></a>iptables
 ```
 # show all rules
 iptables -nL
@@ -207,7 +207,7 @@ iptables -t nat --list
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 ```
 
-# <a id='other'></a>Other
+## <a id='other'></a>Other
 ```
 # shell
 echo $SHELL
@@ -240,7 +240,14 @@ scp /local_dir/filename user@server_ip:/remote/path
 scp user@server_ip:/remote/path/filename /local_dir
 ```
 
-# <a id='session'></a>session
+### File Descriptor
+A file descriptor is a number that uniquely identifies an open file in a computer's operating system. It describes a data resource, and how that resource may be accessed.
+```
+lsof -p $pid
+```
+global file table
+
+## <a id='session'></a>session
 ```
 # list all sessions
 screen -list
@@ -261,8 +268,8 @@ screen -r $session_name
 screen -d $session_name
 ```
 
-# <a id='tmux'></a>tmux
-## tmux session
+## <a id='tmux'></a>tmux
+### tmux session
 ```
 # list all session
 tmux ls
@@ -296,7 +303,7 @@ tmux switch -t myname
 Ctrl+b $
 ```
 
-## tmux window
+### tmux window
 ```
 # create a new window
 Ctrl+b c
@@ -320,7 +327,7 @@ Ctrl+b w
 Ctrl+b &
 ```
 
-## tmux pane
+### tmux pane
 ```
 # split pane vertically
 Ctrl+b %

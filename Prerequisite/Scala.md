@@ -142,6 +142,7 @@ val arr1 = Array(1, 2)
 val arr2 = ArrayBuffer(1, 3)
 arr2 += (4)
 arr2.append(5)
+arr2.appendAll(Array(7, 8))
 arr2.insert(0, 0)
 # remove one
 arr2.remove(0)
@@ -263,6 +264,10 @@ list = list :+ 5
 val list3 = list1 ::: list2
 val list4 = List.concat(list1, list2, list3)
 list4.foreach(println)
+
+println(list4.head)
+println(list4.apply(0))
+println(list4.tail)
 ```
 
 ## 6 <a id='bean'></a>Case Class

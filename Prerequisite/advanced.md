@@ -10,6 +10,8 @@
 |6|[Leader and Followers](#leader)|
 |7|[Generation Clock](#clock)|
 |8|[Log](#log)|
+|9|[SkipList](#skiplist)|
+|10|[Write & Flush](#flush)|
 
 ## <a id='cap'></a>1 CAP
 Any distributed data store can provide only two of the following three guarantees:
@@ -98,8 +100,21 @@ https://medium.com/databasss/on-disk-io-part-1-flavours-of-io-8e1ace1de017
 ### 8.2 On Disk IO, Part 2: More Flavours of IO
 https://medium.com/databasss/on-disk-io-part-2-more-flavours-of-io-c945db3edb13
 
-## 9 SkipList
+## 9 <a id='skiplist'></a>SkipList
 
 https://www.epaperpress.com/sortsearch/download/skiplist.pdf
 
 ![SkipList](https://github.com/barneywill/bigdata_demo/blob/main/imgs/skiplist.jpg)
+
+## 10 <a id='flush'></a>Write & Flush
+- sync: sync the whole OS
+- fsync: flush the file from kernel buffer to the disk
+  - fsync() transfers ("flushes") all modified in-core data of (i.e., modified buffer cache pages for) the file referred to by the file descriptor fd to the disk device (or other permanent storage device) so that all changed information can be retrieved even after the system crashed or was rebooted. 
+- fdatasync
+
+Normally, the data already written by the application into a kernel buffer with write() will not be affected by the application exiting or getting killed in any way. Exiting or getting killed implicitly closes all file descriptors, so there should be no difference, the kernel will handle the flushing afterwards. So no fdatasync() or similar calls are neccessary.
+
+if the application uses user-land buffering (not calling the write() system call, but instead caching the data in a user-space buffer, with fwrite()), those buffers might not get flushed unless a proper user-space file close is executed - getting killed by a SIGKILL will definitely cause you to lose the contents of those buffers,
+
+if the kernel dies as well (loss of power, kernel crash, etc.), your data might have missed getting written to the disks from the kernel buffers, and will then get lost.
+

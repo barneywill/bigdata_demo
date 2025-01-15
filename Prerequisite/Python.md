@@ -130,10 +130,12 @@ print(ls[-1])
 
 #### 4.1.2 Iterate
 ```
-for v in ls_double:
+ls = [1, 2, 3]
+
+for v in ls:
     print(v)
 
-for i, c in enumerate(ls_double):
+for i, c in enumerate(ls):
     print(f'{i} {c}')
 ```
 

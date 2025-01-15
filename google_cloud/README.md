@@ -40,7 +40,8 @@
 - Reduce the amount of data to be processed by removing columns you don’t need from your queries.
 - Prevent unnecessary data scanning by using WHERE conditions intelligently.
 - Partitioning data sets by timestamp or a specific column value to scan only the relevant data sections.
-- In JOIN operations, it is usually more efficient to put the smaller table on the left side.
+- In JOIN operations, it is usually more efficient to put the smaller table on the right side.
+  - When you have a large table as the left side of the JOIN and a small one on the right side of the JOIN, a broadcast join is created. A broadcast join sends all the data in the smaller table to each slot that processes the larger table. It is advisable to perform the broadcast join first.
 - If possible, filter tables before performing a JOIN operation.
 - Minimise the use of ORDER BY on large data sets.
 - Avoid unnecessary column usage in GROUP BY operations.

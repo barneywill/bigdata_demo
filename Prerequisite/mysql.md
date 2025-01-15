@@ -229,6 +229,8 @@ Output
 
 
 ### 5.4 Optimization
+- Avoid select *, select as less as possible.
+- Use where conditions to prevent unnecessary data scanning.
 - Improving query performance: By creating an index on the column used in the WHERE clause, the database can quickly locate the relevant rows, resulting in much faster query execution. 
 - Joins
   - Indexing for joins: If two tables are frequently joined on a specific column, creating an index on that column in both tables can reduce the time required to match rows.
