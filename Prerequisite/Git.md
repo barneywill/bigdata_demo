@@ -4,12 +4,27 @@ Git is an essential tool for developers, enabling efficient version control, col
 ![Git](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git.jpg)
 
 ## 1 Scenarios
+```
+git checkout master
+git pull origin master
+git checkout -b feature
+# do your work on branch feature
+git status
+git add .
+git commit -am  "complete a new feature"
+git checkout master
+git pull origin master
+git merge --no-ff feature
+git branch -d feature
+git push origin master
+```
+
 ### 1.1 Local changes to remote
-- Changes -> [add] -> Staging area, Snapshot -> [commit] -> Local branch -> [push] -> Remote branch
+- Local changes/Working directory -> [add] -> Staging area/Snapshot -> [commit] -> Local branch -> [push] -> Remote branch
 ### 1.2 Remote changes to local
-- Remote branch -> [pull] -> Local branch
+- Remote branch -> [pull] -> Working directory
 ### 1.3 Merge changes between branches
-- Local branch -> [checkout] -> Another local branch -> [merge] -> Merged local branch(Potential conflicts) -> [push] -> Remote branch
+- Local branch -> [checkout] -> Another local branch -> [merge] -> Merged local branch(generate a new merge commit, potential conflicts) -> [push] -> Remote branch
 ### 1.4 PR: Pull Request
 A pull request is a proposal to merge a set of changes from one branch into another. In a pull request, collaborators can review and discuss the proposed set of changes before they integrate the changes into the main codebase.
 
@@ -21,7 +36,7 @@ A pull request is a proposal to merge a set of changes from one branch into anot
 git clone $url
 ```
 
-### 2.2 Commit
+### 2.2 Commit to Local branch
 Smaller, focused commits are easier to review and revert.
 ```
 # show modified files in working directory, staged for your next commit
@@ -39,7 +54,7 @@ git add .
 git commit -m 'commit message'
 ```
 
-### 2.3 Pull & Push
+### 2.3 Pull & Fetch, Push
 Pull before you push
 ```
 # add a remote repository
@@ -47,6 +62,9 @@ git remote add origin $url
 
 # fetch and merge any commits from the tracking remote branch
 git pull origin $branch_name
+
+# fast forward only, bail out if it can not fast forward
+git pull --ff-only origin $branch_name
 
 # Transmit local branch commits to the remote repository branch
 git push origin $branch_name
@@ -77,7 +95,10 @@ git checkout $branch_name
 # merge the specified branch’s history into the current one
 git merge $other_branch_name
 
-# 
+# The --no-ff flag prevents git merge from executing a "fast-forward" if it detects that your current HEAD is an ancestor of the commit you're trying to merge.
+git merge --no-ff $other_branch_name
+
+# replay commits from current branch one by one on other_branch_name
 git rebase $other_branch_name
 
 # delete a branch
@@ -95,18 +116,40 @@ git log
 
 ### 2.6 Undo changes
 ```
-# discard unstaged changes
+# file-level: discard unstaged changes
 git checkout -- $file_name
 
-# unstage a file while retaining the changes in working directory
+# file-level: unstage a file while retaining the changes in working directory
 git reset $file_name
 
-# clear staging area, rewrite working tree from specified commit
+# commit-level: move HEAD back to commit_id to inspect old snapshots
+git checkout $commit_id
+
+# commit-level: clear staging area, rewrite working tree from specified commit, --soft, --mixed, --hard
 git reset --hard HEAD
 
 # apply any commits of current branch ahead of specified one
-git rebase -i HEAD
+git rebase -i HEAD~1
 ```
+
+#### HEAD
+Git resolves HEAD in one of two ways:
+- if .git/HEAD contains a branch name, it’ll be the latest commit on that branch (for example by reading it from .git/refs/heads/main)
+- if .git/HEAD contains a commit ID, it’ll be that commit ID
+
+Other HEAD: ORIG_HEAD, FETCH_HEAD, MERGE_HEAD
+
+#### three trees
+- Working directory
+- Staged snapshot
+- Commit history
+
+![Git 3 Trees](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_3_trees.jpg)
+
+#### reset
+- --soft: The staged snapshot and working directory are not altered in any way.
+- --mixed: Default. The staged snapshot is updated to match the specified commit, but the working directory is not affected.
+- --head: The staged snapshot is updated to match the specified commit, but the working directory is not affected. This is the default option.
 
 ### 2.7 Conflicts
 Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change.
@@ -121,23 +164,38 @@ ask your question in IRC.
 
 ![Git Conflicts](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_conflicts.jpg)
 
-#### 2.7.1 Avoid conflicts
-
-##### 2.7.1.1 Make small commits
-
-##### 2.7.1.2 Rebase
-From: merge
+#### 2.7.1 Merge
+- ff: default
+- ff-only: force git to abort the merge if it can't just replay the commits (ie if any additional commits have been made on the main branch since you took the current branch).
+- no-ff: force git to create a new "merge commit" in the feature branch that ties together the histories of both branches.
 ```
-$ git checkout master
-$ git merge feature
+git checkout feature
+git merge master
 ```
-To: rebase, then merge
-```
-$ git checkout feature
-$ git rebase master
 
-$ git checkout master
-$ git merge feature
+![Git Merge](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_merge.jpg)
+
+```
+git checkout master
+git merge feature
+```
+
+![Git Merge](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_merge2.jpg)
+
+#### 2.7.2 Rebase, Merge
+- Only rebase on a private or temporary branch
+- Replay commits from feature one by one on the top of the master branch. 
+- Re-write the project history by creating brand new commits for each commit in the original branch.
+```
+git checkout feature
+git rebase master
 ```
 
 ![Git Rebase](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_rebase.jpg)
+
+```
+git checkout master
+git merge feature
+```
+
+![Git Rebase & Merge](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_rebase_merge.jpg)
