@@ -1,9 +1,14 @@
 # Git
 Git is an essential tool for developers, enabling efficient version control, collaboration, and project management.
 
+| |Index|
+|---|---|
+|1|[Scenarios](#scenario)|
+|2|[Commands(clone, commit, pull, fetch, push, branch, merge, rebase, log, reset)](#command)|
+
 ![Git](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git.jpg)
 
-## 1 Scenarios
+## 1 <a id='scenario'></a>Scenarios
 ```
 git checkout master
 git pull origin master
@@ -28,7 +33,7 @@ git push origin master
 ### 1.4 PR: Pull Request
 A pull request is a proposal to merge a set of changes from one branch into another. In a pull request, collaborators can review and discuss the proposed set of changes before they integrate the changes into the main codebase.
 
-## 2 Commands
+## 2 <a id='command'></a>Commands
 
 ### 2.1 Clone
 ```
@@ -165,9 +170,9 @@ ask your question in IRC.
 ![Git Conflicts](https://github.com/barneywill/bigdata_demo/blob/main/imgs/git_conflicts.jpg)
 
 #### 2.7.1 Merge
-- ff: default
-- ff-only: force git to abort the merge if it can't just replay the commits (ie if any additional commits have been made on the main branch since you took the current branch).
-- no-ff: force git to create a new "merge commit" in the feature branch that ties together the histories of both branches.
+- --ff: default
+- --ff-only: force git to abort the merge if it can't just replay the commits (ie if any additional commits have been made on the main branch since you took the current branch).
+- --no-ff: force git to create a new "merge commit" in the feature branch that ties together the histories of both branches.
 ```
 git checkout feature
 git merge master
