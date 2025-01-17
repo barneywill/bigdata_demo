@@ -29,7 +29,7 @@ For writing SQL on almost any databases, like:
 #### https://www.python.org/
 #### https://www.anaconda.com/
 Just install anaconda, and get everything you need.
-- Numpy, Pandas, scikit-learn, seaborn, matplotlib
+- Numpy, <a href='https://github.com/barneywill/bigdata_demo/blob/main/Prerequisite/pandas.md'>Pandas</a>, scikit-learn, seaborn, matplotlib
 - Jupyter Notebook
 
 ## 4 <a id='vscode'></a>VSCode
