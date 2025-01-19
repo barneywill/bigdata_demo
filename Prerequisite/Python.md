@@ -13,6 +13,7 @@
 |8|[Optional](#optional)|
 |9|[Exception(try, except, else, finally)](#exception)|
 |10|[Lambda](#lambda)|
+|11|[Read Mysql](#mysql)|
 
 ## 0 <a id='hello'></a>Hello World
 ```
@@ -64,6 +65,9 @@ for word in s.split(' '):
 s = 'abc'
 for i, c in enumerate(s):
     print(f'{i} {c}')
+
+for i in range(len(s)):
+    print(s[i])
 ```
 
 ### 1.6 date
@@ -318,3 +322,21 @@ multiply = lambda x, y: x * y
 print(multiply(3, 4))
 ```
 
+## 11 <a id='mysql'></a>Read Mysql
+```
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+mycursor = mydb.cursor()
+mycursor.execute("SELECT * FROM customers")
+myresult = mycursor.fetchall()
+
+# tuple
+for x in myresult:
+  print(x)
+```
