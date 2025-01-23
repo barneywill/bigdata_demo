@@ -49,7 +49,7 @@ println(f"$str%s $i%4d world")
 printf("%s %d word", str, i)
 ```
 
-### 1.2 lower, upper, capitalize
+### 1.2 lower, upper, capitalize, empty
 ```
 # is alphanumeric
 println(str.matches("^[a-zA-Z0-9]+$"))
@@ -58,11 +58,20 @@ println(str.matches("^[a-zA-Z0-9]+$"))
 println(str.toLowerCase)
 println(str.toUpperCase)
 println(str.capitalize)
+
+# is empty
+println(str.isEmpty)
+println("".equals(str))
+println(str.length == 0)
+println(str.nonEmpty)
+println(!"".equals(str))
+println(str.length > 0)
 ```
 
-### 1.3 substring
+### 1.3 substring, startsWith
 ```
 "hello".substring(1, 3)
+"hello".startsWith("he")
 ```
 
 ### 1.4 split
@@ -157,6 +166,10 @@ println(arr3(0))
 println(arr3.apply(0))
 # get the last one
 println(arr3.last)
+
+# is empty
+println(arr3.isEmpty)
+println(arr3.length > 0)
 ```
 
 ### 4.2 Iterate

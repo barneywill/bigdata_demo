@@ -37,7 +37,7 @@ print(f'{a} world')
 print('%s world' % s)
 ```
 
-### 1.2 lower, upper, captalize
+### 1.2 lower, upper, captalize, empty
 ```
 # is alphanumeric
 print(s.isalum())
@@ -46,11 +46,19 @@ print(s.isalum())
 print(s.lower())
 print(s.upper())
 print(s.capitalize())
+
+# is empty
+print(not s)
+print(s == '')
+print(len(s) == 0)
+print(s != '')
+print(len(s) > 0)
 ```
 
-### 1.3 substring
+### 1.3 substring, startswith
 ```
 'hello'[1:3]
+'hello'.startswith('he')
 ```
 
 ### 1.4 split
