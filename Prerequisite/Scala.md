@@ -83,6 +83,8 @@ for (word <- str.split(" ")) println(word)
 ### 1.5 iterate chars
 ```
 for (i <- 0 until str.length) println(str.charAt(i))
+
+for (c <- str) println(c)
 ```
 
 ### 1.6 date
