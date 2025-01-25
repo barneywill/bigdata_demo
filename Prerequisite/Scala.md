@@ -84,6 +84,8 @@ for (word <- str.split(" ")) println(word)
 ```
 for (i <- 0 until str.length) println(str.charAt(i))
 
+Array.range(0, str.length).foreach(i => println(str.charAt(i)))
+
 for (c <- str) println(c)
 ```
 
