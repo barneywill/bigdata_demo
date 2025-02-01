@@ -74,13 +74,18 @@ println(str.length > 0)
 "hello".startsWith("he")
 ```
 
-### 1.4 split
+### 1.4 indexOf
+```
+println("hello".indexOf("ll"))
+```
+
+### 1.5 split
 ```
 val str = "abc def"
 for (word <- str.split(" ")) println(word)
 ```
 
-### 1.5 iterate chars
+### 1.6 iterate chars
 ```
 for (i <- 0 until str.length) println(str.charAt(i))
 
@@ -89,7 +94,7 @@ Array.range(0, str.length).foreach(i => println(str.charAt(i)))
 for (c <- str) println(c)
 ```
 
-### 1.6 date
+### 1.7 date
 date format
 ```
 import java.time.LocalDateTime

@@ -61,14 +61,26 @@ print(len(s) > 0)
 'hello'.startswith('he')
 ```
 
-### 1.4 split
+### 1.4 index, find
+```
+s = "banana"
+print(s.find("an"))
+print(s.find("an",2))
+print(s.rfind("an"))
+
+print(s.index("an"))
+print(s.index("an",2,6))
+print(s.rindex("an"))
+```
+
+### 1.5 split
 ```
 s = 'abc def'
 for word in s.split(' '):
     print(word)
 ```
 
-### 1.5 iterate chars
+### 1.6 iterate chars
 ```
 s = 'abc'
 for i, c in enumerate(s):
@@ -78,7 +90,7 @@ for i in range(len(s)):
     print(s[i])
 ```
 
-### 1.6 date
+### 1.7 date
 date format
 ```
 import datetime
