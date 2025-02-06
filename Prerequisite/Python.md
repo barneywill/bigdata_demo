@@ -141,6 +141,7 @@ ls.append(4)
 ls.insert(0, 0)
 ls += [5, 6]
 print(ls)
+print(' '.join(v for v in ls))
 
 # length
 print(len(ls))

@@ -96,7 +96,7 @@ df.isnull().sum()
 df['col_name'].unique()
 df['col_name'].nunique()
 # distribution
-df['col_name'].vlaue_counts()
+df['col_name'].value_counts()
 df.groupby(['col_name']).size().reset_index(name='count').sort_values('count', ascending=False).iloc[:10]
 # graphic distribution
 sns.histplot(df['col_name'], bins=50, color='red')

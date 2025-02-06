@@ -12,8 +12,10 @@
 |8|join|
 |9|fillna|
 |10|limit|
-|11|split|
-|12|explode|
+|11|count|
+|12|split|
+|13|explode|
+|14|read files|
 
 
 ## 1 select
@@ -27,16 +29,31 @@ df = df[['col1', 'col2', 'col3']]
 df = df[df.col1 == 1]
 # is null
 df = df[df.col1.isnull()]
+# not null
+df = df[df.col1.notnull()]
 # startswith
 df = df[df.status.str.startswith('cancelled')]
 # multiple conditions
 df = df[(df['col1'] > 10) & (df['col1'] < 20)]
+# filter a list element
+df[df['words'].map(len) >= min_word_count]
+# include a string
+df[(df.answer.notnull()) & (df.answer.str.find('no') == -1)]
+# exclude some strings
+stop_words_set = {'w1', 'w2'}
+df = df[~df['words'].isin(stop_words_set)]
 ```
 
 ## 3 new column
 ```
 df['Cancellation Rate'] = round(df['cancel_count'] / df['count'], 2)
+
 df['words'] = df['words'].apply(lambda item: re.sub(r'[^a-zA-Z]', '', str(item).lower()))
+
+df['word_count'] = df.answer.apply(lambda item: 0 if pd.isna(item) else len(str(item).strip().split()))
+
+df['col1'] = 'N'
+df.loc[(text_df['col2'] == 'whatever'), 'col1'] = 'P'
 ```
 
 ## 4 rename column
@@ -86,14 +103,39 @@ df_result['cancel_count'] = df_result['cancel_count'].fillna(0)
 ```
 # top 10
 df[:10]
+
+df.head()
+df.head(10)
+df.head().T
 ```
 
-## 11 split
+## 11 count
+```
+len(df.index)
+len(df.col1.notnull().index)
+len(df.col1.unique())
+```
+
+## 12 split
 ```
 df['words'] = df['lines'].str.split()
 ```
 
-## 12 explode
+## 13 explode
 ```
 df = df.explode('words')
 ```
+
+## 14 read files
+```
+import glob
+import pandas as pd
+filenames = glob.glob('/path/to/*.csv')
+df = pd.concat((pd.read_csv(f) for f in filenames), ignore_index=True)
+```
+
+## 15 print full text
+```
+pd.set_option('display.max_colwidth', None)
+```
+
