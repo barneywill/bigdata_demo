@@ -17,6 +17,14 @@
 |13|explode|
 |14|read files|
 
+## 0 create
+```
+data = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+df = pd.DataFrame(data, index=['a', 'b'], columns=['col1', 'col2', 'col3'])
+```
 
 ## 1 select
 ```
@@ -48,8 +56,10 @@ df = df[~df['words'].isin(stop_words_set)]
 ```
 df['Cancellation Rate'] = round(df['cancel_count'] / df['count'], 2)
 
-df['words'] = df['words'].apply(lambda item: re.sub(r'[^a-zA-Z]', '', str(item).lower()))
+df['words'] = df['words'].str.lower()
+df['words'] = df['words'].str.replace(' ', '_')
 
+df['words'] = df['words'].apply(lambda item: re.sub(r'[^a-zA-Z]', '', str(item).lower()))
 df['word_count'] = df.answer.apply(lambda item: 0 if pd.isna(item) else len(str(item).strip().split()))
 
 df['col1'] = 'N'
@@ -73,6 +83,8 @@ person.sort_values(by='id', inplace=True)
 
 ## 7 drop
 ```
+del df['col1']
+
 df.pop('col1')
 # drop columns
 df.drop(['col1', 'col2'])
@@ -104,6 +116,11 @@ df_result['cancel_count'] = df_result['cancel_count'].fillna(0)
 # top 10
 df[:10]
 
+df.loc[1]
+df.loc[[1, 2]]
+df.iloc[1]
+df.iloc[[1, 2]]
+
 df.head()
 df.head(10)
 df.head().T
@@ -134,7 +151,13 @@ filenames = glob.glob('/path/to/*.csv')
 df = pd.concat((pd.read_csv(f) for f in filenames), ignore_index=True)
 ```
 
-## 15 print full text
+## 15 write
+```
+df.to_csv('filepath')
+df.to_dict(orient='records')
+```
+
+## 16 print full text
 ```
 pd.set_option('display.max_colwidth', None)
 ```

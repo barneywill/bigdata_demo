@@ -18,11 +18,38 @@ Features(Input) + Model -> Predicitions(Output)
 
 ## <a id='step'></a>2 Steps
 - Business Understanding: Goal, Measurable
+  - Identify the business problem, understand how we can solve it
+  - Will Mechine Learning help?
+  - If not, propose an alternative solution
+  - Define the goal which has to be measurable
 - Data Understanding: Avial data sources, Data quality
+  - Analyze available data sources, decide if we need to get more data
+  - Is it reliable?
+  - Is the dataset large enough?
+  - Do we need to get more data?
+  - It may influence the goal
 - Data Preparation: Clean, Transform, Feature Engineering, Data Sampling
+  - Transform the data so it can be put into a ML algorithm
+  - Clean the data
+  - Build the pipelines
+  - Convert into tabular form
 - Modeling: Train and choose the best model
+  - Training the models: the actual Machine Learning happens here
+  - Try different models: Logistic regression, Decision tree, Neural network
+  - Go back: Add new features, Fix data issues
+  - Select the best one
 - Evaluation: Offline and Online
+  - Measure how well the model solves the business problem
+  - Is the model good enough?
+  - Have we reached the goal?
+  - Do our metrics improve?
+  - Was the goal achievable?
+  - Did we solve/measure the right thing?
 - Deployment
+  - Deploy the model to production
+  - Roll the model to all users
+  - Proper monitoring
+  - Ensuring the quality and maintainability
 
 ## <a id='model'></a>3 Models
 - Regression: Linear Regression, Decision Tree Regression, XGBoost Regression
@@ -90,11 +117,14 @@ df
 df.dtypes
 # number data statistics
 df.describe()
+df.describe(include='all')
 # null data
 df.isnull().sum()
+df.isna().sum()
 # unique and count
 df['col_name'].unique()
 df['col_name'].nunique()
+df.nunique()
 # distribution
 df['col_name'].value_counts()
 df.groupby(['col_name']).size().reset_index(name='count').sort_values('count', ascending=False).iloc[:10]
