@@ -31,8 +31,8 @@ X_test = np.column_stack(np.ones(len(df_test)), df_test[feature_columns].fillna(
 y_predict = X_test.dot(w)
 y_test = df_test[label_column].values
 # by visualization
-sns.histplot(y_predict, bins=50, color='red')
-sns.histplot(y_test, bins=50, color='blue')
+sns.histplot(y_predict, bins=50, alpha=0.5, color='red')
+sns.histplot(y_test, bins=50, alpha=0.5, color='blue')
 # by numbers
 mae = (y_predict - y_test).mean()
 se = (y_predict - y_test) ** 2

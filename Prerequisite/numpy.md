@@ -83,3 +83,17 @@ V1_inv = np.linalg.inv(V1)
 V1.dot(V1_inv)
 ```
 
+## Transform
+
+```
+u = np.array([2, 4, 5, 6])
+np.log(n)
+np.log1p(n)
+np.exp(n)
+np.expm1(n)
+
+np.column_stack(u, u)
+
+np.concatenate([u1, u2])
+```
+

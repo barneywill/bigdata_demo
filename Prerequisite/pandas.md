@@ -24,6 +24,9 @@ data = np.array([
     [4, 5, 6]
 ])
 df = pd.DataFrame(data, index=['a', 'b'], columns=['col1', 'col2', 'col3'])
+
+json = {"a":1,"b":2}
+df = pd.DataFrame([json])
 ```
 
 ## 1 select
@@ -52,7 +55,7 @@ stop_words_set = {'w1', 'w2'}
 df = df[~df['words'].isin(stop_words_set)]
 ```
 
-## 3 new column
+## 3 new column or change column
 ```
 df['Cancellation Rate'] = round(df['cancel_count'] / df['count'], 2)
 
@@ -64,11 +67,23 @@ df['word_count'] = df.answer.apply(lambda item: 0 if pd.isna(item) else len(str(
 
 df['col1'] = 'N'
 df.loc[(text_df['col2'] == 'whatever'), 'col1'] = 'P'
+
+str_cols = list(df_dtypes[df.dtypes == 'object'].index)
+for col in str_cols:
+    df[col] = df[col].str.lower().str.replace(' ', '_')
+
+y_train = np.log1p(df_train.col1.values)
+
+df.col2 = (df.col1 == 2).astype('int')
+
+pd.to_numeric(df.col1, errors='coerce')
 ```
 
 ## 4 rename column
 ```
 df.rename(columns={'original_name':'new_name'}, inplace=True)
+
+df.columns = df.columns.str.lower().str.replace(' ', '_')
 ```
 
 ## 5 groupby
@@ -120,6 +135,7 @@ df.loc[1]
 df.loc[[1, 2]]
 df.iloc[1]
 df.iloc[[1, 2]]
+df.iloc[10:20]
 
 df.head()
 df.head(10)
@@ -143,7 +159,7 @@ df['words'] = df['lines'].str.split()
 df = df.explode('words')
 ```
 
-## 14 read files
+## 14 read files, concat
 ```
 import glob
 import pandas as pd

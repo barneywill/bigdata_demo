@@ -193,6 +193,46 @@ df_part1 = df.sample(frac=0.2, random_state=seed)
 df_part2 = df[~df.index.isin(df_part1.index)]
 ```
 
+### 5.7 Feature importance analysis
+- Difference
+  - Global - Group
+- Ratio
+  - Group / Global
+
+```
+from IPython.display import display
+
+global = df.col.mean()
+categorical_cols = ['col1', 'col2', 'col2']
+for c in categorical_cols:
+    print(c)
+    df_group = df.groupby(c).col.agg(['mean', 'count'])
+    df_group['diff'] = group - global
+    df_group['ratio'] = group / global
+    display(df_group)
+    print()
+```
+
+#### Mutual information (Categorical)
+The mutual information(MI) of two random variables is a measure of mutual dependence between the two variables.
+
+```
+from sklearn.metrics import mutual_info_score
+
+mutual_info_score(df.col1, df.col2)
+
+def mutual_info_score_by_column(col):
+  return mutual_info_score(col, df.col1)
+df[categorical_cols].apply(mutual_info_score_by_column).sort_values(ascending=False)
+```
+
+#### Correlation (Numerical)
+Correlation coefficient is a measure of linear correlation between two sets of data.
+
+```
+df[numerical].corrwith(df.col1)
+```
+
 ## <a id='example'></a>6 Examples
 
 | |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
