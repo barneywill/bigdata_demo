@@ -30,6 +30,10 @@ np.random.seed(10)
 np.random.rand(5, 2)
 np.random.randn(5, 2)
 np.random.randint(low=0, high=100, size=(5, 2))
+
+np.random.uniform(0, 1, size=10)
+
+np.repeat([0, 1], [num_0, num_1])
 ```
 
 ## Summary

@@ -233,6 +233,24 @@ Correlation coefficient is a measure of linear correlation between two sets of d
 df[numerical].corrwith(df.col1)
 ```
 
+### 5.8 Cross validation
+
+```
+from sklearn.model_selection import KFold
+from tqdm.auto import tqdm
+kfold = KFold(n_splits=5, shuffle=True, random_state=42)
+scores = []
+for train_idx, val_idx in tqdm(kfold.split(df), total=5):
+    df_train = df.iloc[train_idx]
+    df_val = df.iloc[val_idx]
+    model = train(df_train, y_train)
+    y_pred = model.predict(df_val)
+    auc = roc_auc_score(y_val, y_pred)
+    scores.append(auc)
+
+np.mean(scores), np.std(scores)
+```
+
 ## <a id='example'></a>6 Examples
 
 | |Linear Regression|Logistic Regression|Decision Tree|XGBoost|
@@ -267,18 +285,38 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
 ```
 
 #### Evaluation Metrics
+Confusion table
 - Accuracy
+  - vs Dummy model
 - Precision = tp / (tp + fp)
 - Recall = tp / (tp + fn)
   - tp: True Positive, tn: True Negative, fp: False Positive, fn: False Negative
 
+```
+confusion_matrix / confusion_matrix.sum()
+```
+
 ### 6.3 Decision Tree
-- Overfitting
+- max_depth
+- min_samples_leaf
 
 #### Evaluation Metrics
 - ROC: Receiver-operating Characteristic Curve
 - AUC: Area Under the roc Curve
   - TPR: True Positive Rate, FPR: False Positive Rate
+  - FPR = fp / (tn + fp)
+  - TPR = tp / (fn + tp)
+
+```
+from sklearn.metrics import roc_curve
+fpr, tpr, thresholds = roc_curve(y_val, y_pred)
+plt.figure(figsize=(5, 5))
+plt.plot(fpr, tpr, label='Model')
+plt.plot([0, 1], [0, 1], label='Random', linestyle='--')
+plt.xlabel('FPR')
+plt.ylabel('TPR')
+plt.legend()
+```
 
 ![decision tree](https://github.com/barneywill/bigdata_demo/blob/main/imgs/decision_tree.jpg)
 
@@ -289,3 +327,84 @@ sigmoid = lambda x: 1 / (1 + np.exp(-x))
   - min_child_weight: min_samples_leaf in RF, default=1
 
 ![xgboost](https://github.com/barneywill/bigdata_demo/blob/main/imgs/xgboost_model.jpg)
+
+## 7 Deploy
+
+### 7.1 Save & Load the model
+
+```
+import pickle
+model_file = 'lr_model_C=%.bin' % C
+
+f_out = open(model_file, 'wb')
+pickle.dump((dv, model), f_out)
+f_out.close()
+
+with open(model_file, 'wb') as f_out:
+    pickle.dump((dv, model), f_out)
+
+with open(model_file, 'rb') as f_in:
+    dv, model = pickle.load(f_in)
+```
+
+### 7.2 Flask
+
+```
+from flask import Flask
+from flask import request
+from flask import jsonify
+
+app = Flask('ping')
+
+@app.route('/ping', methods=['POST'])
+def ping():
+    json = request.get_json()
+    result = {'a':1, 'b':2}
+    return jsonify(result)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=9000)
+```
+
+```
+pip install flask
+python ping.py
+
+pip install gunicorn
+gunicorn --bind=0.0.0.0:9000 ping:app
+```
+
+```
+import requests
+url = 'http://ping'
+json = '{"a":1}'
+request.post(url, json=json).json()
+```
+
+### 7.3 Virtual environment
+
+#### conda
+
+#### pipenv
+
+```
+pip install pipenv
+pipenv install numpy scikit-learn==0.24.2 flask gunicorn
+pipenv shell
+which python
+echo $PATH
+```
+
+#### docker
+Dockfile
+```
+FROM python:3.8.12-slim
+RUN pip install pipenv
+WORKDIR /app
+COPY ["Pipfile", "Pipfile.lock", "./"]
+RUN pipenv install --system --deploy 
+COPY ["app.py", "model.bin", "./"]
+EXPOSE 9000
+ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9000", "ping:app"]
+```
+docker build -t test-img .

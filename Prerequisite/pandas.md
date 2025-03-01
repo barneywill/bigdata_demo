@@ -58,6 +58,7 @@ df = df[~df['words'].isin(stop_words_set)]
 ## 3 new column or change column
 ```
 df['Cancellation Rate'] = round(df['cancel_count'] / df['count'], 2)
+df['amount'].round(3)
 
 df['words'] = df['words'].str.lower()
 df['words'] = df['words'].str.replace(' ', '_')
@@ -77,6 +78,9 @@ y_train = np.log1p(df_train.col1.values)
 df.col2 = (df.col1 == 2).astype('int')
 
 pd.to_numeric(df.col1, errors='coerce')
+
+df.col1 = df.col1.map({1:'y', 0:'n'})
+df.col1 = df.col1.replace(to_replace=99999999, value=np.nan)
 ```
 
 ## 4 rename column

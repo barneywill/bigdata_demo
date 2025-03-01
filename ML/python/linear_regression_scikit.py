@@ -12,7 +12,7 @@ file_path = '/path/to/a/csvfile'
 feature_columns = ['feature1', 'feature2', 'feature3', 'featuren']
 label_column = 'label'
 df = pd.read_csv(file_path)
-# category columns
+# category columns: sparse=False
 dv = DictVectorizer()
 #category_columns = ['col1', 'col2', 'coln']
 #dv.fit(df[category_columns].to_dict(orient='records'))
@@ -29,6 +29,7 @@ y_test = df[label_column].iloc[folds[1]].values
 
 # 3 Train
 vectorizer = dv.fit(X_train.to_dict(orient='records'))
+# dv.get_feature_names()
 with open('dv.pkl', 'wb') as f:
     pickle.dump(vectorizer, f, pickle.HIGHEST_PROTOCOL)
 X_train = dv.transform(X_train.to_dict(orient='records'))
