@@ -73,8 +73,9 @@ def parse_xgb_output(output):
 # capture the output in Jupyter notebook
 %%capture output
 # change parameters here
-d_model = xgb.train(xgb_params, d_train, num_boost_round=10, evals=[(d_train, 'train'), (d_test, 'test')])
+d_model = xgb.train(xgb_params, d_train, num_boost_round=10, verbose_eval=5, evals=[(d_train, 'train'), (d_test, 'test')])
 
+scores = {}
 key = 'eta=%s' % (xgb_params['eta'])
 scores[key] = parse_xgb_output(output.stdout)
 

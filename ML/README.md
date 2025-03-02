@@ -408,3 +408,206 @@ EXPOSE 9000
 ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9000", "ping:app"]
 ```
 docker build -t test-img .
+
+#### Serverless
+AWS Lambda
+```
+def lambda_handler(event, context):
+    param = event['param']
+    return param
+```
+```
+FROM public.ecr.aws/lambda/python:3.8
+RUN pip install keras-image-helper
+RUN pip install --extra-index-url https://google-coral.github.io/py-repo/ tflite_runtime
+COPY model.tflite .
+COPY lambda_func.py .
+CMD [ "lambda_func.lambda_handler" ]
+```
+
+#### jupyter
+```
+jupyter nbconvert --to script 'my.ipynb'
+```
+
+
+## 8 Tensorflow
+
+```
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.karas.preprocessing.image import load_img
+img = load_img(file_name, target_size=(150,150))
+x = np.array(img)
+x.shape
+
+from tensorflow.keras.applications.xception import Xception
+from tensorflow.keras.applications.xception import preprocess_input
+from tensorflow.keras.applications.xception import decode_predictions
+model = Xception(weights='imagenet', input_shape=(299, 299, 3))
+X = np.array([x])
+X = preprocess_input(X)
+pred = model.predict(X)
+pred.shape
+decode_predictions(pred)
+
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+train_generator = ImageDataGenerator(preprocessing_function=preprocess_input)
+train_dataset = train_generator.flow_from_directory(dir_name, target_size=(150, 150), batch_size=32, shuffle=False)
+train_dataset.class_indices
+X, y = next(train_dataset)
+
+# exclude dense layer
+base_model = Xception(weights='imagenet', include_top=False, input_shape=(150, 150, 3))
+base_model.trainable = False
+inputs = keras.Input(shape=(150, 150, 3))
+base = base_model(inputs, training=False)
+pooling = keras.layers.GlobalAveragePooling2D()
+vectors = pooling(base)
+
+# inner dense layer
+inner = keras.layers.Dense(100, activation='relu')(vectors)
+# drop
+drop = keras.layers.Dropout(0.2)(inner)
+
+# use activation=softmax or from_logits=True
+outputs = keras.layers.Dense(10, activation='softmax')(drop)
+model = keras.Model(inputs, outputs)
+preds = model.predict(X)
+
+optimizer = keras.optimizers.Adam(learning_rate=0.01)
+loss = keras.losses.CategoricalCrossentropy(from_logits=True)
+model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
+
+# checkpoint
+model.save_weights('model_v1.h5', save_format='h5')
+checkpoint = keras.callbacks.ModelCheckpoint('xception_v1_{epoch:02d}_{val_accuracy:.3f}.h5', save_best_only=True, monitor='val_accuracy', mode='max')
+
+history = model.fit(train_dataset, epochs=10, validation_date=val_dataset, callbacks=[checkpoint])
+history.history
+plt.plot(history.history['accuracy'], label='train')
+plt.plot(history.history['val_accuracy'], label='val')
+plt.legend()
+
+model = keras.models.load_model('xception_v1_01_0.900.h5')
+test_generator = ImageDataGenerator(preprocessing_function=preprocess_input)
+test_dataset = test_generator.flow_from_directory(test_dir_name, target_size=(150, 150), batch_size=32, shuffle=False)
+model.evaluate(test_dataset)
+
+img = load_img(test_file, target_size=(150, 150))
+x = np.array(img)
+X = np.array([x])
+X = preprocess_input(X)
+pred = model.predict(X)
+```
+
+### 8.1 Tensorflow lite
+Only for predict(inference)
+
+```
+import tensorflow.lite as tflite
+
+import tflite_runtime.interpreter as tflite
+
+converter = tflite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()
+with open('model.tflite', 'wb') as f:
+    f.write(tflite_model)
+
+interpreter = tflite.Interpreter(model_path='model.tflite')
+interpreter.allocate_tensors()
+interpreter.get_input_details()
+interpreter.get_output_details()
+
+input_index = interpreter.get_input_details()[0]['index']
+output_index = interpreter.get_output_details()[0]['index']
+
+from PIL import Image
+with Image.open('test.jpg', 'rb') as img:
+    img = img.resize((299, 299), Image.NEAREST)
+x = np.array(img, dtype='float32')
+X = np.array([x])
+X /= 127.5
+X -= 1.
+
+interpreter.set_tensor(input_index, X)
+interpreter.invoke()
+preds = interpreter.get_tensor(output_index)
+float_predictions = preds[0].tolist()
+dict(zip(classes, float_predictions))
+```
+
+### 8.2 Tensorflow/serving
+#### Save the model
+```
+import tensorflow as tf
+from tensorflow import keras
+model = keras.models.load_model('xception_v1_01_0.900.h5')
+tf.saved_model.save(model, '/path/to/my-model')
+```
+
+#### Check the model from the command line
+```
+saved_model_cli show --dir /path/to/my-model --all
+```
+
+#### Start docker
+```
+docker run -it -p 8500:8500 -v "/path/to/my-model:/models/my-model/1" -e MODEL_NAME="my-model" tensorflow/serving:2.7.0
+```
+
+#### Client
+```
+pip install grpcio==1.42.0 tensorflow-serving-api==2.7.0 keras-image-helper
+```
+
+#### Flast client
+```
+import grpc
+import tensorflow as tf
+from tensorflow_serving.apis import predict_pb2
+from tensorflow_serving.apis import prediction_service_pb2_grpc
+from keras_image_helper import create_preprocessor
+
+from flask import Flask
+from flask import request
+from flask import jsonify
+
+channel = grpc.insecure_channel('localhost:8500')
+stub = prediction_servce_pb2_grpc.PredictionServiceStub(channel)
+
+preprocessor = create_processor('xception', target_size=(299,299))
+X = preprocessor.from_url('http://x.jpg')
+pb_request = predict_pb2.PredictRequest()
+pb_request.model_spec.name = 'my-model'
+pb_request.model_spec.signature_name = 'serving_default'
+pb_request.inputs['input_8'].copyFrom(tf.make_tensor_proto(X, shape=X.shape))
+
+pb_response = stub.Predict(pb_request, timeout=20)
+preds = pb_response['outputs']['dense_7'].float_val
+dict(zip(classes, float_predictions))
+
+app = Flask('gateway')
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.get_json()
+    return jsonify(result)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port='9000')
+```
+
+#### All together
+Docker file
+```
+FROM tensorflow/serving:2.7.0
+COPY my-model /models/my-model/1
+ENV MODEL_NAME="my-model"
+```
+
+### 8.3 Convolutional neural networks(CNN)
+- Types of layers: convolutional and dense
+
+
+
+
