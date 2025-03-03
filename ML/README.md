@@ -430,6 +430,51 @@ CMD [ "lambda_func.lambda_handler" ]
 jupyter nbconvert --to script 'my.ipynb'
 ```
 
+#### Kubernetes
+- Node
+- Pod
+- Deployment
+- Service
+- Ingress
+
+```
+kind create cluster
+kind get clusters
+kind load docker-image $image_name
+
+kubectl get namespaces
+kubectl get nodes
+kubectl get pod
+kubectl get pod -n $namespace_name
+kubectl get deployment
+kubectl get service
+kubectl get inferenceservice
+kubectl logs $pod_name
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl delete -f deployment.yaml
+kubectl describe pod $pod_name
+kubectl exec -it $pod_name -- bash
+kubectl port-forward $pod_name 9000:9000
+```
+
+#### EKS
+```
+aws ecr create-repository --repository-name my-repo
+
+eksctl create cluster -f eks-config.yaml
+eksctl delete cluster --name $cluster_name
+```
+
+#### KServe
+KServe provides a Kubernetes Custom Resource Definition for serving machine learning models on arbitrary frameworks.
+It aims to solve production model serving use cases by providing performant, high abstraction interfaces for common ML frameworks like Tensorflow, XGBoost, ScikitLearn, PyTorch, and ONNX.
+- Transformer
+- Predictor
+```
+
+```
 
 ## 8 Tensorflow
 
